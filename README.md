@@ -23,4 +23,8 @@ get: readData(body= data); //data in JSON format\\
 
 server: start;
 
+//Communicating with other server\\
+test = httpGet(from= “https://reqres.in/api/users?page=2”);
+//receives JSON from another server\\
+
 ```
