@@ -40,7 +40,7 @@ Ref ::= Id | Object
 
 String ::= &quot; {Character | Digit | Delimiter | Operator}\* &quot;
 
-Comment ::= // {Character | Digit | Delimiter | Operator}\* \\
+Comment ::= // {Character | Digit | Delimiter | Operator}\* \\\\
 
 Id ::= Character {Character | Int}\*
 
