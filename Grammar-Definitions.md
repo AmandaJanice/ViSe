@@ -14,7 +14,7 @@ Operator    ::=  = | :
 
 Exp         ::= Def+ | Prim | Prim : Second | Id : Second | Object
 
-Object ::= json: &quot;{&quot;&quot;}&quot; | json: &quot;{&quot;{ ObjectParam : ObjectParam , }\* ObjectParam : ObjectParam &quot;}&quot;
+Object ::= json : &quot;{&quot;&quot;}&quot; | json : &quot;{&quot;{ Id : ObjectParam , }\* Id : ObjectParam &quot;}&quot;
 
 ObjectParam ::= String | Id | Exp
 
