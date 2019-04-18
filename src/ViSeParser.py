@@ -1,4 +1,6 @@
 import ply.yacc as parse
+from ViSeLex import tokens
+
 
 precedence = (
     ('right','EQUAL'),

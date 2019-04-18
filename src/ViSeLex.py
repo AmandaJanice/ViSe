@@ -1,5 +1,6 @@
 import ply.lex as lex
-from src import File as file
+from File import fileRead
+
 
 #Reserved Words
 
@@ -128,13 +129,13 @@ def t_error(t):
 #Build Lexer
 lexer = lex.lex()
 
-lexer.input(file.fileRead())
-tokenList = []
-
-while True:
-    tok = lexer.token()
-    if not tok : break
-    tokenList.append(tok)
-    print(tok)
-
-print(tokenList)
+lexer.input(fileRead())
+# tokenList = []
+#
+# while True:
+#     tok = lexer.token()
+#     if not tok : break
+#     tokenList.append(tok)
+#     print(tok)
+#
+# print(tokenList)
