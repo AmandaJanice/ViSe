@@ -1,5 +1,5 @@
 import ply.lex as lex
-import File as file
+from src import File as file
 
 #Reserved Words
 
@@ -55,7 +55,7 @@ tokens = [
 # Regular expressions rules for simple tokens
 
 #Rule for Numbers (INT)
-def t_NUMBER(t):
+def t_INT(t):
     r'(\d+)'
     return t
 
@@ -129,12 +129,12 @@ def t_error(t):
 lexer = lex.lex()
 
 lexer.input(file.fileRead())
-# tokenList = []
-#
-# while True:
-#     tok = lexer.token()
-#     if not tok : break
-#     tokenList.append(tok)
-#     print(tok)
-#
-# print(tokenList)
+tokenList = []
+
+while True:
+    tok = lexer.token()
+    if not tok : break
+    tokenList.append(tok)
+    print(tok)
+
+print(tokenList)
