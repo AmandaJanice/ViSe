@@ -10,5 +10,5 @@ if __name__ == '__main__':
     s.update_variables("data", '{}')
     s.update_variables("data2", '{"name": "Juana", "lastName": "Petraca"}')
     s.add_route("send", "server", "/app/send")
-    s.add_endpoints("server", '/', lambda : 'Hello, World')
+    s.add_endpoints("server", '/', lambda : 'Hello, World')#placeholder, necessary for execution
     s.start_server("server")
