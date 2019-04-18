@@ -28,3 +28,9 @@ test = httpGet(url= “https://reqres.in/api/users?page=2”);
 //receives JSON from another server\\
 
 ```
+
+### Using the source
+To use this, first you need to install the required dependencies.
+On a virtual environment (preferrably) run: ```pip install -r requirements.txt```
+
+Then you can run the interpreter with ```python src\main.py```
