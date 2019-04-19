@@ -9,7 +9,6 @@ Unused terminals:
     PERIOD
     PLUS
     SEND
-    SERVER
     SLASH
     STRING
     UNKNOWN
@@ -50,8 +49,9 @@ Rule 30    Ref -> Object
 Rule 31    String -> DQUOTE DQUOTE
 Rule 32    String -> DQUOTE ID DQUOTE
 Rule 33    String -> DQUOTE INT DQUOTE
-Rule 34    Id -> ID
-Rule 35    Int -> INT
+Rule 34    String -> String
+Rule 35    Id -> ID
+Rule 36    Int -> INT
 
 Terminals, with rules where they appear
 
@@ -68,8 +68,8 @@ EQUAL                : 14 21 22 23 24 26
 FROM                 : 21
 GET                  : 
 HTTPGET              : 21
-ID                   : 7 8 14 32 34
-INT                  : 33 35
+ID                   : 7 8 14 32 35
+INT                  : 33 36
 JSON                 : 6 9 10
 LC                   : 6 9 10
 LP                   : 21 22 23 24 25 26
@@ -82,7 +82,6 @@ READDATA             : 22
 RP                   : 21 22 23 24 25 26
 SEMICOLON            : 14
 SEND                 : 
-SERVER               : 
 SETROUTES            : 23
 SLASH                : 
 START                : 20
@@ -109,7 +108,7 @@ ReadData             : 19
 Ref                  : 22 24
 Second               : 3 4
 SetRoutes            : 17
-String               : 11 28
+String               : 11 28 34
 TextRef              : 21 23
 
 Parsing method: LALR
@@ -125,7 +124,7 @@ state 0
     (14) Def -> . ID EQUAL Exp SEMICOLON
     (15) Prim -> . HttpGet
     (16) Prim -> . CreateServer
-    (34) Id -> . ID
+    (35) Id -> . ID
     (6) Object -> . JSON COLON LC RC
     (9) Object -> . JSON COLON LC Inside RC
     (10) Object -> . JSON COLON LC InsideRec RC
@@ -194,10 +193,10 @@ state 5
 state 6
 
     (14) Def -> ID . EQUAL Exp SEMICOLON
-    (34) Id -> ID .
+    (35) Id -> ID .
 
     EQUAL           shift and go to state 14
-    COLON           reduce using rule 34 (Id -> ID .)
+    COLON           reduce using rule 35 (Id -> ID .)
 
 
 state 7
@@ -299,7 +298,7 @@ state 14
     (14) Def -> . ID EQUAL Exp SEMICOLON
     (15) Prim -> . HttpGet
     (16) Prim -> . CreateServer
-    (34) Id -> . ID
+    (35) Id -> . ID
     (6) Object -> . JSON COLON LC RC
     (9) Object -> . JSON COLON LC Inside RC
     (10) Object -> . JSON COLON LC InsideRec RC
@@ -541,10 +540,11 @@ state 40
     (21) HttpGet -> HTTPGET LP FROM EQUAL . TextRef RP
     (27) TextRef -> . Id
     (28) TextRef -> . String
-    (34) Id -> . ID
+    (35) Id -> . ID
     (31) String -> . DQUOTE DQUOTE
     (32) String -> . DQUOTE ID DQUOTE
     (33) String -> . DQUOTE INT DQUOTE
+    (34) String -> . String
 
     ID              shift and go to state 51
     DQUOTE          shift and go to state 52
@@ -556,7 +556,7 @@ state 40
 state 41
 
     (26) CreateServer -> CREATESERVER LP PORT EQUAL . Int RP
-    (35) Int -> . INT
+    (36) Int -> . INT
 
     INT             shift and go to state 54
 
@@ -615,7 +615,8 @@ state 47
     (31) String -> . DQUOTE DQUOTE
     (32) String -> . DQUOTE ID DQUOTE
     (33) String -> . DQUOTE INT DQUOTE
-    (34) Id -> . ID
+    (34) String -> . String
+    (35) Id -> . ID
     (1) Exp -> . Def
     (2) Exp -> . Prim
     (3) Exp -> . Prim COLON Second
@@ -664,15 +665,19 @@ state 49
 state 50
 
     (28) TextRef -> String .
+    (34) String -> String .
 
+  ! reduce/reduce conflict for RP resolved using rule 28 (TextRef -> String .)
     RP              reduce using rule 28 (TextRef -> String .)
+
+  ! RP              [ reduce using rule 34 (String -> String .) ]
 
 
 state 51
 
-    (34) Id -> ID .
+    (35) Id -> ID .
 
-    RP              reduce using rule 34 (Id -> ID .)
+    RP              reduce using rule 35 (Id -> ID .)
 
 
 state 52
@@ -695,9 +700,9 @@ state 53
 
 state 54
 
-    (35) Int -> INT .
+    (36) Int -> INT .
 
-    RP              reduce using rule 35 (Int -> INT .)
+    RP              reduce using rule 36 (Int -> INT .)
 
 
 state 55
@@ -705,10 +710,11 @@ state 55
     (23) SetRoutes -> SETROUTES LP URL EQUAL . TextRef RP
     (27) TextRef -> . Id
     (28) TextRef -> . String
-    (34) Id -> . ID
+    (35) Id -> . ID
     (31) String -> . DQUOTE DQUOTE
     (32) String -> . DQUOTE ID DQUOTE
     (33) String -> . DQUOTE INT DQUOTE
+    (34) String -> . String
 
     ID              shift and go to state 51
     DQUOTE          shift and go to state 52
@@ -722,7 +728,7 @@ state 56
     (24) CreateData -> CREATEDATA LP OBJECT EQUAL . Ref RP
     (29) Ref -> . Id
     (30) Ref -> . Object
-    (34) Id -> . ID
+    (35) Id -> . ID
     (6) Object -> . JSON COLON LC RC
     (9) Object -> . JSON COLON LC Inside RC
     (10) Object -> . JSON COLON LC InsideRec RC
@@ -739,7 +745,7 @@ state 57
     (22) ReadData -> READDATA LP BODY EQUAL . Ref RP
     (29) Ref -> . Id
     (30) Ref -> . Object
-    (34) Id -> . ID
+    (35) Id -> . ID
     (6) Object -> . JSON COLON LC RC
     (9) Object -> . JSON COLON LC Inside RC
     (10) Object -> . JSON COLON LC InsideRec RC
@@ -753,12 +759,12 @@ state 57
 
 state 58
 
-    (34) Id -> ID .
+    (35) Id -> ID .
     (14) Def -> ID . EQUAL Exp SEMICOLON
 
-    COLON           reduce using rule 34 (Id -> ID .)
-    COMMA           reduce using rule 34 (Id -> ID .)
-    RC              reduce using rule 34 (Id -> ID .)
+    COLON           reduce using rule 35 (Id -> ID .)
+    COMMA           reduce using rule 35 (Id -> ID .)
+    RC              reduce using rule 35 (Id -> ID .)
     EQUAL           shift and go to state 14
 
 
@@ -774,9 +780,15 @@ state 59
 state 60
 
     (11) ObjectParam -> String .
+    (34) String -> String .
 
+  ! reduce/reduce conflict for COMMA resolved using rule 11 (ObjectParam -> String .)
+  ! reduce/reduce conflict for RC resolved using rule 11 (ObjectParam -> String .)
     COMMA           reduce using rule 11 (ObjectParam -> String .)
     RC              reduce using rule 11 (ObjectParam -> String .)
+
+  ! COMMA           [ reduce using rule 34 (String -> String .) ]
+  ! RC              [ reduce using rule 34 (String -> String .) ]
 
 
 state 61
@@ -957,7 +969,8 @@ state 81
     (31) String -> . DQUOTE DQUOTE
     (32) String -> . DQUOTE ID DQUOTE
     (33) String -> . DQUOTE INT DQUOTE
-    (34) Id -> . ID
+    (34) String -> . String
+    (35) Id -> . ID
     (1) Exp -> . Def
     (2) Exp -> . Prim
     (3) Exp -> . Prim COLON Second
@@ -995,3 +1008,11 @@ state 82
 
     RC              reduce using rule 7 (Inside -> ID COLON ObjectParam .)
 
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: reduce/reduce conflict in state 50 resolved using rule (TextRef -> String)
+WARNING: rejected rule (String -> String) in state 50
+WARNING: reduce/reduce conflict in state 60 resolved using rule (ObjectParam -> String)
+WARNING: rejected rule (String -> String) in state 60
+WARNING: Rule (String -> String) is never reduced

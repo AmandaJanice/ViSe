@@ -140,6 +140,10 @@ def p_String_Int(p):
     'String : DQUOTE INT DQUOTE'
     print("String Int")
 
+def p_StringRec(p):
+    'String : String'
+    print("StringRec")
+
 def p_Id(p):
     'Id : ID'
     print("ID")

@@ -16,7 +16,7 @@ actions = {
 }
 
 reserved = {
-'server': 'SERVER',
+#'server': 'SERVER',
 'send': 'SEND',
 'get': 'GET',
 'port': 'PORT',
