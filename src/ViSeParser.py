@@ -132,17 +132,9 @@ def p_String_Empty(p):
     'String : DQUOTE DQUOTE'
     print("String Empty")
 
-def p_String_Id(p):
-    'String : DQUOTE ID DQUOTE'
-    print("String Id")
-
 def p_String_Int(p):
-    'String : DQUOTE INT DQUOTE'
-    print("String Int")
-
-def p_StringRec(p):
-    'String : String'
-    print("StringRec")
+    'String : STRING'
+    print("String")
 
 def p_Id(p):
     'Id : ID'

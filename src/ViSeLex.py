@@ -17,7 +17,7 @@ actions = {
 
 reserved = {
 #'server': 'SERVER',
-'send': 'SEND',
+#'send': 'SEND',
 'get': 'GET',
 'port': 'PORT',
 'json': 'JSON',
@@ -72,6 +72,11 @@ def t_ID(t):
 t_UNKNOWN = r'\?'
 
 #COMMENTS
+def t_STRING(t):
+    r'\" . * "'
+    return t
+
+#COMMENTS
 def t_COMMENTS(t):
     r'\// . * \\'
     pass
@@ -101,7 +106,7 @@ t_LC = r'\{'
 t_RC = r'\}'
 
 #Comma Curly Token
-t_COMMA = r'\,'
+t_COMMA = r','
 
 #Semicolon Token
 t_SEMICOLON = r';'
@@ -130,12 +135,12 @@ def t_error(t):
 lexer = lex.lex()
 
 lexer.input(fileRead())
-# tokenList = []
-#
-# while True:
-#     tok = lexer.token()
-#     if not tok : break
-#     tokenList.append(tok)
-#     print(tok)
-#
-# print(tokenList)
+tokenList = []
+
+while True:
+    tok = lexer.token()
+    if not tok : break
+    tokenList.append(tok)
+    print(tok)
+
+#print(tokenList)
