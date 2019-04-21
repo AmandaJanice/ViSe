@@ -11,5 +11,11 @@ if __name__ == '__main__':
     s.update_variables("data2", '{"name": "Juana", "lastName": "Petraca"}')
     s.add_route("send", "server", '/app/send')
     s.create_data("send", "data")
-    s.add_endpoints("server", '/', lambda : 'Hello, World')#placeholder, necessary for execution
+    s.create_data("send", "data2")
+    s.add_route("get", "server", '/app/get')
+    s.read_data("get", "data")
+    s.update_variables("home_text", '{"Hello":"world"}')
+    s.add_route("home", "server", '/')
+    s.read_data("home", "home_text")
+    # s.add_endpoints("server", '/', lambda : 'Hello, World')#placeholder, necessary for execution
     s.start_server("server")
