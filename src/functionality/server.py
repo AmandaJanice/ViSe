@@ -49,7 +49,7 @@ class Server():
         def create_action(object, new_object):
             object = new_object
 
-        self.add_endpoints(endpoint.server_id, endpoint.route, )
+        # self.add_endpoints(endpoint.server_id, endpoint.route, )
 
         pass
 
