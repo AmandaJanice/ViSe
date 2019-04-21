@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import json
+import requests as req
 
 class Route_ID():
     def __init__(self, route, server_id):
@@ -63,3 +64,5 @@ class Server():
         self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
 
     ## TODO: add httpGet function
+    def http_get(url):
+        return req.get(url)
