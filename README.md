@@ -15,7 +15,7 @@ send = server: setRoutes(url= “/app/send”);
 
 //uses the request body in a JSON format\\
 send: createData(object= data);  //object: object to save into\\
-send: createData(object= data2);//you can overwrite existing values\\
+//send: createData(object= data2);//you can also overwrite existing values\\\\
 
 //Server sends\\
 get = server: setRoutes(url= “/app/get”);
