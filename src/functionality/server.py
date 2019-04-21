@@ -30,13 +30,16 @@ class Server():
     def add_route(self, route_id, server_id, route):
         self.variables[route_id] = Route_ID(route, server_id)
 
-    def add_endpoints(self, server_id, route_endpoint, action):
+    def add_endpoints(self, server_id, route_endpoint, action, methods = None):
         app = self.variables[server_id].flask_instance
 
         #idea: make dict with routes/actions and run that
         #todo call all relevant functions base on given routes
         # app.add_url_rule('/', 'Home', lambda : 'Hello, World')
-        app.add_url_rule(route_endpoint, str(route_endpoint), action)
+        if(methods not None):
+            app.add_url_rule(route_endpoint, str(route_endpoint), action, methods)
+        else:
+            app.add_url_rule(route_endpoint, str(route_endpoint), action)
 
         return
 
@@ -46,10 +49,10 @@ class Server():
         endpoint = self.variables[route_id]
 
         ## TODO: create action and call add_endpoints
-        def create_action(object, new_object):
-            object = new_object
+        def create_action(obj):
+            obj = request.json
 
-        # self.add_endpoints(endpoint.server_id, endpoint.route, )
+        self.add_endpoints(endpoint.server_id, endpoint.route, create_action(object), methods = ['POST', 'PUT'])
 
         pass
 
