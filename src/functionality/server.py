@@ -51,7 +51,13 @@ class Server():
 
     def read_data(self, route_id, object_id):#TODO GET
         ## TODO:
-        pass
+        object = self.variables[object_id]
+        endpoint = self.variables[route_id]
+
+        def return_action():
+            return str(object)
+
+        self.add_endpoints(endpoint.server_id, endpoint.route, return_action)
 
     def create_server(self, assigned_id, port=80):
         self.variables[assigned_id] = Server_ID(Flask(assigned_id), port)
