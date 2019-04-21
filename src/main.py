@@ -11,7 +11,7 @@ if __name__ == '__main__':
     s.update_variables("data2", '{"name": "Juana", "lastName": "Petraca"}')
     s.add_route("send", "server", '/app/send')
     s.create_data("send", "data")
-    s.create_data("send", "data2")
+    # s.create_data("send", "data2")
     s.add_route("get", "server", '/app/get')
     s.read_data("get", "data")
     s.update_variables("home_text", '{"Hello":"world"}')

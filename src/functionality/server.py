@@ -40,22 +40,19 @@ class Server():
         return
 
     def create_data(self, route_id, object_id):#TODO PUT and POST
-        object = self.variables[object_id]
         endpoint = self.variables[route_id]
 
         def create_action():
-            object = request.get_json()
-            return str(object)
+            self.variables[object_id] = request.get_json()
+            return str(self.variables[object_id])
 
         self.add_endpoints(endpoint.server_id, endpoint.route, create_action)
 
     def read_data(self, route_id, object_id):#TODO GET
-        ## TODO:
-        object = self.variables[object_id]
         endpoint = self.variables[route_id]
 
         def return_action():
-            return str(object)
+            return str(self.variables[object_id])
 
         self.add_endpoints(endpoint.server_id, endpoint.route, return_action)
 
@@ -64,3 +61,5 @@ class Server():
 
     def start_server(self, server_id):
         self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
+
+    ## TODO: add httpGet function
