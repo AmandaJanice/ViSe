@@ -15,20 +15,24 @@ def p_Exp_Def(p):
     print("ExpDef")
 
 def p_Exp_Prim_Empty(p):
-    'Exp : Prim'
+    'Exp : Id COLON Prim SEMICOLON'
     print("ExpPrimEmpty")
 
 def p_Exp_Prim_Second(p):
-    'Exp : Prim COLON Second'
+    'Exp : Prim COLON Second SEMICOLON'
     print("ExpPrimSecond")
 
 def p_Exp_Id_Second(p):
-    'Exp : Id COLON Second'
+    'Exp : Id COLON Second SEMICOLON'
     print("ExpIdSecond")
 
 def p_Exp_Object(p):
-    'Exp : Object'
+    'Exp : Object SEMICOLON'
     print("ExpObject")
+
+def p_Exp_HttpGet(p):
+    'Exp : HttpGet SEMICOLON'
+    print("ExpHTTPGET")
 
 def p_Object_Empty(p):
     'Object : JSON COLON LC RC'
@@ -92,6 +96,10 @@ def p_HttpGet(p):
     'HttpGet : HTTPGET LP FROM EQUAL TextRef RP'
     print("HttpGet")
 
+def p_HttpGet_Url(p):
+    'HttpGet : HTTPGET LP URL EQUAL STRING RP'
+    print("HttpGet URL")
+
 def p_ReadData(p):
     'ReadData : READDATA LP BODY EQUAL Ref RP'
     print("ReadData")
@@ -132,7 +140,7 @@ def p_String_Empty(p):
     'String : DQUOTE DQUOTE'
     print("String Empty")
 
-def p_String_Int(p):
+def p_String(p):
     'String : STRING'
     print("String")
 

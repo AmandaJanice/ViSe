@@ -16,9 +16,6 @@ actions = {
 }
 
 reserved = {
-#'server': 'SERVER',
-#'send': 'SEND',
-'get': 'GET',
 'port': 'PORT',
 'json': 'JSON',
 'from': 'FROM',
@@ -135,12 +132,12 @@ def t_error(t):
 lexer = lex.lex()
 
 lexer.input(fileRead())
-tokenList = []
-
-while True:
-    tok = lexer.token()
-    if not tok : break
-    tokenList.append(tok)
-    print(tok)
+# tokenList = []
+#
+# while True:
+#     tok = lexer.token()
+#     if not tok : break
+#     tokenList.append(tok)
+#     print(tok)
 
 #print(tokenList)
