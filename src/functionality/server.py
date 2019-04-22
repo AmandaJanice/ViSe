@@ -99,7 +99,6 @@ class Server():
             raise Exception("server failed to start")
 
     def print_object(self, object_id):
-        ## TODO: Print object contents
         print(str(self.variables[object_id]))
 
     def http_get(self, url):
