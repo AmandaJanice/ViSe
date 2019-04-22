@@ -2,7 +2,6 @@ from flask import Flask
 from flask import request
 import json
 import requests as req
-import logging
 
 class Route_ID():
     def __init__(self, route, server_id):
