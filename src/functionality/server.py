@@ -99,5 +99,4 @@ class Server():
             raise Exception("server failed to start")
 
     def http_get(self, url):
-        ## TODO: modify json to comply with ViSe's definition of JSON
         return json.dumps(req.get(url).json())
