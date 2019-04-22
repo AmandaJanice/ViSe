@@ -14,13 +14,13 @@ Operator    ::=  = | :
 
 Exp         ::= Def+ | Prim | Prim : Second | Id : Second | Object
 
-Object ::= json : &quot;{&quot;&quot;}&quot; | json : &quot;{&quot;{ Id : ObjectParam , }\* Id : ObjectParam &quot;}&quot;
+Object ::= json : &quot;{&quot;&quot;}&quot; | json : &quot;{&quot;{ Id : ObjectParam , }\* Id : ObjectParam &quot;}&quot; | HttpGet
 
 ObjectParam ::= String | Id | Exp
 
 Def ::= Id = Exp ;
 
-Prim  ::= HttpGet | CreateServer
+Prim  ::= CreateServer
 
 Second ::= SetRoutes | CreateData | ReadData | start
 
