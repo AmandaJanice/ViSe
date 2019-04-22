@@ -15,7 +15,7 @@ def p_Exp_Def(p):
     print("ExpDef")
 
 def p_Exp_Prim_Empty(p):
-    'Exp : Id COLON Prim'
+    'Exp : Prim'
     print("ExpPrim")
 
 
