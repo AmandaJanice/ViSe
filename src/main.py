@@ -18,4 +18,7 @@ if __name__ == '__main__':
     s.add_route("home", "server", '/')
     s.read_data("home", "home_text")
     # s.add_endpoints("server", '/', lambda : 'Hello, World')#placeholder, necessary for execution
+    s.update_variables("test", s.http_get("https://reqres.in/api/users?page=2"))
+    s.add_route("test_route", "server", '/test')
+    s.read_data("test_route", "test")
     s.start_server("server")

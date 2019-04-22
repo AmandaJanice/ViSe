@@ -21,12 +21,16 @@ class Server():
     def update_variables(self, var_id, object):
         parsed = json.loads(object)
 
-        #check if values in variables and replaces them with appropriate variables
-        for key in parsed:
-            if parsed[key] in self.variables:
-                parsed[key] = self.variables[parsed[key]]
+        try:
+            #check if values in variables and replaces them with appropriate variables
+            for key in parsed:
+                if parsed[key] in self.variables:
+                    parsed[key] = self.variables[parsed[key]]
 
-        self.variables[var_id] = parsed
+            self.variables[var_id] = parsed
+
+        except:
+            self.variables[var_id] = parsed
 
     def add_route(self, route_id, server_id, route):
         self.variables[route_id] = Route_ID(route, server_id)
@@ -64,5 +68,5 @@ class Server():
         self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
 
     ## TODO: add httpGet function
-    def http_get(url):
-        return req.get(url)
+    def http_get(self, url):
+        return json.dumps(req.get(url).json())
