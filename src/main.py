@@ -27,6 +27,11 @@ if __name__ == '__main__':
     s.add_route("server", '/test', "test_route")
     s.read_data("test_route", "test")
 
+    #tests user printing out id's by themselves
+    #should print object value
+    s.print_object("data")
+    s.print_object("data2")
+
     #testing non Id route call: server: setRoutes(url= "/empty"): readData(body: Data2)
     s.read_data(s.add_route("server", "/empty"), "data2")
     s.start_server("server")

@@ -98,5 +98,9 @@ class Server():
         except:
             raise Exception("server failed to start")
 
+    def print_object(self, object_id):
+        ## TODO: Print object contents
+        print(str(self.variables[object_id]))
+
     def http_get(self, url):
         return json.dumps(req.get(url).json())
