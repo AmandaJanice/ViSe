@@ -14,97 +14,99 @@ Grammar
 
 Rule 0     S' -> Exp
 Rule 1     Exp -> Def
-Rule 2     Exp -> Id COLON Prim SEMICOLON
-Rule 3     Exp -> Prim COLON Second
-Rule 4     Exp -> Id COLON Second
-Rule 5     Exp -> Id COLON Second SEMICOLON
-Rule 6     Exp -> Object SEMICOLON
-Rule 7     Object -> JSON COLON LC RC
-Rule 8     Inside -> ID COLON ObjectParam
-Rule 9     InsideRec -> ID COLON ObjectParam COMMA Inside
-Rule 10    Object -> JSON COLON LC Inside RC
-Rule 11    Object -> HttpGet
-Rule 12    Object -> JSON COLON LC InsideRec RC
-Rule 13    ObjectParam -> String
-Rule 14    ObjectParam -> Id
-Rule 15    ObjectParam -> Exp
-Rule 16    Def -> ID EQUAL Exp SEMICOLON
-Rule 17    Prim -> CreateServer
-Rule 18    Second -> SetRoutes
-Rule 19    Second -> CreateData
-Rule 20    Second -> ReadData
-Rule 21    Second -> START
-Rule 22    HttpGet -> HTTPGET LP FROM EQUAL TextRef RP
-Rule 23    HttpGet -> HTTPGET LP URL EQUAL STRING RP
-Rule 24    ReadData -> READDATA LP BODY EQUAL Ref RP
-Rule 25    SetRoutes -> SETROUTES LP URL EQUAL STRING RP
-Rule 26    CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP
-Rule 27    CreateServer -> CREATESERVER LP RP
-Rule 28    CreateServer -> CREATESERVER LP PORT EQUAL Int RP
-Rule 29    TextRef -> Id
-Rule 30    TextRef -> String
-Rule 31    Ref -> Id
-Rule 32    Ref -> Object
-Rule 33    String -> DQUOTE DQUOTE
-Rule 34    String -> STRING
-Rule 35    Id -> ID
-Rule 36    Int -> INT
+Rule 2     Exp -> Prim SEMICOLON
+Rule 3     Exp -> Prim
+Rule 4     Exp -> Id COLON Second SEMICOLON
+Rule 5     Exp -> Second
+Rule 6     Exp -> Id COLON Prim SEMICOLON
+Rule 7     Exp -> Object SEMICOLON
+Rule 8     Object -> JSON COLON LC RC
+Rule 9     Inside -> ID COLON ObjectParam
+Rule 10    InsideRec -> ID COLON ObjectParam COMMA Inside
+Rule 11    Object -> JSON COLON LC Inside RC
+Rule 12    Object -> HttpGet
+Rule 13    Object -> JSON COLON LC InsideRec RC
+Rule 14    ObjectParam -> String
+Rule 15    ObjectParam -> Id
+Rule 16    ObjectParam -> Exp
+Rule 17    Def -> ID EQUAL Exp
+Rule 18    Def -> ID EQUAL Exp SEMICOLON
+Rule 19    Prim -> CreateServer
+Rule 20    Second -> SetRoutes
+Rule 21    Second -> CreateData
+Rule 22    Second -> ReadData
+Rule 23    Second -> START
+Rule 24    HttpGet -> HTTPGET LP FROM EQUAL TextRef RP
+Rule 25    HttpGet -> HTTPGET LP URL EQUAL STRING RP
+Rule 26    ReadData -> READDATA LP BODY EQUAL Ref RP
+Rule 27    SetRoutes -> SETROUTES LP URL EQUAL STRING RP
+Rule 28    CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP
+Rule 29    CreateServer -> CREATESERVER LP RP
+Rule 30    CreateServer -> CREATESERVER LP PORT EQUAL Int RP
+Rule 31    TextRef -> Id
+Rule 32    TextRef -> String
+Rule 33    Ref -> Id
+Rule 34    Ref -> Object
+Rule 35    String -> DQUOTE DQUOTE
+Rule 36    String -> STRING
+Rule 37    Id -> ID
+Rule 38    Int -> INT
 
 Terminals, with rules where they appear
 
-BODY                 : 24
+BODY                 : 26
 BSLASH               : 
 CHARACTER            : 
-COLON                : 2 3 4 5 7 8 9 10 12
-COMMA                : 9
+COLON                : 4 6 8 9 10 11 13
+COMMA                : 10
 COMMENTS             : 
-CREATEDATA           : 26
-CREATESERVER         : 27 28
-DQUOTE               : 33 33
-EQUAL                : 16 22 23 24 25 26 28
-FROM                 : 22
-HTTPGET              : 22 23
-ID                   : 8 9 16 35
-INT                  : 36
-JSON                 : 7 10 12
-LC                   : 7 10 12
-LP                   : 22 23 24 25 26 27 28
-OBJECT               : 26
+CREATEDATA           : 28
+CREATESERVER         : 29 30
+DQUOTE               : 35 35
+EQUAL                : 17 18 24 25 26 27 28 30
+FROM                 : 24
+HTTPGET              : 24 25
+ID                   : 9 10 17 18 37
+INT                  : 38
+JSON                 : 8 11 13
+LC                   : 8 11 13
+LP                   : 24 25 26 27 28 29 30
+OBJECT               : 28
 PERIOD               : 
 PLUS                 : 
-PORT                 : 28
-RC                   : 7 10 12
-READDATA             : 24
-RP                   : 22 23 24 25 26 27 28
-SEMICOLON            : 2 5 6 16
-SETROUTES            : 25
+PORT                 : 30
+RC                   : 8 11 13
+READDATA             : 26
+RP                   : 24 25 26 27 28 29 30
+SEMICOLON            : 2 4 6 7 18
+SETROUTES            : 27
 SLASH                : 
-START                : 21
-STRING               : 23 25 34
+START                : 23
+STRING               : 25 27 36
 UNKNOWN              : 
-URL                  : 23 25
+URL                  : 25 27
 error                : 
 
 Nonterminals, with rules where they appear
 
-CreateData           : 19
-CreateServer         : 17
+CreateData           : 21
+CreateServer         : 19
 Def                  : 1
-Exp                  : 15 16 0
-HttpGet              : 11
-Id                   : 2 4 5 14 29 31
-Inside               : 9 10
-InsideRec            : 12
-Int                  : 28
-Object               : 6 32
-ObjectParam          : 8 9
-Prim                 : 2 3
-ReadData             : 20
-Ref                  : 24 26
-Second               : 3 4 5
-SetRoutes            : 18
-String               : 13 30
-TextRef              : 22
+Exp                  : 16 17 18 0
+HttpGet              : 12
+Id                   : 4 6 15 31 33
+Inside               : 10 11
+InsideRec            : 13
+Int                  : 30
+Object               : 7 34
+ObjectParam          : 9 10
+Prim                 : 2 3 6
+ReadData             : 22
+Ref                  : 26 28
+Second               : 4 5
+SetRoutes            : 20
+String               : 14 32
+TextRef              : 24
 
 Parsing method: LALR
 
@@ -112,35 +114,52 @@ state 0
 
     (0) S' -> . Exp
     (1) Exp -> . Def
-    (2) Exp -> . Id COLON Prim SEMICOLON
-    (3) Exp -> . Prim COLON Second
-    (4) Exp -> . Id COLON Second
-    (5) Exp -> . Id COLON Second SEMICOLON
-    (6) Exp -> . Object SEMICOLON
-    (16) Def -> . ID EQUAL Exp SEMICOLON
-    (35) Id -> . ID
-    (17) Prim -> . CreateServer
-    (7) Object -> . JSON COLON LC RC
-    (10) Object -> . JSON COLON LC Inside RC
-    (11) Object -> . HttpGet
-    (12) Object -> . JSON COLON LC InsideRec RC
-    (27) CreateServer -> . CREATESERVER LP RP
-    (28) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
-    (22) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
-    (23) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
+    (2) Exp -> . Prim SEMICOLON
+    (3) Exp -> . Prim
+    (4) Exp -> . Id COLON Second SEMICOLON
+    (5) Exp -> . Second
+    (6) Exp -> . Id COLON Prim SEMICOLON
+    (7) Exp -> . Object SEMICOLON
+    (17) Def -> . ID EQUAL Exp
+    (18) Def -> . ID EQUAL Exp SEMICOLON
+    (19) Prim -> . CreateServer
+    (37) Id -> . ID
+    (20) Second -> . SetRoutes
+    (21) Second -> . CreateData
+    (22) Second -> . ReadData
+    (23) Second -> . START
+    (8) Object -> . JSON COLON LC RC
+    (11) Object -> . JSON COLON LC Inside RC
+    (12) Object -> . HttpGet
+    (13) Object -> . JSON COLON LC InsideRec RC
+    (29) CreateServer -> . CREATESERVER LP RP
+    (30) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
+    (27) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
+    (28) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
+    (26) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (24) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
+    (25) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
 
-    ID              shift and go to state 6
-    JSON            shift and go to state 8
-    CREATESERVER    shift and go to state 10
-    HTTPGET         shift and go to state 11
+    ID              shift and go to state 7
+    START           shift and go to state 12
+    JSON            shift and go to state 13
+    CREATESERVER    shift and go to state 15
+    SETROUTES       shift and go to state 16
+    CREATEDATA      shift and go to state 17
+    READDATA        shift and go to state 18
+    HTTPGET         shift and go to state 19
 
     Exp                            shift and go to state 1
     Def                            shift and go to state 2
-    Id                             shift and go to state 3
-    Prim                           shift and go to state 4
-    Object                         shift and go to state 5
-    CreateServer                   shift and go to state 7
-    HttpGet                        shift and go to state 9
+    Prim                           shift and go to state 3
+    Id                             shift and go to state 4
+    Second                         shift and go to state 5
+    Object                         shift and go to state 6
+    CreateServer                   shift and go to state 8
+    SetRoutes                      shift and go to state 9
+    CreateData                     shift and go to state 10
+    ReadData                       shift and go to state 11
+    HttpGet                        shift and go to state 14
 
 state 1
 
@@ -160,870 +179,924 @@ state 2
 
 state 3
 
-    (2) Exp -> Id . COLON Prim SEMICOLON
-    (4) Exp -> Id . COLON Second
-    (5) Exp -> Id . COLON Second SEMICOLON
+    (2) Exp -> Prim . SEMICOLON
+    (3) Exp -> Prim .
 
-    COLON           shift and go to state 12
+  ! shift/reduce conflict for SEMICOLON resolved as shift
+    SEMICOLON       shift and go to state 20
+    $end            reduce using rule 3 (Exp -> Prim .)
+    COMMA           reduce using rule 3 (Exp -> Prim .)
+    RC              reduce using rule 3 (Exp -> Prim .)
+
+  ! SEMICOLON       [ reduce using rule 3 (Exp -> Prim .) ]
 
 
 state 4
 
-    (3) Exp -> Prim . COLON Second
+    (4) Exp -> Id . COLON Second SEMICOLON
+    (6) Exp -> Id . COLON Prim SEMICOLON
 
-    COLON           shift and go to state 13
+    COLON           shift and go to state 21
 
 
 state 5
 
-    (6) Exp -> Object . SEMICOLON
+    (5) Exp -> Second .
 
-    SEMICOLON       shift and go to state 14
+    $end            reduce using rule 5 (Exp -> Second .)
+    SEMICOLON       reduce using rule 5 (Exp -> Second .)
+    COMMA           reduce using rule 5 (Exp -> Second .)
+    RC              reduce using rule 5 (Exp -> Second .)
 
 
 state 6
 
-    (16) Def -> ID . EQUAL Exp SEMICOLON
-    (35) Id -> ID .
+    (7) Exp -> Object . SEMICOLON
 
-    EQUAL           shift and go to state 15
-    COLON           reduce using rule 35 (Id -> ID .)
+    SEMICOLON       shift and go to state 22
 
 
 state 7
 
-    (17) Prim -> CreateServer .
+    (17) Def -> ID . EQUAL Exp
+    (18) Def -> ID . EQUAL Exp SEMICOLON
+    (37) Id -> ID .
 
-    COLON           reduce using rule 17 (Prim -> CreateServer .)
-    SEMICOLON       reduce using rule 17 (Prim -> CreateServer .)
+    EQUAL           shift and go to state 23
+    COLON           reduce using rule 37 (Id -> ID .)
 
 
 state 8
 
-    (7) Object -> JSON . COLON LC RC
-    (10) Object -> JSON . COLON LC Inside RC
-    (12) Object -> JSON . COLON LC InsideRec RC
+    (19) Prim -> CreateServer .
 
-    COLON           shift and go to state 16
+    SEMICOLON       reduce using rule 19 (Prim -> CreateServer .)
+    $end            reduce using rule 19 (Prim -> CreateServer .)
+    COMMA           reduce using rule 19 (Prim -> CreateServer .)
+    RC              reduce using rule 19 (Prim -> CreateServer .)
 
 
 state 9
 
-    (11) Object -> HttpGet .
+    (20) Second -> SetRoutes .
 
-    SEMICOLON       reduce using rule 11 (Object -> HttpGet .)
-    RP              reduce using rule 11 (Object -> HttpGet .)
+    $end            reduce using rule 20 (Second -> SetRoutes .)
+    SEMICOLON       reduce using rule 20 (Second -> SetRoutes .)
+    COMMA           reduce using rule 20 (Second -> SetRoutes .)
+    RC              reduce using rule 20 (Second -> SetRoutes .)
 
 
 state 10
 
-    (27) CreateServer -> CREATESERVER . LP RP
-    (28) CreateServer -> CREATESERVER . LP PORT EQUAL Int RP
+    (21) Second -> CreateData .
 
-    LP              shift and go to state 17
+    $end            reduce using rule 21 (Second -> CreateData .)
+    SEMICOLON       reduce using rule 21 (Second -> CreateData .)
+    COMMA           reduce using rule 21 (Second -> CreateData .)
+    RC              reduce using rule 21 (Second -> CreateData .)
 
 
 state 11
 
-    (22) HttpGet -> HTTPGET . LP FROM EQUAL TextRef RP
-    (23) HttpGet -> HTTPGET . LP URL EQUAL STRING RP
+    (22) Second -> ReadData .
 
-    LP              shift and go to state 18
+    $end            reduce using rule 22 (Second -> ReadData .)
+    SEMICOLON       reduce using rule 22 (Second -> ReadData .)
+    COMMA           reduce using rule 22 (Second -> ReadData .)
+    RC              reduce using rule 22 (Second -> ReadData .)
 
 
 state 12
 
-    (2) Exp -> Id COLON . Prim SEMICOLON
-    (4) Exp -> Id COLON . Second
-    (5) Exp -> Id COLON . Second SEMICOLON
-    (17) Prim -> . CreateServer
-    (18) Second -> . SetRoutes
-    (19) Second -> . CreateData
-    (20) Second -> . ReadData
-    (21) Second -> . START
-    (27) CreateServer -> . CREATESERVER LP RP
-    (28) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
-    (25) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
-    (26) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
-    (24) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (23) Second -> START .
 
-    START           shift and go to state 24
-    CREATESERVER    shift and go to state 10
-    SETROUTES       shift and go to state 25
-    CREATEDATA      shift and go to state 26
-    READDATA        shift and go to state 27
+    $end            reduce using rule 23 (Second -> START .)
+    SEMICOLON       reduce using rule 23 (Second -> START .)
+    COMMA           reduce using rule 23 (Second -> START .)
+    RC              reduce using rule 23 (Second -> START .)
 
-    Prim                           shift and go to state 19
-    Second                         shift and go to state 20
-    CreateServer                   shift and go to state 7
-    SetRoutes                      shift and go to state 21
-    CreateData                     shift and go to state 22
-    ReadData                       shift and go to state 23
 
 state 13
 
-    (3) Exp -> Prim COLON . Second
-    (18) Second -> . SetRoutes
-    (19) Second -> . CreateData
-    (20) Second -> . ReadData
-    (21) Second -> . START
-    (25) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
-    (26) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
-    (24) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (8) Object -> JSON . COLON LC RC
+    (11) Object -> JSON . COLON LC Inside RC
+    (13) Object -> JSON . COLON LC InsideRec RC
 
-    START           shift and go to state 24
-    SETROUTES       shift and go to state 25
-    CREATEDATA      shift and go to state 26
-    READDATA        shift and go to state 27
+    COLON           shift and go to state 24
 
-    Second                         shift and go to state 28
-    SetRoutes                      shift and go to state 21
-    CreateData                     shift and go to state 22
-    ReadData                       shift and go to state 23
 
 state 14
 
-    (6) Exp -> Object SEMICOLON .
+    (12) Object -> HttpGet .
 
-    $end            reduce using rule 6 (Exp -> Object SEMICOLON .)
-    SEMICOLON       reduce using rule 6 (Exp -> Object SEMICOLON .)
-    COMMA           reduce using rule 6 (Exp -> Object SEMICOLON .)
-    RC              reduce using rule 6 (Exp -> Object SEMICOLON .)
+    SEMICOLON       reduce using rule 12 (Object -> HttpGet .)
+    RP              reduce using rule 12 (Object -> HttpGet .)
 
 
 state 15
 
-    (16) Def -> ID EQUAL . Exp SEMICOLON
-    (1) Exp -> . Def
-    (2) Exp -> . Id COLON Prim SEMICOLON
-    (3) Exp -> . Prim COLON Second
-    (4) Exp -> . Id COLON Second
-    (5) Exp -> . Id COLON Second SEMICOLON
-    (6) Exp -> . Object SEMICOLON
-    (16) Def -> . ID EQUAL Exp SEMICOLON
-    (35) Id -> . ID
-    (17) Prim -> . CreateServer
-    (7) Object -> . JSON COLON LC RC
-    (10) Object -> . JSON COLON LC Inside RC
-    (11) Object -> . HttpGet
-    (12) Object -> . JSON COLON LC InsideRec RC
-    (27) CreateServer -> . CREATESERVER LP RP
-    (28) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
-    (22) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
-    (23) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
+    (29) CreateServer -> CREATESERVER . LP RP
+    (30) CreateServer -> CREATESERVER . LP PORT EQUAL Int RP
 
-    ID              shift and go to state 6
-    JSON            shift and go to state 8
-    CREATESERVER    shift and go to state 10
-    HTTPGET         shift and go to state 11
+    LP              shift and go to state 25
 
-    Exp                            shift and go to state 29
-    Def                            shift and go to state 2
-    Id                             shift and go to state 3
-    Prim                           shift and go to state 4
-    Object                         shift and go to state 5
-    CreateServer                   shift and go to state 7
-    HttpGet                        shift and go to state 9
 
 state 16
 
-    (7) Object -> JSON COLON . LC RC
-    (10) Object -> JSON COLON . LC Inside RC
-    (12) Object -> JSON COLON . LC InsideRec RC
+    (27) SetRoutes -> SETROUTES . LP URL EQUAL STRING RP
 
-    LC              shift and go to state 30
+    LP              shift and go to state 26
 
 
 state 17
 
-    (27) CreateServer -> CREATESERVER LP . RP
-    (28) CreateServer -> CREATESERVER LP . PORT EQUAL Int RP
+    (28) CreateData -> CREATEDATA . LP OBJECT EQUAL Ref RP
 
-    RP              shift and go to state 31
-    PORT            shift and go to state 32
+    LP              shift and go to state 27
 
 
 state 18
 
-    (22) HttpGet -> HTTPGET LP . FROM EQUAL TextRef RP
-    (23) HttpGet -> HTTPGET LP . URL EQUAL STRING RP
+    (26) ReadData -> READDATA . LP BODY EQUAL Ref RP
 
-    FROM            shift and go to state 33
-    URL             shift and go to state 34
+    LP              shift and go to state 28
 
 
 state 19
 
-    (2) Exp -> Id COLON Prim . SEMICOLON
+    (24) HttpGet -> HTTPGET . LP FROM EQUAL TextRef RP
+    (25) HttpGet -> HTTPGET . LP URL EQUAL STRING RP
 
-    SEMICOLON       shift and go to state 35
+    LP              shift and go to state 29
 
 
 state 20
 
-    (4) Exp -> Id COLON Second .
-    (5) Exp -> Id COLON Second . SEMICOLON
+    (2) Exp -> Prim SEMICOLON .
 
-  ! shift/reduce conflict for SEMICOLON resolved as shift
-    $end            reduce using rule 4 (Exp -> Id COLON Second .)
-    COMMA           reduce using rule 4 (Exp -> Id COLON Second .)
-    RC              reduce using rule 4 (Exp -> Id COLON Second .)
-    SEMICOLON       shift and go to state 36
-
-  ! SEMICOLON       [ reduce using rule 4 (Exp -> Id COLON Second .) ]
+    $end            reduce using rule 2 (Exp -> Prim SEMICOLON .)
+    SEMICOLON       reduce using rule 2 (Exp -> Prim SEMICOLON .)
+    COMMA           reduce using rule 2 (Exp -> Prim SEMICOLON .)
+    RC              reduce using rule 2 (Exp -> Prim SEMICOLON .)
 
 
 state 21
 
-    (18) Second -> SetRoutes .
+    (4) Exp -> Id COLON . Second SEMICOLON
+    (6) Exp -> Id COLON . Prim SEMICOLON
+    (20) Second -> . SetRoutes
+    (21) Second -> . CreateData
+    (22) Second -> . ReadData
+    (23) Second -> . START
+    (19) Prim -> . CreateServer
+    (27) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
+    (28) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
+    (26) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (29) CreateServer -> . CREATESERVER LP RP
+    (30) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
 
-    SEMICOLON       reduce using rule 18 (Second -> SetRoutes .)
-    $end            reduce using rule 18 (Second -> SetRoutes .)
-    COMMA           reduce using rule 18 (Second -> SetRoutes .)
-    RC              reduce using rule 18 (Second -> SetRoutes .)
+    START           shift and go to state 12
+    SETROUTES       shift and go to state 16
+    CREATEDATA      shift and go to state 17
+    READDATA        shift and go to state 18
+    CREATESERVER    shift and go to state 15
 
+    Second                         shift and go to state 30
+    Prim                           shift and go to state 31
+    SetRoutes                      shift and go to state 9
+    CreateData                     shift and go to state 10
+    ReadData                       shift and go to state 11
+    CreateServer                   shift and go to state 8
 
 state 22
 
-    (19) Second -> CreateData .
+    (7) Exp -> Object SEMICOLON .
 
-    SEMICOLON       reduce using rule 19 (Second -> CreateData .)
-    $end            reduce using rule 19 (Second -> CreateData .)
-    COMMA           reduce using rule 19 (Second -> CreateData .)
-    RC              reduce using rule 19 (Second -> CreateData .)
+    $end            reduce using rule 7 (Exp -> Object SEMICOLON .)
+    SEMICOLON       reduce using rule 7 (Exp -> Object SEMICOLON .)
+    COMMA           reduce using rule 7 (Exp -> Object SEMICOLON .)
+    RC              reduce using rule 7 (Exp -> Object SEMICOLON .)
 
 
 state 23
 
-    (20) Second -> ReadData .
+    (17) Def -> ID EQUAL . Exp
+    (18) Def -> ID EQUAL . Exp SEMICOLON
+    (1) Exp -> . Def
+    (2) Exp -> . Prim SEMICOLON
+    (3) Exp -> . Prim
+    (4) Exp -> . Id COLON Second SEMICOLON
+    (5) Exp -> . Second
+    (6) Exp -> . Id COLON Prim SEMICOLON
+    (7) Exp -> . Object SEMICOLON
+    (17) Def -> . ID EQUAL Exp
+    (18) Def -> . ID EQUAL Exp SEMICOLON
+    (19) Prim -> . CreateServer
+    (37) Id -> . ID
+    (20) Second -> . SetRoutes
+    (21) Second -> . CreateData
+    (22) Second -> . ReadData
+    (23) Second -> . START
+    (8) Object -> . JSON COLON LC RC
+    (11) Object -> . JSON COLON LC Inside RC
+    (12) Object -> . HttpGet
+    (13) Object -> . JSON COLON LC InsideRec RC
+    (29) CreateServer -> . CREATESERVER LP RP
+    (30) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
+    (27) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
+    (28) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
+    (26) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (24) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
+    (25) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
 
-    SEMICOLON       reduce using rule 20 (Second -> ReadData .)
-    $end            reduce using rule 20 (Second -> ReadData .)
-    COMMA           reduce using rule 20 (Second -> ReadData .)
-    RC              reduce using rule 20 (Second -> ReadData .)
+    ID              shift and go to state 7
+    START           shift and go to state 12
+    JSON            shift and go to state 13
+    CREATESERVER    shift and go to state 15
+    SETROUTES       shift and go to state 16
+    CREATEDATA      shift and go to state 17
+    READDATA        shift and go to state 18
+    HTTPGET         shift and go to state 19
 
+    Exp                            shift and go to state 32
+    Def                            shift and go to state 2
+    Prim                           shift and go to state 3
+    Id                             shift and go to state 4
+    Second                         shift and go to state 5
+    Object                         shift and go to state 6
+    CreateServer                   shift and go to state 8
+    SetRoutes                      shift and go to state 9
+    CreateData                     shift and go to state 10
+    ReadData                       shift and go to state 11
+    HttpGet                        shift and go to state 14
 
 state 24
 
-    (21) Second -> START .
+    (8) Object -> JSON COLON . LC RC
+    (11) Object -> JSON COLON . LC Inside RC
+    (13) Object -> JSON COLON . LC InsideRec RC
 
-    SEMICOLON       reduce using rule 21 (Second -> START .)
-    $end            reduce using rule 21 (Second -> START .)
-    COMMA           reduce using rule 21 (Second -> START .)
-    RC              reduce using rule 21 (Second -> START .)
+    LC              shift and go to state 33
 
 
 state 25
 
-    (25) SetRoutes -> SETROUTES . LP URL EQUAL STRING RP
+    (29) CreateServer -> CREATESERVER LP . RP
+    (30) CreateServer -> CREATESERVER LP . PORT EQUAL Int RP
 
-    LP              shift and go to state 37
+    RP              shift and go to state 34
+    PORT            shift and go to state 35
 
 
 state 26
 
-    (26) CreateData -> CREATEDATA . LP OBJECT EQUAL Ref RP
+    (27) SetRoutes -> SETROUTES LP . URL EQUAL STRING RP
 
-    LP              shift and go to state 38
+    URL             shift and go to state 36
 
 
 state 27
 
-    (24) ReadData -> READDATA . LP BODY EQUAL Ref RP
+    (28) CreateData -> CREATEDATA LP . OBJECT EQUAL Ref RP
 
-    LP              shift and go to state 39
+    OBJECT          shift and go to state 37
 
 
 state 28
 
-    (3) Exp -> Prim COLON Second .
+    (26) ReadData -> READDATA LP . BODY EQUAL Ref RP
 
-    $end            reduce using rule 3 (Exp -> Prim COLON Second .)
-    SEMICOLON       reduce using rule 3 (Exp -> Prim COLON Second .)
-    COMMA           reduce using rule 3 (Exp -> Prim COLON Second .)
-    RC              reduce using rule 3 (Exp -> Prim COLON Second .)
+    BODY            shift and go to state 38
 
 
 state 29
 
-    (16) Def -> ID EQUAL Exp . SEMICOLON
+    (24) HttpGet -> HTTPGET LP . FROM EQUAL TextRef RP
+    (25) HttpGet -> HTTPGET LP . URL EQUAL STRING RP
 
-    SEMICOLON       shift and go to state 40
+    FROM            shift and go to state 39
+    URL             shift and go to state 40
 
 
 state 30
 
-    (7) Object -> JSON COLON LC . RC
-    (10) Object -> JSON COLON LC . Inside RC
-    (12) Object -> JSON COLON LC . InsideRec RC
-    (8) Inside -> . ID COLON ObjectParam
-    (9) InsideRec -> . ID COLON ObjectParam COMMA Inside
+    (4) Exp -> Id COLON Second . SEMICOLON
 
-    RC              shift and go to state 41
-    ID              shift and go to state 44
+    SEMICOLON       shift and go to state 41
 
-    Inside                         shift and go to state 42
-    InsideRec                      shift and go to state 43
 
 state 31
 
-    (27) CreateServer -> CREATESERVER LP RP .
+    (6) Exp -> Id COLON Prim . SEMICOLON
 
-    COLON           reduce using rule 27 (CreateServer -> CREATESERVER LP RP .)
-    SEMICOLON       reduce using rule 27 (CreateServer -> CREATESERVER LP RP .)
+    SEMICOLON       shift and go to state 42
 
 
 state 32
 
-    (28) CreateServer -> CREATESERVER LP PORT . EQUAL Int RP
+    (17) Def -> ID EQUAL Exp .
+    (18) Def -> ID EQUAL Exp . SEMICOLON
 
-    EQUAL           shift and go to state 45
+  ! shift/reduce conflict for SEMICOLON resolved as shift
+    $end            reduce using rule 17 (Def -> ID EQUAL Exp .)
+    COMMA           reduce using rule 17 (Def -> ID EQUAL Exp .)
+    RC              reduce using rule 17 (Def -> ID EQUAL Exp .)
+    SEMICOLON       shift and go to state 43
+
+  ! SEMICOLON       [ reduce using rule 17 (Def -> ID EQUAL Exp .) ]
 
 
 state 33
 
-    (22) HttpGet -> HTTPGET LP FROM . EQUAL TextRef RP
+    (8) Object -> JSON COLON LC . RC
+    (11) Object -> JSON COLON LC . Inside RC
+    (13) Object -> JSON COLON LC . InsideRec RC
+    (9) Inside -> . ID COLON ObjectParam
+    (10) InsideRec -> . ID COLON ObjectParam COMMA Inside
 
-    EQUAL           shift and go to state 46
+    RC              shift and go to state 44
+    ID              shift and go to state 47
 
+    Inside                         shift and go to state 45
+    InsideRec                      shift and go to state 46
 
 state 34
 
-    (23) HttpGet -> HTTPGET LP URL . EQUAL STRING RP
+    (29) CreateServer -> CREATESERVER LP RP .
 
-    EQUAL           shift and go to state 47
+    SEMICOLON       reduce using rule 29 (CreateServer -> CREATESERVER LP RP .)
+    $end            reduce using rule 29 (CreateServer -> CREATESERVER LP RP .)
+    COMMA           reduce using rule 29 (CreateServer -> CREATESERVER LP RP .)
+    RC              reduce using rule 29 (CreateServer -> CREATESERVER LP RP .)
 
 
 state 35
 
-    (2) Exp -> Id COLON Prim SEMICOLON .
+    (30) CreateServer -> CREATESERVER LP PORT . EQUAL Int RP
 
-    $end            reduce using rule 2 (Exp -> Id COLON Prim SEMICOLON .)
-    SEMICOLON       reduce using rule 2 (Exp -> Id COLON Prim SEMICOLON .)
-    COMMA           reduce using rule 2 (Exp -> Id COLON Prim SEMICOLON .)
-    RC              reduce using rule 2 (Exp -> Id COLON Prim SEMICOLON .)
+    EQUAL           shift and go to state 48
 
 
 state 36
 
-    (5) Exp -> Id COLON Second SEMICOLON .
+    (27) SetRoutes -> SETROUTES LP URL . EQUAL STRING RP
 
-    $end            reduce using rule 5 (Exp -> Id COLON Second SEMICOLON .)
-    SEMICOLON       reduce using rule 5 (Exp -> Id COLON Second SEMICOLON .)
-    COMMA           reduce using rule 5 (Exp -> Id COLON Second SEMICOLON .)
-    RC              reduce using rule 5 (Exp -> Id COLON Second SEMICOLON .)
+    EQUAL           shift and go to state 49
 
 
 state 37
 
-    (25) SetRoutes -> SETROUTES LP . URL EQUAL STRING RP
+    (28) CreateData -> CREATEDATA LP OBJECT . EQUAL Ref RP
 
-    URL             shift and go to state 48
+    EQUAL           shift and go to state 50
 
 
 state 38
 
-    (26) CreateData -> CREATEDATA LP . OBJECT EQUAL Ref RP
+    (26) ReadData -> READDATA LP BODY . EQUAL Ref RP
 
-    OBJECT          shift and go to state 49
+    EQUAL           shift and go to state 51
 
 
 state 39
 
-    (24) ReadData -> READDATA LP . BODY EQUAL Ref RP
+    (24) HttpGet -> HTTPGET LP FROM . EQUAL TextRef RP
 
-    BODY            shift and go to state 50
+    EQUAL           shift and go to state 52
 
 
 state 40
 
-    (16) Def -> ID EQUAL Exp SEMICOLON .
+    (25) HttpGet -> HTTPGET LP URL . EQUAL STRING RP
 
-    $end            reduce using rule 16 (Def -> ID EQUAL Exp SEMICOLON .)
-    SEMICOLON       reduce using rule 16 (Def -> ID EQUAL Exp SEMICOLON .)
-    COMMA           reduce using rule 16 (Def -> ID EQUAL Exp SEMICOLON .)
-    RC              reduce using rule 16 (Def -> ID EQUAL Exp SEMICOLON .)
+    EQUAL           shift and go to state 53
 
 
 state 41
 
-    (7) Object -> JSON COLON LC RC .
+    (4) Exp -> Id COLON Second SEMICOLON .
 
-    SEMICOLON       reduce using rule 7 (Object -> JSON COLON LC RC .)
-    RP              reduce using rule 7 (Object -> JSON COLON LC RC .)
+    $end            reduce using rule 4 (Exp -> Id COLON Second SEMICOLON .)
+    SEMICOLON       reduce using rule 4 (Exp -> Id COLON Second SEMICOLON .)
+    COMMA           reduce using rule 4 (Exp -> Id COLON Second SEMICOLON .)
+    RC              reduce using rule 4 (Exp -> Id COLON Second SEMICOLON .)
 
 
 state 42
 
-    (10) Object -> JSON COLON LC Inside . RC
+    (6) Exp -> Id COLON Prim SEMICOLON .
 
-    RC              shift and go to state 51
+    $end            reduce using rule 6 (Exp -> Id COLON Prim SEMICOLON .)
+    SEMICOLON       reduce using rule 6 (Exp -> Id COLON Prim SEMICOLON .)
+    COMMA           reduce using rule 6 (Exp -> Id COLON Prim SEMICOLON .)
+    RC              reduce using rule 6 (Exp -> Id COLON Prim SEMICOLON .)
 
 
 state 43
 
-    (12) Object -> JSON COLON LC InsideRec . RC
+    (18) Def -> ID EQUAL Exp SEMICOLON .
 
-    RC              shift and go to state 52
+    $end            reduce using rule 18 (Def -> ID EQUAL Exp SEMICOLON .)
+    SEMICOLON       reduce using rule 18 (Def -> ID EQUAL Exp SEMICOLON .)
+    COMMA           reduce using rule 18 (Def -> ID EQUAL Exp SEMICOLON .)
+    RC              reduce using rule 18 (Def -> ID EQUAL Exp SEMICOLON .)
 
 
 state 44
 
-    (8) Inside -> ID . COLON ObjectParam
-    (9) InsideRec -> ID . COLON ObjectParam COMMA Inside
+    (8) Object -> JSON COLON LC RC .
 
-    COLON           shift and go to state 53
+    SEMICOLON       reduce using rule 8 (Object -> JSON COLON LC RC .)
+    RP              reduce using rule 8 (Object -> JSON COLON LC RC .)
 
 
 state 45
 
-    (28) CreateServer -> CREATESERVER LP PORT EQUAL . Int RP
-    (36) Int -> . INT
+    (11) Object -> JSON COLON LC Inside . RC
 
-    INT             shift and go to state 55
+    RC              shift and go to state 54
 
-    Int                            shift and go to state 54
 
 state 46
 
-    (22) HttpGet -> HTTPGET LP FROM EQUAL . TextRef RP
-    (29) TextRef -> . Id
-    (30) TextRef -> . String
-    (35) Id -> . ID
-    (33) String -> . DQUOTE DQUOTE
-    (34) String -> . STRING
+    (13) Object -> JSON COLON LC InsideRec . RC
 
-    ID              shift and go to state 59
-    DQUOTE          shift and go to state 60
-    STRING          shift and go to state 61
+    RC              shift and go to state 55
 
-    TextRef                        shift and go to state 56
-    Id                             shift and go to state 57
-    String                         shift and go to state 58
 
 state 47
 
-    (23) HttpGet -> HTTPGET LP URL EQUAL . STRING RP
+    (9) Inside -> ID . COLON ObjectParam
+    (10) InsideRec -> ID . COLON ObjectParam COMMA Inside
 
-    STRING          shift and go to state 62
+    COLON           shift and go to state 56
 
 
 state 48
 
-    (25) SetRoutes -> SETROUTES LP URL . EQUAL STRING RP
+    (30) CreateServer -> CREATESERVER LP PORT EQUAL . Int RP
+    (38) Int -> . INT
 
-    EQUAL           shift and go to state 63
+    INT             shift and go to state 58
 
+    Int                            shift and go to state 57
 
 state 49
 
-    (26) CreateData -> CREATEDATA LP OBJECT . EQUAL Ref RP
+    (27) SetRoutes -> SETROUTES LP URL EQUAL . STRING RP
 
-    EQUAL           shift and go to state 64
+    STRING          shift and go to state 59
 
 
 state 50
 
-    (24) ReadData -> READDATA LP BODY . EQUAL Ref RP
+    (28) CreateData -> CREATEDATA LP OBJECT EQUAL . Ref RP
+    (33) Ref -> . Id
+    (34) Ref -> . Object
+    (37) Id -> . ID
+    (8) Object -> . JSON COLON LC RC
+    (11) Object -> . JSON COLON LC Inside RC
+    (12) Object -> . HttpGet
+    (13) Object -> . JSON COLON LC InsideRec RC
+    (24) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
+    (25) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
 
-    EQUAL           shift and go to state 65
+    ID              shift and go to state 63
+    JSON            shift and go to state 13
+    HTTPGET         shift and go to state 19
 
+    Ref                            shift and go to state 60
+    Id                             shift and go to state 61
+    Object                         shift and go to state 62
+    HttpGet                        shift and go to state 14
 
 state 51
 
-    (10) Object -> JSON COLON LC Inside RC .
+    (26) ReadData -> READDATA LP BODY EQUAL . Ref RP
+    (33) Ref -> . Id
+    (34) Ref -> . Object
+    (37) Id -> . ID
+    (8) Object -> . JSON COLON LC RC
+    (11) Object -> . JSON COLON LC Inside RC
+    (12) Object -> . HttpGet
+    (13) Object -> . JSON COLON LC InsideRec RC
+    (24) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
+    (25) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
 
-    SEMICOLON       reduce using rule 10 (Object -> JSON COLON LC Inside RC .)
-    RP              reduce using rule 10 (Object -> JSON COLON LC Inside RC .)
+    ID              shift and go to state 63
+    JSON            shift and go to state 13
+    HTTPGET         shift and go to state 19
 
+    Ref                            shift and go to state 64
+    Id                             shift and go to state 61
+    Object                         shift and go to state 62
+    HttpGet                        shift and go to state 14
 
 state 52
 
-    (12) Object -> JSON COLON LC InsideRec RC .
+    (24) HttpGet -> HTTPGET LP FROM EQUAL . TextRef RP
+    (31) TextRef -> . Id
+    (32) TextRef -> . String
+    (37) Id -> . ID
+    (35) String -> . DQUOTE DQUOTE
+    (36) String -> . STRING
 
-    SEMICOLON       reduce using rule 12 (Object -> JSON COLON LC InsideRec RC .)
-    RP              reduce using rule 12 (Object -> JSON COLON LC InsideRec RC .)
+    ID              shift and go to state 63
+    DQUOTE          shift and go to state 68
+    STRING          shift and go to state 69
 
+    TextRef                        shift and go to state 65
+    Id                             shift and go to state 66
+    String                         shift and go to state 67
 
 state 53
 
-    (8) Inside -> ID COLON . ObjectParam
-    (9) InsideRec -> ID COLON . ObjectParam COMMA Inside
-    (13) ObjectParam -> . String
-    (14) ObjectParam -> . Id
-    (15) ObjectParam -> . Exp
-    (33) String -> . DQUOTE DQUOTE
-    (34) String -> . STRING
-    (35) Id -> . ID
-    (1) Exp -> . Def
-    (2) Exp -> . Id COLON Prim SEMICOLON
-    (3) Exp -> . Prim COLON Second
-    (4) Exp -> . Id COLON Second
-    (5) Exp -> . Id COLON Second SEMICOLON
-    (6) Exp -> . Object SEMICOLON
-    (16) Def -> . ID EQUAL Exp SEMICOLON
-    (17) Prim -> . CreateServer
-    (7) Object -> . JSON COLON LC RC
-    (10) Object -> . JSON COLON LC Inside RC
-    (11) Object -> . HttpGet
-    (12) Object -> . JSON COLON LC InsideRec RC
-    (27) CreateServer -> . CREATESERVER LP RP
-    (28) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
-    (22) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
-    (23) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
+    (25) HttpGet -> HTTPGET LP URL EQUAL . STRING RP
 
-    DQUOTE          shift and go to state 60
-    STRING          shift and go to state 61
-    ID              shift and go to state 66
-    JSON            shift and go to state 8
-    CREATESERVER    shift and go to state 10
-    HTTPGET         shift and go to state 11
+    STRING          shift and go to state 70
 
-    ObjectParam                    shift and go to state 67
-    String                         shift and go to state 68
-    Id                             shift and go to state 69
-    Exp                            shift and go to state 70
-    Def                            shift and go to state 2
-    Prim                           shift and go to state 4
-    Object                         shift and go to state 5
-    CreateServer                   shift and go to state 7
-    HttpGet                        shift and go to state 9
 
 state 54
 
-    (28) CreateServer -> CREATESERVER LP PORT EQUAL Int . RP
+    (11) Object -> JSON COLON LC Inside RC .
 
-    RP              shift and go to state 71
+    SEMICOLON       reduce using rule 11 (Object -> JSON COLON LC Inside RC .)
+    RP              reduce using rule 11 (Object -> JSON COLON LC Inside RC .)
 
 
 state 55
 
-    (36) Int -> INT .
+    (13) Object -> JSON COLON LC InsideRec RC .
 
-    RP              reduce using rule 36 (Int -> INT .)
+    SEMICOLON       reduce using rule 13 (Object -> JSON COLON LC InsideRec RC .)
+    RP              reduce using rule 13 (Object -> JSON COLON LC InsideRec RC .)
 
 
 state 56
 
-    (22) HttpGet -> HTTPGET LP FROM EQUAL TextRef . RP
+    (9) Inside -> ID COLON . ObjectParam
+    (10) InsideRec -> ID COLON . ObjectParam COMMA Inside
+    (14) ObjectParam -> . String
+    (15) ObjectParam -> . Id
+    (16) ObjectParam -> . Exp
+    (35) String -> . DQUOTE DQUOTE
+    (36) String -> . STRING
+    (37) Id -> . ID
+    (1) Exp -> . Def
+    (2) Exp -> . Prim SEMICOLON
+    (3) Exp -> . Prim
+    (4) Exp -> . Id COLON Second SEMICOLON
+    (5) Exp -> . Second
+    (6) Exp -> . Id COLON Prim SEMICOLON
+    (7) Exp -> . Object SEMICOLON
+    (17) Def -> . ID EQUAL Exp
+    (18) Def -> . ID EQUAL Exp SEMICOLON
+    (19) Prim -> . CreateServer
+    (20) Second -> . SetRoutes
+    (21) Second -> . CreateData
+    (22) Second -> . ReadData
+    (23) Second -> . START
+    (8) Object -> . JSON COLON LC RC
+    (11) Object -> . JSON COLON LC Inside RC
+    (12) Object -> . HttpGet
+    (13) Object -> . JSON COLON LC InsideRec RC
+    (29) CreateServer -> . CREATESERVER LP RP
+    (30) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
+    (27) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
+    (28) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
+    (26) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (24) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
+    (25) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
 
-    RP              shift and go to state 72
+    DQUOTE          shift and go to state 68
+    STRING          shift and go to state 69
+    ID              shift and go to state 71
+    START           shift and go to state 12
+    JSON            shift and go to state 13
+    CREATESERVER    shift and go to state 15
+    SETROUTES       shift and go to state 16
+    CREATEDATA      shift and go to state 17
+    READDATA        shift and go to state 18
+    HTTPGET         shift and go to state 19
 
+    ObjectParam                    shift and go to state 72
+    String                         shift and go to state 73
+    Id                             shift and go to state 74
+    Exp                            shift and go to state 75
+    Def                            shift and go to state 2
+    Prim                           shift and go to state 3
+    Second                         shift and go to state 5
+    Object                         shift and go to state 6
+    CreateServer                   shift and go to state 8
+    SetRoutes                      shift and go to state 9
+    CreateData                     shift and go to state 10
+    ReadData                       shift and go to state 11
+    HttpGet                        shift and go to state 14
 
 state 57
 
-    (29) TextRef -> Id .
+    (30) CreateServer -> CREATESERVER LP PORT EQUAL Int . RP
 
-    RP              reduce using rule 29 (TextRef -> Id .)
+    RP              shift and go to state 76
 
 
 state 58
 
-    (30) TextRef -> String .
+    (38) Int -> INT .
 
-    RP              reduce using rule 30 (TextRef -> String .)
+    RP              reduce using rule 38 (Int -> INT .)
 
 
 state 59
 
-    (35) Id -> ID .
+    (27) SetRoutes -> SETROUTES LP URL EQUAL STRING . RP
 
-    RP              reduce using rule 35 (Id -> ID .)
+    RP              shift and go to state 77
 
 
 state 60
 
-    (33) String -> DQUOTE . DQUOTE
+    (28) CreateData -> CREATEDATA LP OBJECT EQUAL Ref . RP
 
-    DQUOTE          shift and go to state 73
+    RP              shift and go to state 78
 
 
 state 61
 
-    (34) String -> STRING .
+    (33) Ref -> Id .
 
-    RP              reduce using rule 34 (String -> STRING .)
-    COMMA           reduce using rule 34 (String -> STRING .)
-    RC              reduce using rule 34 (String -> STRING .)
+    RP              reduce using rule 33 (Ref -> Id .)
 
 
 state 62
 
-    (23) HttpGet -> HTTPGET LP URL EQUAL STRING . RP
+    (34) Ref -> Object .
 
-    RP              shift and go to state 74
+    RP              reduce using rule 34 (Ref -> Object .)
 
 
 state 63
 
-    (25) SetRoutes -> SETROUTES LP URL EQUAL . STRING RP
+    (37) Id -> ID .
 
-    STRING          shift and go to state 75
+    RP              reduce using rule 37 (Id -> ID .)
 
 
 state 64
 
-    (26) CreateData -> CREATEDATA LP OBJECT EQUAL . Ref RP
-    (31) Ref -> . Id
-    (32) Ref -> . Object
-    (35) Id -> . ID
-    (7) Object -> . JSON COLON LC RC
-    (10) Object -> . JSON COLON LC Inside RC
-    (11) Object -> . HttpGet
-    (12) Object -> . JSON COLON LC InsideRec RC
-    (22) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
-    (23) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
+    (26) ReadData -> READDATA LP BODY EQUAL Ref . RP
 
-    ID              shift and go to state 59
-    JSON            shift and go to state 8
-    HTTPGET         shift and go to state 11
+    RP              shift and go to state 79
 
-    Ref                            shift and go to state 76
-    Id                             shift and go to state 77
-    Object                         shift and go to state 78
-    HttpGet                        shift and go to state 9
 
 state 65
 
-    (24) ReadData -> READDATA LP BODY EQUAL . Ref RP
-    (31) Ref -> . Id
-    (32) Ref -> . Object
-    (35) Id -> . ID
-    (7) Object -> . JSON COLON LC RC
-    (10) Object -> . JSON COLON LC Inside RC
-    (11) Object -> . HttpGet
-    (12) Object -> . JSON COLON LC InsideRec RC
-    (22) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
-    (23) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
+    (24) HttpGet -> HTTPGET LP FROM EQUAL TextRef . RP
 
-    ID              shift and go to state 59
-    JSON            shift and go to state 8
-    HTTPGET         shift and go to state 11
+    RP              shift and go to state 80
 
-    Ref                            shift and go to state 79
-    Id                             shift and go to state 77
-    Object                         shift and go to state 78
-    HttpGet                        shift and go to state 9
 
 state 66
 
-    (35) Id -> ID .
-    (16) Def -> ID . EQUAL Exp SEMICOLON
+    (31) TextRef -> Id .
 
-    COLON           reduce using rule 35 (Id -> ID .)
-    COMMA           reduce using rule 35 (Id -> ID .)
-    RC              reduce using rule 35 (Id -> ID .)
-    EQUAL           shift and go to state 15
+    RP              reduce using rule 31 (TextRef -> Id .)
 
 
 state 67
 
-    (8) Inside -> ID COLON ObjectParam .
-    (9) InsideRec -> ID COLON ObjectParam . COMMA Inside
+    (32) TextRef -> String .
 
-    RC              reduce using rule 8 (Inside -> ID COLON ObjectParam .)
-    COMMA           shift and go to state 80
+    RP              reduce using rule 32 (TextRef -> String .)
 
 
 state 68
 
-    (13) ObjectParam -> String .
+    (35) String -> DQUOTE . DQUOTE
 
-    COMMA           reduce using rule 13 (ObjectParam -> String .)
-    RC              reduce using rule 13 (ObjectParam -> String .)
+    DQUOTE          shift and go to state 81
 
 
 state 69
 
-    (14) ObjectParam -> Id .
-    (2) Exp -> Id . COLON Prim SEMICOLON
-    (4) Exp -> Id . COLON Second
-    (5) Exp -> Id . COLON Second SEMICOLON
+    (36) String -> STRING .
 
-    COMMA           reduce using rule 14 (ObjectParam -> Id .)
-    RC              reduce using rule 14 (ObjectParam -> Id .)
-    COLON           shift and go to state 12
+    RP              reduce using rule 36 (String -> STRING .)
+    COMMA           reduce using rule 36 (String -> STRING .)
+    RC              reduce using rule 36 (String -> STRING .)
 
 
 state 70
 
-    (15) ObjectParam -> Exp .
-
-    COMMA           reduce using rule 15 (ObjectParam -> Exp .)
-    RC              reduce using rule 15 (ObjectParam -> Exp .)
-
-
-state 71
-
-    (28) CreateServer -> CREATESERVER LP PORT EQUAL Int RP .
-
-    COLON           reduce using rule 28 (CreateServer -> CREATESERVER LP PORT EQUAL Int RP .)
-    SEMICOLON       reduce using rule 28 (CreateServer -> CREATESERVER LP PORT EQUAL Int RP .)
-
-
-state 72
-
-    (22) HttpGet -> HTTPGET LP FROM EQUAL TextRef RP .
-
-    SEMICOLON       reduce using rule 22 (HttpGet -> HTTPGET LP FROM EQUAL TextRef RP .)
-    RP              reduce using rule 22 (HttpGet -> HTTPGET LP FROM EQUAL TextRef RP .)
-
-
-state 73
-
-    (33) String -> DQUOTE DQUOTE .
-
-    RP              reduce using rule 33 (String -> DQUOTE DQUOTE .)
-    COMMA           reduce using rule 33 (String -> DQUOTE DQUOTE .)
-    RC              reduce using rule 33 (String -> DQUOTE DQUOTE .)
-
-
-state 74
-
-    (23) HttpGet -> HTTPGET LP URL EQUAL STRING RP .
-
-    SEMICOLON       reduce using rule 23 (HttpGet -> HTTPGET LP URL EQUAL STRING RP .)
-    RP              reduce using rule 23 (HttpGet -> HTTPGET LP URL EQUAL STRING RP .)
-
-
-state 75
-
-    (25) SetRoutes -> SETROUTES LP URL EQUAL STRING . RP
-
-    RP              shift and go to state 81
-
-
-state 76
-
-    (26) CreateData -> CREATEDATA LP OBJECT EQUAL Ref . RP
+    (25) HttpGet -> HTTPGET LP URL EQUAL STRING . RP
 
     RP              shift and go to state 82
 
 
+state 71
+
+    (37) Id -> ID .
+    (17) Def -> ID . EQUAL Exp
+    (18) Def -> ID . EQUAL Exp SEMICOLON
+
+    COLON           reduce using rule 37 (Id -> ID .)
+    COMMA           reduce using rule 37 (Id -> ID .)
+    RC              reduce using rule 37 (Id -> ID .)
+    EQUAL           shift and go to state 23
+
+
+state 72
+
+    (9) Inside -> ID COLON ObjectParam .
+    (10) InsideRec -> ID COLON ObjectParam . COMMA Inside
+
+    RC              reduce using rule 9 (Inside -> ID COLON ObjectParam .)
+    COMMA           shift and go to state 83
+
+
+state 73
+
+    (14) ObjectParam -> String .
+
+    COMMA           reduce using rule 14 (ObjectParam -> String .)
+    RC              reduce using rule 14 (ObjectParam -> String .)
+
+
+state 74
+
+    (15) ObjectParam -> Id .
+    (4) Exp -> Id . COLON Second SEMICOLON
+    (6) Exp -> Id . COLON Prim SEMICOLON
+
+    COMMA           reduce using rule 15 (ObjectParam -> Id .)
+    RC              reduce using rule 15 (ObjectParam -> Id .)
+    COLON           shift and go to state 21
+
+
+state 75
+
+    (16) ObjectParam -> Exp .
+
+    COMMA           reduce using rule 16 (ObjectParam -> Exp .)
+    RC              reduce using rule 16 (ObjectParam -> Exp .)
+
+
+state 76
+
+    (30) CreateServer -> CREATESERVER LP PORT EQUAL Int RP .
+
+    SEMICOLON       reduce using rule 30 (CreateServer -> CREATESERVER LP PORT EQUAL Int RP .)
+    $end            reduce using rule 30 (CreateServer -> CREATESERVER LP PORT EQUAL Int RP .)
+    COMMA           reduce using rule 30 (CreateServer -> CREATESERVER LP PORT EQUAL Int RP .)
+    RC              reduce using rule 30 (CreateServer -> CREATESERVER LP PORT EQUAL Int RP .)
+
+
 state 77
 
-    (31) Ref -> Id .
+    (27) SetRoutes -> SETROUTES LP URL EQUAL STRING RP .
 
-    RP              reduce using rule 31 (Ref -> Id .)
+    $end            reduce using rule 27 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
+    SEMICOLON       reduce using rule 27 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
+    COMMA           reduce using rule 27 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
+    RC              reduce using rule 27 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
 
 
 state 78
 
-    (32) Ref -> Object .
+    (28) CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .
 
-    RP              reduce using rule 32 (Ref -> Object .)
+    $end            reduce using rule 28 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
+    SEMICOLON       reduce using rule 28 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
+    COMMA           reduce using rule 28 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
+    RC              reduce using rule 28 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
 
 
 state 79
 
-    (24) ReadData -> READDATA LP BODY EQUAL Ref . RP
+    (26) ReadData -> READDATA LP BODY EQUAL Ref RP .
 
-    RP              shift and go to state 83
+    $end            reduce using rule 26 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
+    SEMICOLON       reduce using rule 26 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
+    COMMA           reduce using rule 26 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
+    RC              reduce using rule 26 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
 
 
 state 80
 
-    (9) InsideRec -> ID COLON ObjectParam COMMA . Inside
-    (8) Inside -> . ID COLON ObjectParam
+    (24) HttpGet -> HTTPGET LP FROM EQUAL TextRef RP .
+
+    SEMICOLON       reduce using rule 24 (HttpGet -> HTTPGET LP FROM EQUAL TextRef RP .)
+    RP              reduce using rule 24 (HttpGet -> HTTPGET LP FROM EQUAL TextRef RP .)
+
+
+state 81
+
+    (35) String -> DQUOTE DQUOTE .
+
+    RP              reduce using rule 35 (String -> DQUOTE DQUOTE .)
+    COMMA           reduce using rule 35 (String -> DQUOTE DQUOTE .)
+    RC              reduce using rule 35 (String -> DQUOTE DQUOTE .)
+
+
+state 82
+
+    (25) HttpGet -> HTTPGET LP URL EQUAL STRING RP .
+
+    SEMICOLON       reduce using rule 25 (HttpGet -> HTTPGET LP URL EQUAL STRING RP .)
+    RP              reduce using rule 25 (HttpGet -> HTTPGET LP URL EQUAL STRING RP .)
+
+
+state 83
+
+    (10) InsideRec -> ID COLON ObjectParam COMMA . Inside
+    (9) Inside -> . ID COLON ObjectParam
 
     ID              shift and go to state 84
 
     Inside                         shift and go to state 85
 
-state 81
-
-    (25) SetRoutes -> SETROUTES LP URL EQUAL STRING RP .
-
-    SEMICOLON       reduce using rule 25 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
-    $end            reduce using rule 25 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
-    COMMA           reduce using rule 25 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
-    RC              reduce using rule 25 (SetRoutes -> SETROUTES LP URL EQUAL STRING RP .)
-
-
-state 82
-
-    (26) CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .
-
-    SEMICOLON       reduce using rule 26 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
-    $end            reduce using rule 26 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
-    COMMA           reduce using rule 26 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
-    RC              reduce using rule 26 (CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP .)
-
-
-state 83
-
-    (24) ReadData -> READDATA LP BODY EQUAL Ref RP .
-
-    SEMICOLON       reduce using rule 24 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
-    $end            reduce using rule 24 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
-    COMMA           reduce using rule 24 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
-    RC              reduce using rule 24 (ReadData -> READDATA LP BODY EQUAL Ref RP .)
-
-
 state 84
 
-    (8) Inside -> ID . COLON ObjectParam
+    (9) Inside -> ID . COLON ObjectParam
 
     COLON           shift and go to state 86
 
 
 state 85
 
-    (9) InsideRec -> ID COLON ObjectParam COMMA Inside .
+    (10) InsideRec -> ID COLON ObjectParam COMMA Inside .
 
-    RC              reduce using rule 9 (InsideRec -> ID COLON ObjectParam COMMA Inside .)
+    RC              reduce using rule 10 (InsideRec -> ID COLON ObjectParam COMMA Inside .)
 
 
 state 86
 
-    (8) Inside -> ID COLON . ObjectParam
-    (13) ObjectParam -> . String
-    (14) ObjectParam -> . Id
-    (15) ObjectParam -> . Exp
-    (33) String -> . DQUOTE DQUOTE
-    (34) String -> . STRING
-    (35) Id -> . ID
+    (9) Inside -> ID COLON . ObjectParam
+    (14) ObjectParam -> . String
+    (15) ObjectParam -> . Id
+    (16) ObjectParam -> . Exp
+    (35) String -> . DQUOTE DQUOTE
+    (36) String -> . STRING
+    (37) Id -> . ID
     (1) Exp -> . Def
-    (2) Exp -> . Id COLON Prim SEMICOLON
-    (3) Exp -> . Prim COLON Second
-    (4) Exp -> . Id COLON Second
-    (5) Exp -> . Id COLON Second SEMICOLON
-    (6) Exp -> . Object SEMICOLON
-    (16) Def -> . ID EQUAL Exp SEMICOLON
-    (17) Prim -> . CreateServer
-    (7) Object -> . JSON COLON LC RC
-    (10) Object -> . JSON COLON LC Inside RC
-    (11) Object -> . HttpGet
-    (12) Object -> . JSON COLON LC InsideRec RC
-    (27) CreateServer -> . CREATESERVER LP RP
-    (28) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
-    (22) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
-    (23) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
+    (2) Exp -> . Prim SEMICOLON
+    (3) Exp -> . Prim
+    (4) Exp -> . Id COLON Second SEMICOLON
+    (5) Exp -> . Second
+    (6) Exp -> . Id COLON Prim SEMICOLON
+    (7) Exp -> . Object SEMICOLON
+    (17) Def -> . ID EQUAL Exp
+    (18) Def -> . ID EQUAL Exp SEMICOLON
+    (19) Prim -> . CreateServer
+    (20) Second -> . SetRoutes
+    (21) Second -> . CreateData
+    (22) Second -> . ReadData
+    (23) Second -> . START
+    (8) Object -> . JSON COLON LC RC
+    (11) Object -> . JSON COLON LC Inside RC
+    (12) Object -> . HttpGet
+    (13) Object -> . JSON COLON LC InsideRec RC
+    (29) CreateServer -> . CREATESERVER LP RP
+    (30) CreateServer -> . CREATESERVER LP PORT EQUAL Int RP
+    (27) SetRoutes -> . SETROUTES LP URL EQUAL STRING RP
+    (28) CreateData -> . CREATEDATA LP OBJECT EQUAL Ref RP
+    (26) ReadData -> . READDATA LP BODY EQUAL Ref RP
+    (24) HttpGet -> . HTTPGET LP FROM EQUAL TextRef RP
+    (25) HttpGet -> . HTTPGET LP URL EQUAL STRING RP
 
-    DQUOTE          shift and go to state 60
-    STRING          shift and go to state 61
-    ID              shift and go to state 66
-    JSON            shift and go to state 8
-    CREATESERVER    shift and go to state 10
-    HTTPGET         shift and go to state 11
+    DQUOTE          shift and go to state 68
+    STRING          shift and go to state 69
+    ID              shift and go to state 71
+    START           shift and go to state 12
+    JSON            shift and go to state 13
+    CREATESERVER    shift and go to state 15
+    SETROUTES       shift and go to state 16
+    CREATEDATA      shift and go to state 17
+    READDATA        shift and go to state 18
+    HTTPGET         shift and go to state 19
 
     ObjectParam                    shift and go to state 87
-    String                         shift and go to state 68
-    Id                             shift and go to state 69
-    Exp                            shift and go to state 70
+    String                         shift and go to state 73
+    Id                             shift and go to state 74
+    Exp                            shift and go to state 75
     Def                            shift and go to state 2
-    Prim                           shift and go to state 4
-    Object                         shift and go to state 5
-    CreateServer                   shift and go to state 7
-    HttpGet                        shift and go to state 9
+    Prim                           shift and go to state 3
+    Second                         shift and go to state 5
+    Object                         shift and go to state 6
+    CreateServer                   shift and go to state 8
+    SetRoutes                      shift and go to state 9
+    CreateData                     shift and go to state 10
+    ReadData                       shift and go to state 11
+    HttpGet                        shift and go to state 14
 
 state 87
 
-    (8) Inside -> ID COLON ObjectParam .
+    (9) Inside -> ID COLON ObjectParam .
 
-    RC              reduce using rule 8 (Inside -> ID COLON ObjectParam .)
+    RC              reduce using rule 9 (Inside -> ID COLON ObjectParam .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: shift/reduce conflict for SEMICOLON in state 20 resolved as shift
+WARNING: shift/reduce conflict for SEMICOLON in state 3 resolved as shift
+WARNING: shift/reduce conflict for SEMICOLON in state 32 resolved as shift

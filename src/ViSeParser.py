@@ -3,7 +3,6 @@ from ViSeLex import tokens
 
 
 precedence = (
-    ('right','EQUAL'),
     ('left','LP'),
     ('left','LC'),
     ('right','RP'),
@@ -11,40 +10,41 @@ precedence = (
 )
 
 def p_Exp_Def(p):
-    'Exp : Def'
+    'Exp : Def '
     print("ExpDef")
 
-def p_Exp_Prim_Empty(p):
+
+def p_exp_prim_scolon(p):
+    'Exp : Prim SEMICOLON'
+    print("ExpPrim")
+
+
+def p_exp_prim(p):
     'Exp : Prim'
     print("ExpPrim")
 
 
-def p_Exp_Prim_Empty(p):
+def p_exp_second_empty_scolon(p):
+    'Exp : Id COLON Second SEMICOLON'
+    print("ExpSecond")
+
+
+def p_exp_second(p):
+    'Exp : Second'
+    print("ExpSecond")
+
+
+def p_exp_prim_empty(p):
     'Exp : Id COLON Prim SEMICOLON'
     print("ExpPrimSColon")
 
 
-def p_Exp_Prim_Second(p):
-    'Exp : Prim COLON Second'
-    print("ExpPrimSecond")
-
-
-def p_Exp_Id_Second(p):
-    'Exp : Id COLON Second'
-    print("ExpIdSecond")
-
-
-def p_exp_id_Second(p):
-    'Exp : Id COLON Second SEMICOLON'
-    print("ExpIdSecondSCOLON")
-
-
-def p_Exp_Object(p):
+def p_exp_object(p):
     'Exp : Object SEMICOLON'
     print("ExpObject")
 
 
-def p_Object_Empty(p):
+def p_object_empty(p):
     'Object : JSON COLON LC RC'
     print("JSON COLON LC RC")
 
@@ -78,7 +78,13 @@ def p_ObjectParam_Exp(p):
     'ObjectParam : Exp'
     print("ObjectParam_Exp")
 
-def p_Def_Id_Exp(p):
+
+def p_def_id_exp(p):
+    'Def : ID EQUAL Exp'
+    print("ID EQUAL Exp")
+
+
+def p_def_id_exp_scolon(p):
     'Def : ID EQUAL Exp SEMICOLON'
     print("ID EQUAL Exp SEMICOLON")
 
