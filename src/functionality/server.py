@@ -8,18 +8,30 @@ import logging
 log = logging.getLogger('werkzeug')
 log.disabled = True
 
+# Defines a route_id object
+# attributes:
+#     route: the assigned route string
+#     server_id: Server_id to which Route_ID is attached
 class Route_ID():
     def __init__(self, route, server_id):
         self.route = route
         self.server_id = server_id
 
+# Defines a Server_ID object
+# attributes:
+#     flask_instance: flask server instance
+#     port: port in which flask_instance is running
 class Server_ID():
     def __init__(self, flask_instance, port):
         self.flask_instance = flask_instance
         self.port = port
 
+# Defines Server Functionality
+# Describes all methods to interact with the Visual Server interpreter
+# attributes:
+#     variables: all variables created in ViSe code
+#     used_ports: ports in use by application
 class Server():
-
     def __init__(self, variables={}):
         self.variables = variables #parser stores id's to this dict
         self.used_ports = []
@@ -86,6 +98,6 @@ class Server():
         except:
             raise Exception("server failed to start")
 
-    ## TODO: add httpGet function
     def http_get(self, url):
+        ## TODO: modify json to comply with ViSe's definition of JSON
         return json.dumps(req.get(url).json())
