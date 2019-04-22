@@ -41,7 +41,7 @@ def p_exp_prim_empty(p):
 
 def p_exp_object(p):
     'Exp : Object SEMICOLON'
-    print("ExpObject")
+    p[0] = (p[1],p[2])
 
 
 def p_object_empty(p):
