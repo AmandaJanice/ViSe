@@ -63,14 +63,13 @@ def p_ObjectParam_Id(p):
 def p_ObjectParam_Exp(p):
     'ObjectParam : Exp'
     print("ObjectParam_Exp")
+def p_ObjectHttpGet(p):
+    'Object : HttpGet SEMICOLON'
 
 def p_Def_Id_Exp(p):
     'Def : ID EQUAL Exp SEMICOLON'
     print("ID EQUAL Exp SEMICOLON")
 
-def p_Prim_HttpGet(p):
-    'Prim : HttpGet'
-    print("Prim : HttpGet")
 
 def p_Prim_CreateServer(p):
     'Prim : CreateServer'
