@@ -3,7 +3,7 @@ server = createServer (port= 3000);
 
 //Create variable for data storage\\
 data = json: {};
-data2 = json: {name: "8%%$", lastName: "Petraca", age: "67"};
+data2 = json: {"name": "8%%$", "lastName": "Petraca", "age": "67"};
 
 //Server receives\\
 send = server: setRoutes(url= "/app/send");

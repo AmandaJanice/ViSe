@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START'
+_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONObject : JSON COLON LC Inside RCInside : STRING COLON ObjectParamInsideRec : STRING COLON ObjectParam COMMA InsideObjectParam : IDObjectParam : INTObjectParam : STRINGExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLON'
     
-_lr_action_items = {'ID':([0,],[2,]),'$end':([1,6,12,],[0,-2,-1,]),'EQUAL':([2,8,],[3,9,]),'COLON':([2,],[4,]),'CREATESERVER':([3,],[5,]),'START':([4,],[6,]),'LP':([5,],[7,]),'PORT':([7,],[8,]),'INT':([9,],[10,]),'RP':([10,],[11,]),'SEMICOLON':([11,],[12,]),}
+_lr_action_items = {'ID':([0,],[2,]),'$end':([1,5,11,16,19,],[0,-8,-10,-1,-9,]),'EQUAL':([2,13,],[3,15,]),'SEMICOLON':([2,8,14,18,],[5,11,16,19,]),'COLON':([2,6,],[4,9,]),'JSON':([3,],[6,]),'CREATESERVER':([3,],[7,]),'START':([4,],[8,]),'LP':([7,],[10,]),'LC':([9,],[12,]),'PORT':([10,],[13,]),'RC':([12,],[14,]),'INT':([15,],[17,]),'RP':([17,],[18,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -27,6 +27,14 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Exp","S'",1,None,None,None),
-  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',18),
-  ('Exp -> ID COLON START','Exp',3,'p_server_start','ViSeParser.py',23),
+  ('Exp -> ID EQUAL JSON COLON LC RC SEMICOLON','Exp',7,'p_object_def_empty','ViSeParser.py',19),
+  ('Object -> JSON COLON LC Inside RC','Object',5,'p_object_def','ViSeParser.py',25),
+  ('Inside -> STRING COLON ObjectParam','Inside',3,'p_inside_object','ViSeParser.py',30),
+  ('InsideRec -> STRING COLON ObjectParam COMMA Inside','InsideRec',5,'p_inside_rec','ViSeParser.py',34),
+  ('ObjectParam -> ID','ObjectParam',1,'p_object_param_id','ViSeParser.py',38),
+  ('ObjectParam -> INT','ObjectParam',1,'p_object_param_int','ViSeParser.py',42),
+  ('ObjectParam -> STRING','ObjectParam',1,'p_object_param_string','ViSeParser.py',46),
+  ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',50),
+  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',61),
+  ('Exp -> ID COLON START SEMICOLON','Exp',4,'p_server_start','ViSeParser.py',67),
 ]

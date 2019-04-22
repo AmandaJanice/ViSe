@@ -5,62 +5,65 @@ Unused terminals:
     BODY
     BSLASH
     CHARACTER
-    COMMA
     COMMENTS
     CREATEDATA
     DQUOTE
     FROM
     HTTPGET
-    JSON
-    LC
     OBJECT
     PERIOD
     PLUS
-    RC
     READDATA
     SETROUTES
     SLASH
-    STRING
     UNKNOWN
     URL
 
 Grammar
 
 Rule 0     S' -> Exp
-Rule 1     Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
-Rule 2     Exp -> ID COLON START
+Rule 1     Exp -> ID EQUAL JSON COLON LC RC SEMICOLON
+Rule 2     Object -> JSON COLON LC Inside RC
+Rule 3     Inside -> STRING COLON ObjectParam
+Rule 4     InsideRec -> STRING COLON ObjectParam COMMA Inside
+Rule 5     ObjectParam -> ID
+Rule 6     ObjectParam -> INT
+Rule 7     ObjectParam -> STRING
+Rule 8     Exp -> ID SEMICOLON
+Rule 9     Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+Rule 10    Exp -> ID COLON START SEMICOLON
 
 Terminals, with rules where they appear
 
 BODY                 : 
 BSLASH               : 
 CHARACTER            : 
-COLON                : 2
-COMMA                : 
+COLON                : 1 2 3 4 10
+COMMA                : 4
 COMMENTS             : 
 CREATEDATA           : 
-CREATESERVER         : 1
+CREATESERVER         : 9
 DQUOTE               : 
-EQUAL                : 1 1
+EQUAL                : 1 9 9
 FROM                 : 
 HTTPGET              : 
-ID                   : 1 2
-INT                  : 1
-JSON                 : 
-LC                   : 
-LP                   : 1
+ID                   : 1 5 8 9 10
+INT                  : 6 9
+JSON                 : 1 2
+LC                   : 1 2
+LP                   : 9
 OBJECT               : 
 PERIOD               : 
 PLUS                 : 
-PORT                 : 1
-RC                   : 
+PORT                 : 9
+RC                   : 1 2
 READDATA             : 
-RP                   : 1
-SEMICOLON            : 1
+RP                   : 9
+SEMICOLON            : 1 8 9 10
 SETROUTES            : 
 SLASH                : 
-START                : 2
-STRING               : 
+START                : 10
+STRING               : 3 4 7
 UNKNOWN              : 
 URL                  : 
 error                : 
@@ -68,14 +71,20 @@ error                :
 Nonterminals, with rules where they appear
 
 Exp                  : 0
+Inside               : 2 4
+InsideRec            : 
+Object               : 
+ObjectParam          : 3 4
 
 Parsing method: LALR
 
 state 0
 
     (0) S' -> . Exp
-    (1) Exp -> . ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
-    (2) Exp -> . ID COLON START
+    (1) Exp -> . ID EQUAL JSON COLON LC RC SEMICOLON
+    (8) Exp -> . ID SEMICOLON
+    (9) Exp -> . ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (10) Exp -> . ID COLON START SEMICOLON
 
     ID              shift and go to state 2
 
@@ -89,79 +98,133 @@ state 1
 
 state 2
 
-    (1) Exp -> ID . EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
-    (2) Exp -> ID . COLON START
+    (1) Exp -> ID . EQUAL JSON COLON LC RC SEMICOLON
+    (8) Exp -> ID . SEMICOLON
+    (9) Exp -> ID . EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (10) Exp -> ID . COLON START SEMICOLON
 
     EQUAL           shift and go to state 3
+    SEMICOLON       shift and go to state 5
     COLON           shift and go to state 4
 
 
 state 3
 
-    (1) Exp -> ID EQUAL . CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (1) Exp -> ID EQUAL . JSON COLON LC RC SEMICOLON
+    (9) Exp -> ID EQUAL . CREATESERVER LP PORT EQUAL INT RP SEMICOLON
 
-    CREATESERVER    shift and go to state 5
+    JSON            shift and go to state 6
+    CREATESERVER    shift and go to state 7
 
 
 state 4
 
-    (2) Exp -> ID COLON . START
+    (10) Exp -> ID COLON . START SEMICOLON
 
-    START           shift and go to state 6
+    START           shift and go to state 8
 
 
 state 5
 
-    (1) Exp -> ID EQUAL CREATESERVER . LP PORT EQUAL INT RP SEMICOLON
+    (8) Exp -> ID SEMICOLON .
 
-    LP              shift and go to state 7
+    $end            reduce using rule 8 (Exp -> ID SEMICOLON .)
 
 
 state 6
 
-    (2) Exp -> ID COLON START .
+    (1) Exp -> ID EQUAL JSON . COLON LC RC SEMICOLON
 
-    $end            reduce using rule 2 (Exp -> ID COLON START .)
+    COLON           shift and go to state 9
 
 
 state 7
 
-    (1) Exp -> ID EQUAL CREATESERVER LP . PORT EQUAL INT RP SEMICOLON
+    (9) Exp -> ID EQUAL CREATESERVER . LP PORT EQUAL INT RP SEMICOLON
 
-    PORT            shift and go to state 8
+    LP              shift and go to state 10
 
 
 state 8
 
-    (1) Exp -> ID EQUAL CREATESERVER LP PORT . EQUAL INT RP SEMICOLON
+    (10) Exp -> ID COLON START . SEMICOLON
 
-    EQUAL           shift and go to state 9
+    SEMICOLON       shift and go to state 11
 
 
 state 9
 
-    (1) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL . INT RP SEMICOLON
+    (1) Exp -> ID EQUAL JSON COLON . LC RC SEMICOLON
 
-    INT             shift and go to state 10
+    LC              shift and go to state 12
 
 
 state 10
 
-    (1) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT . RP SEMICOLON
+    (9) Exp -> ID EQUAL CREATESERVER LP . PORT EQUAL INT RP SEMICOLON
 
-    RP              shift and go to state 11
+    PORT            shift and go to state 13
 
 
 state 11
 
-    (1) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP . SEMICOLON
+    (10) Exp -> ID COLON START SEMICOLON .
 
-    SEMICOLON       shift and go to state 12
+    $end            reduce using rule 10 (Exp -> ID COLON START SEMICOLON .)
 
 
 state 12
 
-    (1) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .
+    (1) Exp -> ID EQUAL JSON COLON LC . RC SEMICOLON
 
-    $end            reduce using rule 1 (Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .)
+    RC              shift and go to state 14
+
+
+state 13
+
+    (9) Exp -> ID EQUAL CREATESERVER LP PORT . EQUAL INT RP SEMICOLON
+
+    EQUAL           shift and go to state 15
+
+
+state 14
+
+    (1) Exp -> ID EQUAL JSON COLON LC RC . SEMICOLON
+
+    SEMICOLON       shift and go to state 16
+
+
+state 15
+
+    (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL . INT RP SEMICOLON
+
+    INT             shift and go to state 17
+
+
+state 16
+
+    (1) Exp -> ID EQUAL JSON COLON LC RC SEMICOLON .
+
+    $end            reduce using rule 1 (Exp -> ID EQUAL JSON COLON LC RC SEMICOLON .)
+
+
+state 17
+
+    (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT . RP SEMICOLON
+
+    RP              shift and go to state 18
+
+
+state 18
+
+    (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 19
+
+
+state 19
+
+    (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .
+
+    $end            reduce using rule 9 (Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .)
 
