@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request
 import json
 import requests as req
+import logging
 
 class Route_ID():
     def __init__(self, route, server_id):
@@ -72,14 +73,14 @@ class Server():
             self.used_ports.append(port)
             return "Server instance created at port: " + str(port) + "\n (Server not running) Run " + assigned_id + ": start; to run server"
         else:
-            return "Not accepted, port: " + str(port) + ", is already in use"
+            raise Exception("Not accepted, port: " + str(port) + ", is already in use")
 
     def start_server(self, server_id):
         try:
             self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
             return "Server started at: http://localhost/" + str(self.variables[server_id].port) + "/"
         except:
-            return "server failed to start"
+            raise Exception("server failed to start")
 
     ## TODO: add httpGet function
     def http_get(self, url):
