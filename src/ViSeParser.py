@@ -13,10 +13,54 @@ precedence = (
     ('right','RC')
 )
 
+#data = json: {};
+#data2 = json: {name: "8%%$", lastName: "Petraca", age: "67"};
+def p_object_def_empty(p):
+    'Exp : ID EQUAL JSON COLON LC RC SEMICOLON'
+    code.update_variables(p[1], "{}")
+    #p[0] = p[1]
+
+
+def p_object_def(p):
+    'Object : JSON COLON LC Inside RC'
+    code.update_variables(p[1], p[4])
+
+
+def p_inside_object(p):
+    'Inside : STRING COLON ObjectParam'
+
+
+def p_inside_rec(p):
+    'InsideRec : STRING COLON ObjectParam COMMA Inside'
+
+
+def p_object_param_id(p):
+    'ObjectParam : ID'
+
+
+def p_object_param_int(p):
+    'ObjectParam : INT'
+
+
+def p_object_param_string(p):
+    'ObjectParam : STRING'
+
+
+def p_variable(p):
+    'Exp : ID SEMICOLON'
+    if p[1] not in code.variables:
+        p[0] = "Variable not declared"
+    else:
+        for i in code.variables:
+            if p[1] == i:
+                p[0] = i
+                pass
+
 
 def p_exp_create_server(p):
     'Exp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON'
     code.create_server(p[1], p[7])
+    p[0] = "Server with Id: '"+p[1]+"' and port: '"+p[7]+"' created."
 
 
 def p_server_start(p):
@@ -68,7 +112,7 @@ def p_server_start(p):
 #
 #
 # def p_Inside_Object(p):
-#     'Inside : ID COLON ObjectParam'
+#     'Inside : STRING COLON ObjectParam'
 #
 # def p_Inside_ObjectRec(p):
 #     'InsideRec : ID COLON ObjectParam COMMA Inside'
