@@ -12,7 +12,7 @@ Operator    ::=  = | :
 
 **Grammar**
 
-Exp         ::= Def+ | Prim | Prim : Second | Id : Second | Id : Third | Object
+Exp         ::= Def+ | Prim | Prim : Second | Id : Second | Id : Third | Object | Id
 
 Object ::= json : &quot;{&quot;&quot;}&quot; | json : &quot;{&quot;{ String : ObjectParam , }\* String : ObjectParam &quot;}&quot; | HttpGet
 
