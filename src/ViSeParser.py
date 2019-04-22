@@ -16,7 +16,12 @@ def p_Exp_Def(p):
 
 def p_Exp_Prim_Empty(p):
     'Exp : Id COLON Prim'
-    print("ExpPrimEmpty")
+    print("ExpPrim")
+
+
+def p_Exp_Prim_Empty(p):
+    'Exp : Id COLON Prim SEMICOLON'
+    print("ExpPrimSColon")
 
 
 def p_Exp_Prim_Second(p):
@@ -27,6 +32,11 @@ def p_Exp_Prim_Second(p):
 def p_Exp_Id_Second(p):
     'Exp : Id COLON Second'
     print("ExpIdSecond")
+
+
+def p_exp_id_Second(p):
+    'Exp : Id COLON Second SEMICOLON'
+    print("ExpIdSecondSCOLON")
 
 
 def p_Exp_Object(p):
