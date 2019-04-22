@@ -2,6 +2,11 @@ from flask import Flask
 from flask import request
 import json
 import requests as req
+import logging
+
+# Removes log messages, Server started message is still there
+log = logging.getLogger('werkzeug')
+log.disabled = True
 
 class Route_ID():
     def __init__(self, route, server_id):
