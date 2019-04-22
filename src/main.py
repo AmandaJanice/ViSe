@@ -29,9 +29,9 @@ if __name__ == '__main__':
 
     #tests user printing out id's by themselves
     #should print object value
-    s.print_object("data")
+    s.print_object("test")
     s.print_object("data2")
 
     #testing non Id route call: server: setRoutes(url= "/empty"): readData(body: Data2)
     s.read_data(s.add_route("server", "/empty"), "data2")
-    s.start_server("server")
+    # s.start_server("server")
