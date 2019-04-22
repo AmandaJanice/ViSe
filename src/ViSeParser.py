@@ -15,28 +15,29 @@ def p_Exp_Def(p):
     print("ExpDef")
 
 def p_Exp_Prim_Empty(p):
-    'Exp : Id COLON Prim SEMICOLON'
+    'Exp : Id COLON Prim'
     print("ExpPrimEmpty")
 
+
 def p_Exp_Prim_Second(p):
-    'Exp : Prim COLON Second SEMICOLON'
+    'Exp : Prim COLON Second'
     print("ExpPrimSecond")
 
+
 def p_Exp_Id_Second(p):
-    'Exp : Id COLON Second SEMICOLON'
+    'Exp : Id COLON Second'
     print("ExpIdSecond")
+
 
 def p_Exp_Object(p):
     'Exp : Object SEMICOLON'
     print("ExpObject")
 
-def p_Exp_HttpGet(p):
-    'Exp : HttpGet SEMICOLON'
-    print("ExpHTTPGET")
 
 def p_Object_Empty(p):
     'Object : JSON COLON LC RC'
     print("JSON COLON LC RC")
+
 
 def p_Inside_Object(p):
     'Inside : ID COLON ObjectParam'
@@ -47,6 +48,9 @@ def p_Inside_ObjectRec(p):
 def p_Object(p):
     'Object : JSON COLON LC Inside RC'
     print("JSON COLON LC Inside RC")
+
+def p_ObjectHttpGet(p):
+    'Object : HttpGet'
 
 def p_Object_VARIOUS(p):
     'Object : JSON COLON LC InsideRec RC'
@@ -63,8 +67,6 @@ def p_ObjectParam_Id(p):
 def p_ObjectParam_Exp(p):
     'ObjectParam : Exp'
     print("ObjectParam_Exp")
-def p_ObjectHttpGet(p):
-    'Object : HttpGet SEMICOLON'
 
 def p_Def_Id_Exp(p):
     'Def : ID EQUAL Exp SEMICOLON'
@@ -75,78 +77,101 @@ def p_Prim_CreateServer(p):
     'Prim : CreateServer'
     print("Prim : CreateServer")
 
-def p_Second_SetRoutes(p):
+
+def p_second_set_routes(p):
     'Second : SetRoutes'
     print("Second : SetRoutes")
 
-def p_Second_CreateData(p):
+
+def p_second_create_data(p):
     'Second : CreateData'
     print("Second : CreateData")
 
-def p_Second_ReadData(p):
+
+def p_second_read_data(p):
     'Second : ReadData'
     print("Second : ReadData")
+
 
 def p_Second_start(p):
     'Second : START'
     print("Second : start")
 
-def p_HttpGet(p):
+
+def p_http_get(p):
     'HttpGet : HTTPGET LP FROM EQUAL TextRef RP'
     print("HttpGet")
 
-def p_HttpGet_Url(p):
+
+def p_http_get_url(p):
     'HttpGet : HTTPGET LP URL EQUAL STRING RP'
     print("HttpGet URL")
 
-def p_ReadData(p):
+
+def p_read_data(p):
     'ReadData : READDATA LP BODY EQUAL Ref RP'
     print("ReadData")
 
-def p_SetRoutes(p):
-    'SetRoutes : SETROUTES LP URL EQUAL TextRef RP'
+
+def p_set_routes(p):
+    'SetRoutes : SETROUTES LP URL EQUAL STRING RP'
     print("SetRoutes")
 
-def p_CreateData(p):
+
+def p_create_data(p):
     'CreateData : CREATEDATA LP OBJECT EQUAL Ref RP'
     print("CreateData")
 
-def p_CreateServer_Empty(p):
+
+def p_create_server_empty(p):
     'CreateServer : CREATESERVER LP RP'
     print("CreateServer Empty")
 
-def p_CreateServer_Port(p):
+
+def p_create_server_port(p):
     'CreateServer : CREATESERVER LP PORT EQUAL Int RP'
     print("CreateServer Port")
 
-def p_TextRef_Id(p):
+
+def p_text_ref_id(p):
     'TextRef : Id'
     print("TextRef Id")
 
-def p_TextRef_String(p):
+
+def p_text_ref_string(p):
     'TextRef : String'
     print("TextRef String")
 
-def p_Ref_Id(p):
+
+def p_ref_id(p):
     'Ref : Id'
     print("Ref Id")
 
-def p_Ref_Object(p):
+
+def p_ref_object(p):
     'Ref : Object'
     print("Ref Object")
 
-def p_String_Empty(p):
+
+#terminales
+def p_string_empty(p):
     'String : DQUOTE DQUOTE'
     print("String Empty")
 
+
+#terminales
 def p_String(p):
     'String : STRING'
     print("String")
 
+
+#terminales
 def p_Id(p):
     'Id : ID'
     print("ID")
 
+
+#terminales
 def p_Int(p):
     'Int : INT'
     print("Int")

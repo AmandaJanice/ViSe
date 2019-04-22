@@ -8,7 +8,7 @@ actions = {
 'createData': 'CREATEDATA',
 'setRoutes': 'SETROUTES',
 'readData': 'READDATA',
-'httpGET': 'HTTPGET',
+'httpGet': 'HTTPGET',
 'start': 'START',
 'createServer': 'CREATESERVER',
 

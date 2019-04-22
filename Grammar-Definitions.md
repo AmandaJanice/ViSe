@@ -24,7 +24,7 @@ Prim  ::= CreateServer
 
 Second ::= SetRoutes | CreateData | ReadData | start
 
-HttpGet ::= httpGet (from = TextRef)
+HttpGet ::= httpGet (from = String)
 
 ReadData ::= readData (body = Ref)
 
