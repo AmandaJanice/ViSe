@@ -11,17 +11,17 @@ precedence = (
 
 def p_Exp_Def(p):
     'Exp : Def '
-    print("ExpDef")
+    p[0] = p[1]
 
 
 def p_exp_prim_scolon(p):
     'Exp : Prim SEMICOLON'
-    print("ExpPrim")
+    p[0] = p[1],p[2]
 
 
 def p_exp_prim(p):
     'Exp : Prim'
-    print("ExpPrim")
+    p[0] = p[1]
 
 
 def p_exp_second_empty_scolon(p):
@@ -31,12 +31,12 @@ def p_exp_second_empty_scolon(p):
 
 def p_exp_second(p):
     'Exp : Second'
-    print("ExpSecond")
+    p[0]=p[1]
 
 
 def p_exp_prim_empty(p):
     'Exp : Id COLON Prim SEMICOLON'
-    print("ExpPrimSColon")
+    p[0] = p[1],p[2],p[3],p[4]
 
 
 def p_exp_object(p):
@@ -46,7 +46,7 @@ def p_exp_object(p):
 
 def p_object_empty(p):
     'Object : JSON COLON LC RC'
-    print("JSON COLON LC RC")
+    p[0] = p[1],p[2],p[3],p[4]
 
 
 def p_Inside_Object(p):
@@ -184,8 +184,7 @@ def p_String(p):
 #terminales
 def p_Id(p):
     'Id : ID'
-    print("ID")
-
+    p[0] = p[1]
 
 #terminales
 def p_Int(p):
