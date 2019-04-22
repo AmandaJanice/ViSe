@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : Def Exp : Prim SEMICOLONExp : PrimExp : Id COLON Second SEMICOLONExp : SecondExp : Id COLON Prim SEMICOLONExp : Object SEMICOLONObject : JSON COLON LC RCInside : ID COLON ObjectParamInsideRec : ID COLON ObjectParam COMMA InsideObject : JSON COLON LC Inside RCObject : HttpGetObject : JSON COLON LC InsideRec RCObjectParam : StringObjectParam : IdObjectParam : ExpDef : ID EQUAL ExpDef : ID EQUAL Exp SEMICOLONPrim : CreateServerSecond : SetRoutesSecond : CreateDataSecond : ReadDataSecond : STARTHttpGet : HTTPGET LP FROM EQUAL TextRef RPHttpGet : HTTPGET LP URL EQUAL STRING RPReadData : READDATA LP BODY EQUAL Ref RPSetRoutes : SETROUTES LP URL EQUAL STRING RPCreateData : CREATEDATA LP OBJECT EQUAL Ref RPCreateServer : CREATESERVER LP RPCreateServer : CREATESERVER LP PORT EQUAL Int RPTextRef : IdTextRef : StringRef : IdRef : ObjectString : DQUOTE DQUOTEString : STRINGId : IDInt : INT'
+_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START'
     
-_lr_action_items = {'ID':([0,23,33,50,51,52,56,83,86,],[7,7,47,63,63,63,71,84,71,]),'START':([0,21,23,56,86,],[12,12,12,12,12,]),'JSON':([0,23,50,51,56,86,],[13,13,13,13,13,13,]),'CREATESERVER':([0,21,23,56,86,],[15,15,15,15,15,]),'SETROUTES':([0,21,23,56,86,],[16,16,16,16,16,]),'CREATEDATA':([0,21,23,56,86,],[17,17,17,17,17,]),'READDATA':([0,21,23,56,86,],[18,18,18,18,18,]),'HTTPGET':([0,23,50,51,56,86,],[19,19,19,19,19,19,]),'$end':([1,2,3,5,8,9,10,11,12,20,22,32,34,41,42,43,76,77,78,79,],[0,-1,-3,-5,-19,-20,-21,-22,-23,-2,-7,-17,-29,-4,-6,-18,-30,-27,-28,-26,]),'SEMICOLON':([2,3,5,6,8,9,10,11,12,14,20,22,30,31,32,34,41,42,43,44,54,55,76,77,78,79,80,82,],[-1,20,-5,22,-19,-20,-21,-22,-23,-12,-2,-7,41,42,43,-29,-4,-6,-18,-8,-11,-13,-30,-27,-28,-26,-24,-25,]),'COMMA':([2,3,5,8,9,10,11,12,20,22,32,34,41,42,43,69,71,72,73,74,75,76,77,78,79,81,],[-1,-3,-5,-19,-20,-21,-22,-23,-2,-7,-17,-29,-4,-6,-18,-36,-37,83,-14,-15,-16,-30,-27,-28,-26,-35,]),'RC':([2,3,5,8,9,10,11,12,20,22,32,33,34,41,42,43,45,46,69,71,72,73,74,75,76,77,78,79,81,85,87,],[-1,-3,-5,-19,-20,-21,-22,-23,-2,-7,-17,44,-29,-4,-6,-18,54,55,-36,-37,-9,-14,-15,-16,-30,-27,-28,-26,-35,-10,-9,]),'COLON':([4,7,13,47,71,74,84,],[21,-37,24,56,-37,21,86,]),'EQUAL':([7,35,36,37,38,39,40,71,],[23,48,49,50,51,52,53,23,]),'RP':([14,25,44,54,55,57,58,59,60,61,62,63,64,65,66,67,69,70,80,81,82,],[-12,34,-8,-11,-13,76,-38,77,78,-33,-34,-37,79,80,-31,-32,-36,82,-24,-35,-25,]),'LP':([15,16,17,18,19,],[25,26,27,28,29,]),'LC':([24,],[33,]),'PORT':([25,],[35,]),'URL':([26,29,],[36,40,]),'OBJECT':([27,],[37,]),'BODY':([28,],[38,]),'FROM':([29,],[39,]),'INT':([48,],[58,]),'STRING':([49,52,53,56,86,],[59,69,70,69,69,]),'DQUOTE':([52,56,68,86,],[68,68,81,68,]),}
+_lr_action_items = {'ID':([0,],[2,]),'$end':([1,6,12,],[0,-2,-1,]),'EQUAL':([2,8,],[3,9,]),'COLON':([2,],[4,]),'CREATESERVER':([3,],[5,]),'START':([4,],[6,]),'LP':([5,],[7,]),'PORT':([7,],[8,]),'INT':([9,],[10,]),'RP':([10,],[11,]),'SEMICOLON':([11,],[12,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Exp':([0,23,56,86,],[1,32,75,75,]),'Def':([0,23,56,86,],[2,2,2,2,]),'Prim':([0,21,23,56,86,],[3,31,3,3,3,]),'Id':([0,23,50,51,52,56,86,],[4,4,61,61,66,74,74,]),'Second':([0,21,23,56,86,],[5,30,5,5,5,]),'Object':([0,23,50,51,56,86,],[6,6,62,62,6,6,]),'CreateServer':([0,21,23,56,86,],[8,8,8,8,8,]),'SetRoutes':([0,21,23,56,86,],[9,9,9,9,9,]),'CreateData':([0,21,23,56,86,],[10,10,10,10,10,]),'ReadData':([0,21,23,56,86,],[11,11,11,11,11,]),'HttpGet':([0,23,50,51,56,86,],[14,14,14,14,14,14,]),'Inside':([33,83,],[45,85,]),'InsideRec':([33,],[46,]),'Int':([48,],[57,]),'Ref':([50,51,],[60,64,]),'TextRef':([52,],[65,]),'String':([52,56,86,],[67,73,73,]),'ObjectParam':([56,86,],[72,87,]),}
+_lr_goto_items = {'Exp':([0,],[1,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,42 +27,6 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Exp","S'",1,None,None,None),
-  ('Exp -> Def','Exp',1,'p_Exp_Def','ViSeParser.py',13),
-  ('Exp -> Prim SEMICOLON','Exp',2,'p_exp_prim_scolon','ViSeParser.py',18),
-  ('Exp -> Prim','Exp',1,'p_exp_prim','ViSeParser.py',23),
-  ('Exp -> Id COLON Second SEMICOLON','Exp',4,'p_exp_second_empty_scolon','ViSeParser.py',28),
-  ('Exp -> Second','Exp',1,'p_exp_second','ViSeParser.py',33),
-  ('Exp -> Id COLON Prim SEMICOLON','Exp',4,'p_exp_prim_empty','ViSeParser.py',38),
-  ('Exp -> Object SEMICOLON','Exp',2,'p_exp_object','ViSeParser.py',43),
-  ('Object -> JSON COLON LC RC','Object',4,'p_object_empty','ViSeParser.py',48),
-  ('Inside -> ID COLON ObjectParam','Inside',3,'p_Inside_Object','ViSeParser.py',53),
-  ('InsideRec -> ID COLON ObjectParam COMMA Inside','InsideRec',5,'p_Inside_ObjectRec','ViSeParser.py',56),
-  ('Object -> JSON COLON LC Inside RC','Object',5,'p_Object','ViSeParser.py',59),
-  ('Object -> HttpGet','Object',1,'p_ObjectHttpGet','ViSeParser.py',63),
-  ('Object -> JSON COLON LC InsideRec RC','Object',5,'p_Object_VARIOUS','ViSeParser.py',66),
-  ('ObjectParam -> String','ObjectParam',1,'p_ObjectParam_String','ViSeParser.py',70),
-  ('ObjectParam -> Id','ObjectParam',1,'p_ObjectParam_Id','ViSeParser.py',74),
-  ('ObjectParam -> Exp','ObjectParam',1,'p_ObjectParam_Exp','ViSeParser.py',78),
-  ('Def -> ID EQUAL Exp','Def',3,'p_def_id_exp','ViSeParser.py',83),
-  ('Def -> ID EQUAL Exp SEMICOLON','Def',4,'p_def_id_exp_scolon','ViSeParser.py',88),
-  ('Prim -> CreateServer','Prim',1,'p_Prim_CreateServer','ViSeParser.py',93),
-  ('Second -> SetRoutes','Second',1,'p_second_set_routes','ViSeParser.py',98),
-  ('Second -> CreateData','Second',1,'p_second_create_data','ViSeParser.py',103),
-  ('Second -> ReadData','Second',1,'p_second_read_data','ViSeParser.py',108),
-  ('Second -> START','Second',1,'p_Second_start','ViSeParser.py',113),
-  ('HttpGet -> HTTPGET LP FROM EQUAL TextRef RP','HttpGet',6,'p_http_get','ViSeParser.py',118),
-  ('HttpGet -> HTTPGET LP URL EQUAL STRING RP','HttpGet',6,'p_http_get_url','ViSeParser.py',123),
-  ('ReadData -> READDATA LP BODY EQUAL Ref RP','ReadData',6,'p_read_data','ViSeParser.py',128),
-  ('SetRoutes -> SETROUTES LP URL EQUAL STRING RP','SetRoutes',6,'p_set_routes','ViSeParser.py',133),
-  ('CreateData -> CREATEDATA LP OBJECT EQUAL Ref RP','CreateData',6,'p_create_data','ViSeParser.py',138),
-  ('CreateServer -> CREATESERVER LP RP','CreateServer',3,'p_create_server_empty','ViSeParser.py',143),
-  ('CreateServer -> CREATESERVER LP PORT EQUAL Int RP','CreateServer',6,'p_create_server_port','ViSeParser.py',148),
-  ('TextRef -> Id','TextRef',1,'p_text_ref_id','ViSeParser.py',153),
-  ('TextRef -> String','TextRef',1,'p_text_ref_string','ViSeParser.py',158),
-  ('Ref -> Id','Ref',1,'p_ref_id','ViSeParser.py',163),
-  ('Ref -> Object','Ref',1,'p_ref_object','ViSeParser.py',168),
-  ('String -> DQUOTE DQUOTE','String',2,'p_string_empty','ViSeParser.py',174),
-  ('String -> STRING','String',1,'p_String','ViSeParser.py',180),
-  ('Id -> ID','Id',1,'p_Id','ViSeParser.py',186),
-  ('Int -> INT','Int',1,'p_Int','ViSeParser.py',192),
+  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',18),
+  ('Exp -> ID COLON START','Exp',3,'p_server_start','ViSeParser.py',23),
 ]
