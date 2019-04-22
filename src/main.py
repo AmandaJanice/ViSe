@@ -18,10 +18,15 @@ if __name__ == '__main__':
     s.add_route("server", '/', "home")
     s.read_data("home", "home_text")
     # s.add_endpoints("server", '/', lambda : 'Hello, World')#placeholder, necessary for execution
+
+    ## testing for communicating with other server
+    # test = httpGet(url= “https://reqres.in/api/users?page=2”);
+    # test_route = server: setRoutes(url= "/test");
+    # test_route: readData(body= test);
     s.update_variables("test", s.http_get("https://reqres.in/api/users?page=2"))
     s.add_route("server", '/test', "test_route")
     s.read_data("test_route", "test")
 
-    #testing non Id route call
+    #testing non Id route call: server: setRoutes(url= "/empty"): readData(body: Data2)
     s.read_data(s.add_route("server", "/empty"), "data2")
     s.start_server("server")
