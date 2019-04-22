@@ -32,8 +32,12 @@ class Server():
         except:
             self.variables[var_id] = parsed
 
-    def add_route(self, route_id, server_id, route):
+    def add_route(self, server_id, route, route_id = None):
+        if(not route_id):
+            route_id = server_id + route
         self.variables[route_id] = Route_ID(route, server_id)
+
+        return route_id
 
     def add_endpoints(self, server_id, route_endpoint, action):
         app = self.variables[server_id].flask_instance
