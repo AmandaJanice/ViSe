@@ -17,6 +17,7 @@ class Server():
 
     def __init__(self, variables={}):
         self.variables = variables #parser stores id's to this dict
+        self.used_ports = []
 
     def update_variables(self, var_id, object):
         parsed = json.loads(object)
@@ -66,10 +67,19 @@ class Server():
         self.add_endpoints(endpoint.server_id, endpoint.route, return_action)
 
     def create_server(self, assigned_id, port=80):
-        self.variables[assigned_id] = Server_ID(Flask(assigned_id), port)
+        if(port not in self.used_ports):
+            self.variables[assigned_id] = Server_ID(Flask(assigned_id), port)
+            self.used_ports.append(port)
+            return "Server instance created at port: " + str(port) + "\n (Server not running) Run " + assigned_id + ": start; to run server"
+        else:
+            return "Not accepted, port: " + str(port) + ", is already in use"
 
     def start_server(self, server_id):
-        self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
+        try:
+            self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
+            return "Server started at: http://localhost/" + str(self.variables[server_id].port) + "/"
+        except:
+            return "server failed to start"
 
     ## TODO: add httpGet function
     def http_get(self, url):
