@@ -53,7 +53,7 @@ def p_variable(p):
     else:
         for i in code.variables:
             if p[1] == i:
-                p[0] = i
+                p[0] = code.print_object(i)
                 pass
 
 
