@@ -9,7 +9,7 @@ data2 = json: {"name": "8%%$", "lastName": "Petraca", "age": "67"};
 send = server: setRoutes(url= "/app/send");
 
 //uses the request body in a JSON format\\
-send: createData(object= data);  //object: object to save into\\
+send1 = send: createData(object= data2);  //object: object to save into\\
 send: createData(object= data2);//you can also overwrite existing values\\\\
 
 //Server sends\\
