@@ -16,6 +16,9 @@ send: createData(object= data2);//you can also overwrite existing values\\\\
 get = server: setRoutes(url= "/app/get");
 get: readData(body= data); //data in JSON format\\
 
+server: setRoutes(url= "/empty"): readData(body= data2);
+server: setRoutes(url= "/empty"): createData(object= data2);
+
 server: start;
 
 //Communicating with other server\\

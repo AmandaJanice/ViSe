@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'BODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONExp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLONInside :  STRING COLON STRING InsideRec : Inside COMMA Inside COMMA InsideExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLONExp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLONExp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLONExp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
+_lr_signature = 'BODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONExp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLONInside :  STRING COLON STRING InsideRec : Inside COMMA Inside COMMA InsideExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLONExp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLONExp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLONExp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLONExp : ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLONExp : ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
     
-_lr_action_items = {'ID':([0,4,38,39,],[2,8,49,50,]),'HTTPGET':([0,4,],[3,11,]),'$end':([1,6,20,42,51,53,55,63,64,65,66,69,],[0,-6,-8,-1,-10,-2,-3,-7,-9,-12,-13,-11,]),'EQUAL':([2,15,26,27,28,29,41,],[4,23,36,37,38,39,52,]),'SEMICOLON':([2,12,32,40,43,45,57,58,59,60,67,],[6,20,42,51,53,55,63,64,65,66,69,]),'COLON':([2,8,9,35,],[5,16,17,46,]),'LP':([3,10,11,13,14,24,],[7,18,19,21,22,31,]),'JSON':([4,],[9,]),'CREATESERVER':([4,],[10,]),'START':([5,],[12,]),'READDATA':([5,],[13,]),'CREATEDATA':([5,],[14,]),'URL':([7,19,31,],[15,27,41,]),'SETROUTES':([16,],[24,]),'LC':([17,],[25,]),'PORT':([18,],[26,]),'BODY':([21,],[28,]),'OBJECT':([22,],[29,]),'STRING':([23,25,37,44,46,52,62,],[30,35,48,35,56,61,35,]),'RC':([25,33,34,56,68,],[32,43,45,-4,-5,]),'RP':([30,47,48,49,50,61,],[40,57,58,59,60,67,]),'COMMA':([33,54,56,],[44,62,-4,]),'INT':([36,],[47,]),}
+_lr_action_items = {'ID':([0,4,41,42,83,84,],[2,8,53,54,85,86,]),'HTTPGET':([0,4,],[3,11,]),'$end':([1,6,21,46,56,58,60,69,70,71,72,78,89,90,],[0,-6,-8,-1,-10,-2,-3,-7,-9,-12,-13,-11,-14,-15,]),'EQUAL':([2,16,28,29,30,31,32,45,81,82,],[4,25,39,40,41,42,43,57,83,84,]),'SEMICOLON':([2,12,35,44,47,49,62,63,64,65,74,87,88,],[6,21,46,56,58,60,69,70,71,72,78,89,90,]),'COLON':([2,8,9,38,66,],[5,17,18,50,73,]),'LP':([3,10,11,13,14,15,26,76,77,],[7,19,20,22,23,24,34,79,80,]),'JSON':([4,],[9,]),'CREATESERVER':([4,],[10,]),'START':([5,],[12,]),'READDATA':([5,73,],[13,76,]),'CREATEDATA':([5,73,],[14,77,]),'SETROUTES':([5,17,],[15,26,]),'URL':([7,20,24,34,],[16,29,32,45,]),'LC':([18,],[27,]),'PORT':([19,],[28,]),'BODY':([22,79,],[30,81,]),'OBJECT':([23,80,],[31,82,]),'STRING':([25,27,40,43,48,50,57,68,],[33,38,52,55,38,61,67,38,]),'RC':([27,36,37,61,75,],[35,47,49,-4,-5,]),'RP':([33,51,52,53,54,55,67,85,86,],[44,62,63,64,65,66,74,87,88,]),'COMMA':([36,59,61,],[48,68,-4,]),'INT':([39,],[51,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([25,44,62,],[33,54,68,]),'InsideRec':([25,],[34,]),}
+_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([27,48,68,],[36,59,75,]),'InsideRec':([27,],[37,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,17 +27,19 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Exp","S'",1,None,None,None),
-  ('Exp -> ID EQUAL JSON COLON LC RC SEMICOLON','Exp',7,'p_object_def_empty','ViSeParser.py',19),
-  ('Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON','Exp',8,'p_object_def','ViSeParser.py',25),
-  ('Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON','Exp',8,'p_object_def_rec','ViSeParser.py',31),
-  ('Inside -> STRING COLON STRING','Inside',3,'p_inside_object','ViSeParser.py',37),
-  ('InsideRec -> Inside COMMA Inside COMMA Inside','InsideRec',5,'p_inside_rec','ViSeParser.py',42),
-  ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',47),
-  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',58),
+  ('Exp -> ID EQUAL JSON COLON LC RC SEMICOLON','Exp',7,'p_object_def_empty','ViSeParser.py',20),
+  ('Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON','Exp',8,'p_object_def','ViSeParser.py',26),
+  ('Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON','Exp',8,'p_object_def_rec','ViSeParser.py',32),
+  ('Inside -> STRING COLON STRING','Inside',3,'p_inside_object','ViSeParser.py',38),
+  ('InsideRec -> Inside COMMA Inside COMMA Inside','InsideRec',5,'p_inside_rec','ViSeParser.py',43),
+  ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',48),
+  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',59),
   ('Exp -> ID COLON START SEMICOLON','Exp',4,'p_server_start','ViSeParser.py',64),
-  ('Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',9,'p_communicate_id','ViSeParser.py',73),
+  ('Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',9,'p_communicate_id','ViSeParser.py',72),
   ('Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',7,'p_communicate','ViSeParser.py',78),
   ('Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON','Exp',11,'p_server_sets','ViSeParser.py',84),
   ('Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON','Exp',9,'p_server_reads','ViSeParser.py',93),
-  ('Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON','Exp',9,'p_server_creates','ViSeParser.py',103),
+  ('Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON','Exp',9,'p_server_creates','ViSeParser.py',102),
+  ('Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON','Exp',16,'p_set_routes_read','ViSeParser.py',113),
+  ('Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON','Exp',16,'p_set_routes_create','ViSeParser.py',123),
 ]

@@ -23,15 +23,15 @@ if __name__ == '__main__':
     # test = httpGet(url= “https://reqres.in/api/users?page=2”);
     # test_route = server: setRoutes(url= "/test");
     # test_route: readData(body= test);
-    s.update_variables("test", s.http_get("https://reqres.in/api/users?page=2"))
-    s.add_route("server", '/test', "test_route")
-    s.read_data("test_route", "test")
+    # s.update_variables("test", s.http_get("https://reqres.in/api/users?page=2"))
+    # s.add_route("server", '/test', "test_route")
+    # s.read_data("test_route", "test")
 
     #tests user printing out id's by themselves
     #should print object value
-    s.print_object("test")
-    s.print_object("data2")
+    # s.print_object("test")
+    # s.print_object("data2")
 
     #testing non Id route call: server: setRoutes(url= "/empty"): readData(body: Data2)
-    s.read_data(s.add_route("server", "/empty"), "data2")
+    #s.create_data(s.add_route("server", "/empty"), "data2")
     # s.start_server("server")
