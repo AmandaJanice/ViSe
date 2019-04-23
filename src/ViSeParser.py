@@ -6,6 +6,9 @@ import cleaner as cl
 
 code = s.Server()
 
+def p_help(p):
+    'Exp : HELP'
+    p[0] = "To create a server run: 'createServer (port= 3000);' and store it on a variable\nTo run the server run: 'variable : start;' \n"
 
 def p_object_def_empty(p):
     'Exp : ID EQUAL JSON COLON LC RC SEMICOLON'
@@ -68,7 +71,6 @@ def p_communicate_id(p):
 def p_communicate(p):
     'Exp : HTTPGET LP URL EQUAL STRING RP SEMICOLON'
     p[0] = code.http_get(cl.string_cleaner(p[5]))
-
 
 
 def p_server_sets(p):

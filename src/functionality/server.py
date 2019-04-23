@@ -88,7 +88,7 @@ class Server():
         if(port not in self.used_ports):
             self.variables[assigned_id] = Server_ID(Flask(assigned_id), port)
             self.used_ports.append(port)
-            return "Server instance with ID: '" + assigned_id + "' created at port: " + str(port) + "\n(Server not running) Run " + assigned_id + ": start; to run server"
+            return "Server instance with ID: '" + assigned_id + "' created at port: " + str(port) + "\n(Server not running) To run -> " + assigned_id + ": start;"
         else:
             return "Not accepted, port: " + str(port) + ", is already in use"
 

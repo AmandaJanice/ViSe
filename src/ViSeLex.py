@@ -18,10 +18,10 @@ actions = {
 reserved = {
 'port': 'PORT',
 'json': 'JSON',
-'from': 'FROM',
 'url': 'URL',
 'body': 'BODY',
 'object': 'OBJECT',
+'Help' : 'HELP'
 }
 
 reserved.update(actions)
@@ -29,7 +29,6 @@ reserved.update(actions)
 
 tokens = [
     'INT',
-    'UNKNOWN',
     'ID',
     'STRING',
     'LP',
@@ -39,13 +38,6 @@ tokens = [
     'COMMA',
     'SEMICOLON',
     'COLON',
-    'PERIOD',
-    'PLUS',
-    'CHARACTER',
-    'COMMENTS',
-    'BSLASH',
-    'SLASH',
-    'DQUOTE',
     'EQUAL'
 
 ] + list(reserved.values())
@@ -64,10 +56,6 @@ def t_ID(t):
         t.type = reserved[t.value]
     return t
 
-
-#Unknown Character Token
-t_UNKNOWN = r'\?'
-
 #COMMENTS
 def t_STRING(t):
     r'\"(.*?)"'
@@ -78,17 +66,8 @@ def t_COMMENTS(t):
     r'\// . * \\'
     pass
 
-#Back Slash Token
-t_BSLASH = r'\\'
-
-#Slash Token
-t_SLASH = r'\/'
-
 #Equal Sign Token
 t_EQUAL = r'='
-
-#DQUOTE Token
-t_DQUOTE = r'\"'
 
 #Left Parenthesis Token
 t_LP = r'\('
@@ -111,13 +90,6 @@ t_SEMICOLON = r';'
 #Colon Token
 t_COLON = r':'
 
-#Period Symbol Token
-t_PERIOD = r'\.'
-
-#Rule for Characters
-def t_CHARACTER(t):
-    r'\[~+-<>$%&.!]'
-    return t
 
 #Ignored Characters
 t_ignore = '\t \n'
