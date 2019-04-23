@@ -96,6 +96,16 @@ def p_server_reads(p):
     else:
         p[0] = code.read_data(p[1], p[7])
 
+def p_server_read_id(p):
+    'Exp : ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON'
+    if p[9] not in code.variables:
+        p[0] = cl.id_not_defined(p[9])
+    elif p[3] not in code.variables:
+        p[0] = cl.id_not_defined(p[3])
+    else:
+        code.update_variables(p[1], code.read_data(p[3], p[9]))
+        p[0] = cl.id_saved(p[1])
+
 def p_server_creates(p):
     'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
     if(p[7] not in code.variables):
@@ -132,4 +142,3 @@ def p_error(p):
 
 #Build Parser
 parser = parse.yacc()
-

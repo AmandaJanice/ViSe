@@ -37,7 +37,11 @@ class Server():
         self.used_ports = []
 
     def update_variables(self, var_id, object):
-        parsed = json.loads(object)
+        try:
+            parsed = json.loads(object)
+        except:
+            self.variables[var_id] = str(object)
+            return
 
         try:
             #check if values in variables and replaces them with appropriate variables
