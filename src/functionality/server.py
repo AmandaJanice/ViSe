@@ -62,13 +62,16 @@ class Server():
 
         # app.add_url_rule('/', 'Home', lambda : 'Hello, World')
 
-        app.add_url_rule(route_endpoint, str(route_endpoint), action)
+        try:
+            app.add_url_rule(route_endpoint, str(route_endpoint), action)
+        except:
+            return "Cannot assign more than one action to the same route"
 
         return
 
     def create_data(self, route_id, object_id):#TODO PUT and POST
         endpoint = self.variables[route_id]
-        
+
         def create_action():
             self.variables[object_id] = request.get_json()
             return str(self.variables[object_id])
