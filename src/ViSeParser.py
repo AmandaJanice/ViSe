@@ -49,9 +49,14 @@ def p_variable(p):
                 break
 
 
-def p_exp_create_server(p):
+def p_create_server(p):
     'Exp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON'
     p[0] = code.create_server(p[1], p[7])
+
+
+def p_create_server_empty_port(p):
+    'Exp : ID EQUAL CREATESERVER LP RP SEMICOLON'
+    p[0] = code.create_server(p[1])
 
 
 def p_server_start(p):
