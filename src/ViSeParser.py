@@ -1,6 +1,7 @@
 import ply.yacc as parse
 from ViSeLex import tokens
 from functionality import server as s
+import cleaner
 
 
 code = s.Server()
