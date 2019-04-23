@@ -1,7 +1,7 @@
 import ply.yacc as parse
 from ViSeLex import tokens
 from functionality import server as s
-import cleaner
+import cleaner as cl
 
 
 code = s.Server()
@@ -19,19 +19,19 @@ code = s.Server()
 def p_object_def_empty(p):
     'Exp : ID EQUAL JSON COLON LC RC SEMICOLON'
     code.update_variables(p[1], "{}")
-    p[0] = p[1] + " saved."
+    p[0] = cl.id_saved(p[1])
 
 
 def p_object_def(p):
     'Exp : ID EQUAL JSON COLON LC Inside RC SEMICOLON'
     code.update_variables(p[1], "{"+p[6]+"}")
-    p[0] = p[1]+" saved successfully"
+    p[0] = cl.id_saved(p[1])
 
 
 def p_object_def_rec(p):
     'Exp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLON'
     code.update_variables(p[1], "{"+p[6]+"}")
-    p[0] = p[1] + " saved succesfully"
+    p[0] = cl.id_saved(p[1])
 
 
 def p_inside_object(p):
@@ -47,12 +47,12 @@ def p_inside_rec(p):
 def p_variable(p):
     'Exp : ID SEMICOLON'
     if p[1] not in code.variables:
-        p[0] = "Variable not declared"
+        p[0] = cl.id_not_defined(p[1])
     else:
         for i in code.variables:
             if p[1] == i:
                 p[0] = code.print_object(i)
-                pass
+                break
 
 
 def p_exp_create_server(p):
@@ -64,7 +64,7 @@ def p_exp_create_server(p):
 def p_server_start(p):
     'Exp : ID COLON START SEMICOLON'
     if p[1] not in code.variables:
-        p[0] = "Server Id not in use"
+        p[0] = cl.id_not_defined(p[1])
     else:
         code.start_server(p[1])
         p[0] = "Server with Id: " + p[1] + "is Running at: "
@@ -72,31 +72,31 @@ def p_server_start(p):
 
 def p_communicate_id(p):
     'Exp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON'
-    code.update_variables(p[1], code.http_get(p[7][1:-1]))
-    p[0] = "id created"
+    code.update_variables(p[1], code.http_get(cl.string_cleaner(p[7])))
+    p[0] = cl.id_saved(p[1])
 
 
 def p_communicate(p):
     'Exp : HTTPGET LP URL EQUAL STRING RP SEMICOLON'
-    p[0] = code.http_get(p[5][1:-1])
+    p[0] = code.http_get(cl.string_cleaner(p[5]))
 
 
 
 def p_server_sets(p):
     'Exp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON'
     if p[3] not in code.variables:
-        p[0] = p[3]+ " not defined"
+        p[0] = cl.id_not_defined(p[3])
     else:
-        code.add_route(p[3], p[9][1:-1], p[1])
-        p[0] = "id added \n Route added successfully"
+        code.add_route(p[3], cl.string_cleaner(p[9]), p[1])
+        p[0] = cl.id_saved(p[1]) + "\n Route added successfully"
 
 
 def p_server_reads(p):
     'Exp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON'
     if p[7] not in code.variables:
-        p[0] = p[7] + "not defined"
+        p[0] = cl.id_not_defined(p[7])
     elif p[1] not in code.variables:
-        p[0] = p[1] + "not defined"
+        p[0] = cl.id_not_defined(p[1])
     else:
         code.read_data(p[1], p[7])
         p[0] = "Action added"
@@ -105,9 +105,9 @@ def p_server_creates(p):
     'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
     # p[0] = "p1" + p[1] + "p7" + p[7]
     if(p[7] not in code.variables):
-        p[0] = p[7] + " not defined"
+        p[0] = cl.id_not_defined(p[7])
     elif p[1] not in code.variables:
-        p[0] = p[1] + " not defined"
+        p[0] = cl.id_not_defined(p[1])
     else:
         code.create_data(p[1], p[7])
         p[0] = "Action added"
