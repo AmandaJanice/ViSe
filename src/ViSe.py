@@ -8,7 +8,7 @@ def run():
        except EOFError:
            break
        if not s: continue
-       elif s == "Exit":
+       elif s == "Exit" or "exit":
            break
        result = parse.parse(s)
        print(result)

@@ -10,9 +10,25 @@ def p_help(p):
     'Exp : HELP'
     p[0] = "To create a server run: 'createServer (port= 3000);' and store it on a variable\nTo run the server run: 'variable : start;' \n"
 
+
 def p_object_def_empty(p):
     'Exp : ID EQUAL JSON COLON LC RC SEMICOLON'
     code.update_variables(p[1], "{}")
+    p[0] = cl.id_saved(p[1])
+
+
+def p_id_id(p):
+    'Exp : ID EQUAL ID SEMICOLON'
+    if p[3] not in code.variables:
+        p[0] = cl.id_not_defined(p[3])
+    else:
+        code.update_variables(p[1], code.print_object(p[3]))
+        p[0] = cl.id_saved(p[1])
+
+
+def p_id_int(p):
+    'Exp : ID EQUAL INT SEMICOLON'
+    code.update_variables(p[1], p[3])
     p[0] = cl.id_saved(p[1])
 
 
@@ -22,10 +38,9 @@ def p_object_def(p):
     p[0] = cl.id_saved(p[1])
 
 
-def p_object_def_rec(p):
-    'Exp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLON'
-    code.update_variables(p[1], "{"+p[6]+"}")
-    p[0] = cl.id_saved(p[1])
+def p_inside_object_rec(p):
+    'Inside : InsideRec'
+    p[0]=str(p[1])
 
 
 def p_inside_object(p):
@@ -34,8 +49,8 @@ def p_inside_object(p):
 
 
 def p_inside_rec(p):
-    'InsideRec : Inside COMMA Inside COMMA Inside'
-    p[0] = str(p[1])+str(p[2])+str(p[3])+str(p[4])+str(p[5])
+    'InsideRec : Inside COMMA Inside '
+    p[0]=str(p[1])+str(p[2])+str(p[3])
 
 
 def p_variable(p):
@@ -95,6 +110,7 @@ def p_server_reads(p):
         p[0] = cl.id_not_defined(p[1])
     else:
         p[0] = code.read_data(p[1], p[7])
+
 
 def p_server_creates(p):
     'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
