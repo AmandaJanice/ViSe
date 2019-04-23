@@ -6,48 +6,49 @@ from functionality import server as s
 code = s.Server()
 
 
-precedence = (
-    ('left','LP'),
-    ('left','LC'),
-    ('right','RP'),
-    ('right','RC')
-)
+# precedence = (
+#     ('left','LP'),
+#     ('left','LC'),
+#     ('right','RP'),
+#     ('right','RC')
+# )
 
 #data = json: {};
-#data2 = json: {name: "8%%$", lastName: "Petraca", age: "67"};
+#data2 = json: {"name": "8%%$", "lastName": "Petraca", "age": "67"};
 def p_object_def_empty(p):
     'Exp : ID EQUAL JSON COLON LC RC SEMICOLON'
     code.update_variables(p[1], "{}")
-    #p[0] = p[1]
-
+    p[0] = p[1] + " saved."
 
 def p_object_def(p):
     'Exp : ID EQUAL JSON COLON LC Inside RC SEMICOLON'
-    #p[0] = p[4]
-    code.update_variables(p[1], p[6])
+    #print(p[6])
+    p[0] = code.update_variables(p[1], p[6])
+
+
+def p_object_def_rec(p):
+    'Exp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLON'
+    #print(p[6])
+    p[0] = code.update_variables(p[1], p[6])
 
 
 def p_inside_object(p):
-    'Inside : STRING COLON ObjectParam'
-    p[0] = (p[1], p[2], p[3])
+    'Inside :  STRING COLON ObjectParam '
+    p[0] = (p[1], p[2], p[3], p[4], p[5])
 
 
 def p_inside_rec(p):
-    'InsideRec : STRING COLON ObjectParam COMMA Inside'
-
-
-def p_object_param_id(p):
-    'ObjectParam : ID'
-    p[0] = p[1]
+    'InsideRec : Inside COMMA Inside '
+    p[0] = (p[1], p[2], p[3], p[4], p[5])
 
 
 def p_object_param_int(p):
-    'ObjectParam : INT'
+    'ObjectParam : DQUOTE INT DQUOTE'
     p[0] = p[1]
 
 
-def p_object_param_string(p):
-    'ObjectParam : STRING'
+def p_object_param_id(p):
+    'ObjectParam : DQUOTE ID DQUOTE'
     p[0] = p[1]
 
 
@@ -101,7 +102,7 @@ def p_server_reads(p):
         code.read_data(p[0], p[5])
 
 
-# def p_Exp_Def(p):
+# def p_exp_def(p):
 #     'Exp : Def '
 #     p[0] = p[1]
 #
@@ -138,21 +139,28 @@ def p_server_reads(p):
 #
 # def p_object_empty(p):
 #     'Object : JSON COLON LC RC'
-#     p[0] = (p[1],p[2],p[3],p[4])
+#     p[0] = (p[3],p[4])
 #
 #
-# def p_Inside_Object(p):
+# def p_inside_object(p):
 #     'Inside : STRING COLON ObjectParam'
+#     p[0] = (p[1], p[2], p[3])
 #
-# def p_Inside_ObjectRec(p):
+#
+# def p_inside_object_rec(p):
 #     'InsideRec : ID COLON ObjectParam COMMA Inside'
+#     #p[0] = (p[])
 #
-# def p_Object(p):
+#
+# def p_object(p):
 #     'Object : JSON COLON LC Inside RC'
-#     print("JSON COLON LC Inside RC")
+#     #print("JSON COLON LC Inside RC")
+#     p[0] = (p[1], p[2], p[3], p[4], p[5])
+#
 #
 # def p_ObjectHttpGet(p):
 #     'Object : HttpGet'
+#
 #
 # def p_Object_VARIOUS(p):
 #     'Object : JSON COLON LC InsideRec RC'
