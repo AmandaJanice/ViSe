@@ -76,6 +76,31 @@ def p_server_start(p):
         code.start_server(p[1])
         p[0] = "Server with Id: " + p[1] + "is Running at: "
 
+
+def p_communicate(p):
+    'Exp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON'
+    # p[0] = code.http_get(p[7])
+    print(p[7])
+    p[0] = code.update_variables(p[1], code.http_get(p[7]))
+
+
+def p_server_sets(p):
+    'Exp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON'
+    if p[7] not in code.variables:
+        p[0] = "Server URL not in use"
+    else:
+        # code.setRoutes(p[9])
+        p[1] + "is : "
+
+
+def p_server_reads(p):
+    'Exp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON'
+    if p[5] not in code.variables:
+        p[0] = "Body not in use"
+    else:
+        code.read_data(p[0], p[5])
+
+
 # def p_Exp_Def(p):
 #     'Exp : Def '
 #     p[0] = p[1]
