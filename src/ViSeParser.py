@@ -71,7 +71,8 @@ def p_server_start(p):
 
 def p_communicate_id(p):
     'Exp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON'
-    p[0] = code.update_variables(p[1], code.http_get(p[7][1:-1]))
+    code.update_variables(p[1], code.http_get(p[7][1:-1]))
+    p[0] = "id created"
 
 
 def p_communicate(p):
@@ -86,7 +87,7 @@ def p_server_sets(p):
         p[0] = p[3]+ " not defined"
     else:
         code.add_route(p[3], p[9][1:-1], p[1])
-        p[0] = "Route added successfully"
+        p[0] = "id added \n Route added successfully"
 
 
 def p_server_reads(p):
