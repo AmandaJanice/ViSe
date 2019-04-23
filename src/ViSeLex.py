@@ -70,7 +70,7 @@ t_UNKNOWN = r'\?'
 
 #COMMENTS
 def t_STRING(t):
-    r'\" . * "'
+    r'\"(.*?)"'
     return t
 
 #COMMENTS
@@ -132,12 +132,11 @@ def t_error(t):
 lexer = lex.lex()
 
 lexer.input(fileRead())
-# tokenList = []
+
 #
 # while True:
 #     tok = lexer.token()
 #     if not tok : break
-#     tokenList.append(tok)
 #     print(tok)
 
 #print(tokenList)

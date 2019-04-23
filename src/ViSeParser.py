@@ -20,36 +20,27 @@ def p_object_def_empty(p):
     code.update_variables(p[1], "{}")
     p[0] = p[1] + " saved."
 
+
 def p_object_def(p):
     'Exp : ID EQUAL JSON COLON LC Inside RC SEMICOLON'
-    #print(p[6])
-    p[0] = code.update_variables(p[1], p[6])
+    code.update_variables(p[1], "{"+p[6]+"}")
+    p[0] = p[1]+" saved successfully"
 
 
 def p_object_def_rec(p):
     'Exp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLON'
-    #print(p[6])
-    p[0] = code.update_variables(p[1], p[6])
+    code.update_variables(p[1], "{"+p[6]+"}")
+    p[0] = p[1] + " saved succesfully"
 
 
 def p_inside_object(p):
-    'Inside :  STRING COLON ObjectParam '
-    p[0] = (p[1], p[2], p[3], p[4], p[5])
+    'Inside :  STRING COLON STRING '
+    p[0] = str(p[1])+str(p[2])+str(p[3])
 
 
 def p_inside_rec(p):
-    'InsideRec : Inside COMMA Inside '
-    p[0] = (p[1], p[2], p[3], p[4], p[5])
-
-
-def p_object_param_int(p):
-    'ObjectParam : DQUOTE INT DQUOTE'
-    p[0] = p[1]
-
-
-def p_object_param_string(p):
-    'ObjectParam : STRING'
-    p[0] = p[1][1:-1]
+    'InsideRec : Inside COMMA Inside COMMA Inside'
+    p[0] = str(p[1])+str(p[2])+str(p[3])+str(p[4])+str(p[5])
 
 
 def p_variable(p):
@@ -78,11 +69,15 @@ def p_server_start(p):
         p[0] = "Server with Id: " + p[1] + "is Running at: "
 
 
-def p_communicate(p):
+def p_communicate_id(p):
     'Exp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON'
-    # p[0] = code.http_get(p[7])
-    print(p[7])
     p[0] = code.update_variables(p[1], code.http_get(p[7][1:-1]))
+
+
+def p_communicate(p):
+    'Exp : HTTPGET LP URL EQUAL STRING RP SEMICOLON'
+    p[0] = code.http_get(p[5][1:-1])
+
 
 
 def p_server_sets(p):
@@ -91,8 +86,7 @@ def p_server_sets(p):
         p[0] = p[3]+ " not defined"
     else:
         code.add_route(p[3], p[9][1:-1], p[1])
-        # p[0] = code.variables[p[1]].route
-        # p[1] + "is : "
+        p[0] = "Route added successfully"
 
 
 def p_server_reads(p):
@@ -103,6 +97,7 @@ def p_server_reads(p):
         p[0] = p[1] + "not defined"
     else:
         code.read_data(p[1], p[7])
+        p[0] = "Action added"
 
 def p_server_creates(p):
     'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
@@ -112,7 +107,8 @@ def p_server_creates(p):
     elif p[1] not in code.variables:
         p[0] = p[1] + " not defined"
     else:
-        p[0] = code.create_data(p[1], p[7])
+        code.create_data(p[1], p[7])
+        p[0] = "Action added"
         # p[0] = "send: " + p[1] + " data " + p[7]
 
 

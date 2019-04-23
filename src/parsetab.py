@@ -6,15 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-<<<<<<< HEAD
-_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONInside : STRING COLON ObjectParamInsideRec : STRING COLON ObjectParam COMMA InsideObjectParam : IDObjectParam : INTObjectParam : STRINGExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLONExp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLONExp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLONExp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
+_lr_signature = 'BODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONExp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLONInside :  STRING COLON STRING InsideRec : Inside COMMA Inside COMMA InsideExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLONExp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLONExp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLONExp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
     
-_lr_action_items = {'ID':([0,3,32,33,37,],[2,6,40,41,46,]),'$end':([1,5,17,35,43,53,54,55,56,58,],[0,-8,-10,-1,-2,-9,-11,-13,-14,-12,]),'EQUAL':([2,22,23,24,25,34,],[3,30,31,32,33,42,]),'SEMICOLON':([2,10,27,36,48,49,50,51,57,],[5,17,35,43,53,54,55,56,58,]),'COLON':([2,6,7,29,],[4,13,14,37,]),'JSON':([3,],[7,]),'CREATESERVER':([3,],[8,]),'HTTPGET':([3,],[9,]),'START':([4,],[10,]),'READDATA':([4,],[11,]),'CREATEDATA':([4,],[12,]),'LP':([8,9,11,12,20,],[15,16,18,19,26,]),'SETROUTES':([13,],[20,]),'LC':([14,],[21,]),'PORT':([15,],[22,]),'URL':([16,26,],[23,34,]),'BODY':([18,],[24,]),'OBJECT':([19,],[25,]),'RC':([21,28,44,45,46,47,],[27,36,-7,-3,-5,-6,]),'STRING':([21,31,37,42,],[29,39,44,52,]),'INT':([30,37,],[38,47,]),'RP':([38,39,40,41,52,],[48,49,50,51,57,]),}
-=======
-_lr_signature = 'BODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONExp : ID EQUAL JSON COLON LC InsideRec RC SEMICOLONInside :  STRING COLON ObjectParam InsideRec : Inside COMMA Inside ObjectParam : DQUOTE INT DQUOTEObjectParam : DQUOTE ID DQUOTEExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLONExp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLONExp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON'
-    
-_lr_action_items = {'ID':([0,3,30,45,],[2,6,39,51,]),'$end':([1,5,16,32,41,43,52,53,54,58,],[0,-8,-10,-1,-2,-3,-9,-11,-13,-12,]),'EQUAL':([2,20,21,22,31,],[3,28,29,30,40,]),'SEMICOLON':([2,10,24,33,35,46,47,48,55,],[5,16,32,41,43,52,53,54,58,]),'COLON':([2,6,7,27,],[4,12,13,36,]),'JSON':([3,],[7,]),'CREATESERVER':([3,],[8,]),'HTTPGET':([3,],[9,]),'START':([4,],[10,]),'READDATA':([4,],[11,]),'LP':([8,9,11,18,],[14,15,17,23,]),'SETROUTES':([12,],[18,]),'LC':([13,],[19,]),'PORT':([14,],[20,]),'URL':([15,23,],[21,31,]),'BODY':([17,],[22,]),'RC':([19,25,26,42,44,56,57,],[24,33,35,-5,-4,-6,-7,]),'STRING':([19,29,34,40,],[27,38,27,49,]),'COMMA':([25,44,56,57,],[34,-4,-6,-7,]),'INT':([28,45,],[37,50,]),'DQUOTE':([36,50,51,],[45,56,57,]),'RP':([37,38,39,49,],[46,47,48,55,]),}
->>>>>>> amanda
+_lr_action_items = {'ID':([0,4,38,39,],[2,8,49,50,]),'HTTPGET':([0,4,],[3,11,]),'$end':([1,6,20,42,51,53,55,63,64,65,66,69,],[0,-6,-8,-1,-10,-2,-3,-7,-9,-12,-13,-11,]),'EQUAL':([2,15,26,27,28,29,41,],[4,23,36,37,38,39,52,]),'SEMICOLON':([2,12,32,40,43,45,57,58,59,60,67,],[6,20,42,51,53,55,63,64,65,66,69,]),'COLON':([2,8,9,35,],[5,16,17,46,]),'LP':([3,10,11,13,14,24,],[7,18,19,21,22,31,]),'JSON':([4,],[9,]),'CREATESERVER':([4,],[10,]),'START':([5,],[12,]),'READDATA':([5,],[13,]),'CREATEDATA':([5,],[14,]),'URL':([7,19,31,],[15,27,41,]),'SETROUTES':([16,],[24,]),'LC':([17,],[25,]),'PORT':([18,],[26,]),'BODY':([21,],[28,]),'OBJECT':([22,],[29,]),'STRING':([23,25,37,44,46,52,62,],[30,35,48,35,56,61,35,]),'RC':([25,33,34,56,68,],[32,43,45,-4,-5,]),'RP':([30,47,48,49,50,61,],[40,57,58,59,60,67,]),'COMMA':([33,54,56,],[44,62,-4,]),'INT':([36,],[47,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -23,11 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-<<<<<<< HEAD
-_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([21,],[28,]),'ObjectParam':([37,],[45,]),}
-=======
-_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([19,34,],[25,42,]),'InsideRec':([19,],[26,]),'ObjectParam':([36,],[44,]),}
->>>>>>> amanda
+_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([25,44,62,],[33,54,68,]),'InsideRec':([25,],[34,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -38,32 +28,16 @@ del _lr_goto_items
 _lr_productions = [
   ("S' -> Exp","S'",1,None,None,None),
   ('Exp -> ID EQUAL JSON COLON LC RC SEMICOLON','Exp',7,'p_object_def_empty','ViSeParser.py',19),
-<<<<<<< HEAD
   ('Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON','Exp',8,'p_object_def','ViSeParser.py',25),
-  ('Inside -> STRING COLON ObjectParam','Inside',3,'p_inside_object','ViSeParser.py',31),
-  ('InsideRec -> STRING COLON ObjectParam COMMA Inside','InsideRec',5,'p_inside_rec','ViSeParser.py',36),
-  ('ObjectParam -> ID','ObjectParam',1,'p_object_param_id','ViSeParser.py',40),
-  ('ObjectParam -> INT','ObjectParam',1,'p_object_param_int','ViSeParser.py',45),
-  ('ObjectParam -> STRING','ObjectParam',1,'p_object_param_string','ViSeParser.py',50),
-  ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',55),
-  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',66),
-  ('Exp -> ID COLON START SEMICOLON','Exp',4,'p_server_start','ViSeParser.py',72),
-  ('Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',9,'p_communicate','ViSeParser.py',81),
-  ('Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON','Exp',11,'p_server_sets','ViSeParser.py',88),
-  ('Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON','Exp',9,'p_server_reads','ViSeParser.py',97),
-  ('Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON','Exp',9,'p_server_creates','ViSeParser.py',104),
-=======
-  ('Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON','Exp',8,'p_object_def','ViSeParser.py',24),
-  ('Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON','Exp',8,'p_object_def_rec','ViSeParser.py',30),
-  ('Inside -> STRING COLON ObjectParam','Inside',3,'p_inside_object','ViSeParser.py',36),
-  ('InsideRec -> Inside COMMA Inside','InsideRec',3,'p_inside_rec','ViSeParser.py',41),
-  ('ObjectParam -> DQUOTE INT DQUOTE','ObjectParam',3,'p_object_param_int','ViSeParser.py',46),
-  ('ObjectParam -> DQUOTE ID DQUOTE','ObjectParam',3,'p_object_param_id','ViSeParser.py',51),
-  ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',56),
-  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',67),
-  ('Exp -> ID COLON START SEMICOLON','Exp',4,'p_server_start','ViSeParser.py',73),
-  ('Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',9,'p_communicate','ViSeParser.py',82),
-  ('Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON','Exp',11,'p_server_sets','ViSeParser.py',89),
-  ('Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON','Exp',9,'p_server_reads','ViSeParser.py',98),
->>>>>>> amanda
+  ('Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON','Exp',8,'p_object_def_rec','ViSeParser.py',31),
+  ('Inside -> STRING COLON STRING','Inside',3,'p_inside_object','ViSeParser.py',37),
+  ('InsideRec -> Inside COMMA Inside COMMA Inside','InsideRec',5,'p_inside_rec','ViSeParser.py',42),
+  ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',47),
+  ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',58),
+  ('Exp -> ID COLON START SEMICOLON','Exp',4,'p_server_start','ViSeParser.py',64),
+  ('Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',9,'p_communicate_id','ViSeParser.py',73),
+  ('Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',7,'p_communicate','ViSeParser.py',78),
+  ('Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON','Exp',11,'p_server_sets','ViSeParser.py',84),
+  ('Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON','Exp',9,'p_server_reads','ViSeParser.py',93),
+  ('Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON','Exp',9,'p_server_creates','ViSeParser.py',103),
 ]
