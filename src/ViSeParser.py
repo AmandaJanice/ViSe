@@ -88,7 +88,7 @@ def p_server_sets(p):
         p[0] = cl.id_not_defined(p[3])
     else:
         code.add_route(p[3], cl.string_cleaner(p[9]), p[1])
-        p[0] = cl.id_saved(p[1]) + "\n Route added successfully"
+        p[0] = cl.id_saved(p[1]) + "\nRoute added successfully"
 
 
 def p_server_reads(p):
