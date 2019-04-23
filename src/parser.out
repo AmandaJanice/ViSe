@@ -5,6 +5,7 @@ Grammar
 Rule 0     S' -> Exp
 Rule 1     Exp -> HELP
 Rule 2     Exp -> ID EQUAL JSON COLON LC RC SEMICOLON
+<<<<<<< HEAD
 Rule 3     Exp -> ID EQUAL ID SEMICOLON
 Rule 4     Exp -> ID EQUAL INT SEMICOLON
 Rule 5     Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON
@@ -48,6 +49,50 @@ SETROUTES            : 15 18 19
 START                : 12
 STRING               : 7 7 13 14 15 18 19
 URL                  : 13 14 15 18 19
+=======
+Rule 3     Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON
+Rule 4     Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON
+Rule 5     Inside -> STRING COLON STRING
+Rule 6     InsideRec -> Inside COMMA Inside COMMA Inside
+Rule 7     Exp -> ID SEMICOLON
+Rule 8     Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+Rule 9     Exp -> ID EQUAL CREATESERVER LP RP SEMICOLON
+Rule 10    Exp -> ID COLON START SEMICOLON
+Rule 11    Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
+Rule 12    Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON
+Rule 13    Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+Rule 14    Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+Rule 15    Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+Rule 16    Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+Rule 17    Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+Rule 18    Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+Terminals, with rules where they appear
+
+BODY                 : 14 15 17
+COLON                : 2 3 4 5 10 13 14 15 16 17 17 18 18
+COMMA                : 6 6
+CREATEDATA           : 16 18
+CREATESERVER         : 8 9
+EQUAL                : 2 3 4 8 8 9 11 11 12 13 13 14 15 15 16 17 17 18 18
+HELP                 : 1
+HTTPGET              : 11 12
+ID                   : 2 3 4 7 8 9 10 11 13 13 14 14 15 15 15 16 16 17 17 18 18
+INT                  : 8
+JSON                 : 2 3 4
+LC                   : 2 3 4
+LP                   : 8 9 11 12 13 14 15 16 17 17 18 18
+OBJECT               : 16 18
+PORT                 : 8
+RC                   : 2 3 4
+READDATA             : 14 15 17
+RP                   : 8 9 11 12 13 14 15 16 17 17 18 18
+SEMICOLON            : 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18
+SETROUTES            : 13 17 18
+START                : 10
+STRING               : 5 5 11 12 13 17 18
+URL                  : 11 12 13 17 18
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 error                : 
 
 Nonterminals, with rules where they appear
@@ -63,6 +108,7 @@ state 0
     (0) S' -> . Exp
     (1) Exp -> . HELP
     (2) Exp -> . ID EQUAL JSON COLON LC RC SEMICOLON
+<<<<<<< HEAD
     (3) Exp -> . ID EQUAL ID SEMICOLON
     (4) Exp -> . ID EQUAL INT SEMICOLON
     (5) Exp -> . ID EQUAL JSON COLON LC Inside RC SEMICOLON
@@ -77,6 +123,22 @@ state 0
     (17) Exp -> . ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (18) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+=======
+    (3) Exp -> . ID EQUAL JSON COLON LC Inside RC SEMICOLON
+    (4) Exp -> . ID EQUAL JSON COLON LC InsideRec RC SEMICOLON
+    (7) Exp -> . ID SEMICOLON
+    (8) Exp -> . ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (9) Exp -> . ID EQUAL CREATESERVER LP RP SEMICOLON
+    (10) Exp -> . ID COLON START SEMICOLON
+    (11) Exp -> . ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (12) Exp -> . HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (13) Exp -> . ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (14) Exp -> . ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (15) Exp -> . ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (16) Exp -> . ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+    (17) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     HELP            shift and go to state 2
     ID              shift and go to state 3
@@ -100,6 +162,7 @@ state 2
 state 3
 
     (2) Exp -> ID . EQUAL JSON COLON LC RC SEMICOLON
+<<<<<<< HEAD
     (3) Exp -> ID . EQUAL ID SEMICOLON
     (4) Exp -> ID . EQUAL INT SEMICOLON
     (5) Exp -> ID . EQUAL JSON COLON LC Inside RC SEMICOLON
@@ -113,6 +176,21 @@ state 3
     (17) Exp -> ID . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (18) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+=======
+    (3) Exp -> ID . EQUAL JSON COLON LC Inside RC SEMICOLON
+    (4) Exp -> ID . EQUAL JSON COLON LC InsideRec RC SEMICOLON
+    (7) Exp -> ID . SEMICOLON
+    (8) Exp -> ID . EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (9) Exp -> ID . EQUAL CREATESERVER LP RP SEMICOLON
+    (10) Exp -> ID . COLON START SEMICOLON
+    (11) Exp -> ID . EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (13) Exp -> ID . EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (14) Exp -> ID . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (15) Exp -> ID . EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (16) Exp -> ID . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+    (17) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     EQUAL           shift and go to state 5
     SEMICOLON       shift and go to state 7
@@ -129,6 +207,7 @@ state 4
 state 5
 
     (2) Exp -> ID EQUAL . JSON COLON LC RC SEMICOLON
+<<<<<<< HEAD
     (3) Exp -> ID EQUAL . ID SEMICOLON
     (4) Exp -> ID EQUAL . INT SEMICOLON
     (5) Exp -> ID EQUAL . JSON COLON LC Inside RC SEMICOLON
@@ -136,6 +215,15 @@ state 5
     (11) Exp -> ID EQUAL . CREATESERVER LP RP SEMICOLON
     (13) Exp -> ID EQUAL . HTTPGET LP URL EQUAL STRING RP SEMICOLON
     (15) Exp -> ID EQUAL . ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+=======
+    (3) Exp -> ID EQUAL . JSON COLON LC Inside RC SEMICOLON
+    (4) Exp -> ID EQUAL . JSON COLON LC InsideRec RC SEMICOLON
+    (8) Exp -> ID EQUAL . CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (9) Exp -> ID EQUAL . CREATESERVER LP RP SEMICOLON
+    (11) Exp -> ID EQUAL . HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (13) Exp -> ID EQUAL . ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (15) Exp -> ID EQUAL . ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     JSON            shift and go to state 10
     ID              shift and go to state 9
@@ -146,11 +234,19 @@ state 5
 
 state 6
 
+<<<<<<< HEAD
     (12) Exp -> ID COLON . START SEMICOLON
     (16) Exp -> ID COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
     (17) Exp -> ID COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+=======
+    (10) Exp -> ID COLON . START SEMICOLON
+    (14) Exp -> ID COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
+    (16) Exp -> ID COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+    (17) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     START           shift and go to state 14
     READDATA        shift and go to state 15
@@ -174,8 +270,13 @@ state 8
 
 state 9
 
+<<<<<<< HEAD
     (3) Exp -> ID EQUAL ID . SEMICOLON
     (15) Exp -> ID EQUAL ID . COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+=======
+    (13) Exp -> ID EQUAL ID . COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (15) Exp -> ID EQUAL ID . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     SEMICOLON       shift and go to state 19
     COLON           shift and go to state 20
@@ -220,14 +321,23 @@ state 14
 
 state 15
 
+<<<<<<< HEAD
     (16) Exp -> ID COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
+=======
+    (16) Exp -> ID COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     LP              shift and go to state 26
 
 
 state 16
 
+<<<<<<< HEAD
     (17) Exp -> ID COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
+=======
+    (17) Exp -> ID COLON SETROUTES . LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES . LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     LP              shift and go to state 27
 
@@ -242,23 +352,40 @@ state 17
 
 state 18
 
+<<<<<<< HEAD
     (14) Exp -> HTTPGET LP URL . EQUAL STRING RP SEMICOLON
 
     EQUAL           shift and go to state 29
+=======
+    (13) Exp -> ID EQUAL ID COLON . SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (15) Exp -> ID EQUAL ID COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
+
+    SETROUTES       shift and go to state 27
+    READDATA        shift and go to state 28
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 19
 
     (3) Exp -> ID EQUAL ID SEMICOLON .
 
+<<<<<<< HEAD
     $end            reduce using rule 3 (Exp -> ID EQUAL ID SEMICOLON .)
+=======
+    LC              shift and go to state 29
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 20
 
     (15) Exp -> ID EQUAL ID COLON . SETROUTES LP URL EQUAL STRING RP SEMICOLON
 
+<<<<<<< HEAD
     SETROUTES       shift and go to state 30
+=======
+    PORT            shift and go to state 30
+    RP              shift and go to state 31
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 21
@@ -266,7 +393,11 @@ state 21
     (2) Exp -> ID EQUAL JSON COLON . LC RC SEMICOLON
     (5) Exp -> ID EQUAL JSON COLON . LC Inside RC SEMICOLON
 
+<<<<<<< HEAD
     LC              shift and go to state 31
+=======
+    URL             shift and go to state 32
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 22
@@ -281,62 +412,113 @@ state 23
     (10) Exp -> ID EQUAL CREATESERVER LP . PORT EQUAL INT RP SEMICOLON
     (11) Exp -> ID EQUAL CREATESERVER LP . RP SEMICOLON
 
+<<<<<<< HEAD
     PORT            shift and go to state 32
     RP              shift and go to state 33
+=======
+    BODY            shift and go to state 33
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 24
 
+<<<<<<< HEAD
     (13) Exp -> ID EQUAL HTTPGET LP . URL EQUAL STRING RP SEMICOLON
 
     URL             shift and go to state 34
+=======
+    (16) Exp -> ID COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
+
+    OBJECT          shift and go to state 34
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 25
 
+<<<<<<< HEAD
     (12) Exp -> ID COLON START SEMICOLON .
 
     $end            reduce using rule 12 (Exp -> ID COLON START SEMICOLON .)
+=======
+    (17) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+    URL             shift and go to state 35
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 26
 
     (16) Exp -> ID COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
 
+<<<<<<< HEAD
     BODY            shift and go to state 35
+=======
+    STRING          shift and go to state 36
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 27
 
     (17) Exp -> ID COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
 
+<<<<<<< HEAD
     OBJECT          shift and go to state 36
+=======
+    LP              shift and go to state 37
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 28
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     URL             shift and go to state 37
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
+
+    LP              shift and go to state 38
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 29
 
+<<<<<<< HEAD
     (14) Exp -> HTTPGET LP URL EQUAL . STRING RP SEMICOLON
 
     STRING          shift and go to state 38
+=======
+    (2) Exp -> ID EQUAL JSON COLON LC . RC SEMICOLON
+    (3) Exp -> ID EQUAL JSON COLON LC . Inside RC SEMICOLON
+    (4) Exp -> ID EQUAL JSON COLON LC . InsideRec RC SEMICOLON
+    (5) Inside -> . STRING COLON STRING
+    (6) InsideRec -> . Inside COMMA Inside COMMA Inside
 
+    RC              shift and go to state 39
+    STRING          shift and go to state 42
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
+
+    Inside                         shift and go to state 40
+    InsideRec                      shift and go to state 41
 
 state 30
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES . LP URL EQUAL STRING RP SEMICOLON
 
     LP              shift and go to state 39
+=======
+    (8) Exp -> ID EQUAL CREATESERVER LP PORT . EQUAL INT RP SEMICOLON
+
+    EQUAL           shift and go to state 43
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 31
 
+<<<<<<< HEAD
     (2) Exp -> ID EQUAL JSON COLON LC . RC SEMICOLON
     (5) Exp -> ID EQUAL JSON COLON LC . Inside RC SEMICOLON
     (6) Inside -> . InsideRec
@@ -345,153 +527,276 @@ state 31
 
     RC              shift and go to state 40
     STRING          shift and go to state 43
+=======
+    (9) Exp -> ID EQUAL CREATESERVER LP RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 44
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     Inside                         shift and go to state 41
     InsideRec                      shift and go to state 42
 
 state 32
 
+<<<<<<< HEAD
     (10) Exp -> ID EQUAL CREATESERVER LP PORT . EQUAL INT RP SEMICOLON
+=======
+    (11) Exp -> ID EQUAL HTTPGET LP URL . EQUAL STRING RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    EQUAL           shift and go to state 44
+    EQUAL           shift and go to state 45
 
 
 state 33
 
+<<<<<<< HEAD
     (11) Exp -> ID EQUAL CREATESERVER LP RP . SEMICOLON
 
     SEMICOLON       shift and go to state 45
+=======
+    (14) Exp -> ID COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 46
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 34
 
+<<<<<<< HEAD
     (13) Exp -> ID EQUAL HTTPGET LP URL . EQUAL STRING RP SEMICOLON
-
-    EQUAL           shift and go to state 46
-
-
-state 35
-
-    (16) Exp -> ID COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
+=======
+    (16) Exp -> ID COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
     EQUAL           shift and go to state 47
 
 
+state 35
+
+<<<<<<< HEAD
+    (16) Exp -> ID COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 47
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 48
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
+
+
 state 36
 
+<<<<<<< HEAD
     (17) Exp -> ID COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
 
     EQUAL           shift and go to state 48
+=======
+    (12) Exp -> HTTPGET LP URL EQUAL STRING . RP SEMICOLON
+
+    RP              shift and go to state 49
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 37
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     EQUAL           shift and go to state 49
+=======
+    (13) Exp -> ID EQUAL ID COLON SETROUTES LP . URL EQUAL STRING RP SEMICOLON
+
+    URL             shift and go to state 50
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 38
 
+<<<<<<< HEAD
     (14) Exp -> HTTPGET LP URL EQUAL STRING . RP SEMICOLON
 
     RP              shift and go to state 50
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
+
+    BODY            shift and go to state 51
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 39
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES LP . URL EQUAL STRING RP SEMICOLON
 
     URL             shift and go to state 51
+=======
+    (2) Exp -> ID EQUAL JSON COLON LC RC . SEMICOLON
+
+    SEMICOLON       shift and go to state 52
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 40
 
+<<<<<<< HEAD
     (2) Exp -> ID EQUAL JSON COLON LC RC . SEMICOLON
 
     SEMICOLON       shift and go to state 52
+=======
+    (3) Exp -> ID EQUAL JSON COLON LC Inside . RC SEMICOLON
+    (6) InsideRec -> Inside . COMMA Inside COMMA Inside
+
+    RC              shift and go to state 53
+    COMMA           shift and go to state 54
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 41
 
+<<<<<<< HEAD
     (5) Exp -> ID EQUAL JSON COLON LC Inside . RC SEMICOLON
     (8) InsideRec -> Inside . COMMA Inside
 
     RC              shift and go to state 53
     COMMA           shift and go to state 54
+=======
+    (4) Exp -> ID EQUAL JSON COLON LC InsideRec . RC SEMICOLON
+
+    RC              shift and go to state 55
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 42
 
+<<<<<<< HEAD
     (6) Inside -> InsideRec .
 
     RC              reduce using rule 6 (Inside -> InsideRec .)
     COMMA           reduce using rule 6 (Inside -> InsideRec .)
+=======
+    (5) Inside -> STRING . COLON STRING
+
+    COLON           shift and go to state 56
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 43
 
+<<<<<<< HEAD
     (7) Inside -> STRING . COLON STRING
 
     COLON           shift and go to state 55
+=======
+    (8) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL . INT RP SEMICOLON
+
+    INT             shift and go to state 57
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 44
 
+<<<<<<< HEAD
     (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL . INT RP SEMICOLON
 
     INT             shift and go to state 56
+=======
+    (9) Exp -> ID EQUAL CREATESERVER LP RP SEMICOLON .
+
+    $end            reduce using rule 9 (Exp -> ID EQUAL CREATESERVER LP RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 45
 
+<<<<<<< HEAD
     (11) Exp -> ID EQUAL CREATESERVER LP RP SEMICOLON .
 
     $end            reduce using rule 11 (Exp -> ID EQUAL CREATESERVER LP RP SEMICOLON .)
+=======
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL . STRING RP SEMICOLON
+
+    STRING          shift and go to state 58
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 46
 
+<<<<<<< HEAD
     (13) Exp -> ID EQUAL HTTPGET LP URL EQUAL . STRING RP SEMICOLON
 
     STRING          shift and go to state 57
+=======
+    (14) Exp -> ID COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 59
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 47
 
+<<<<<<< HEAD
     (16) Exp -> ID COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
 
     ID              shift and go to state 58
+=======
+    (16) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 60
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 48
 
+<<<<<<< HEAD
     (17) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL . ID RP SEMICOLON
 
     ID              shift and go to state 59
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+    STRING          shift and go to state 61
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 49
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     STRING          shift and go to state 60
+=======
+    (12) Exp -> HTTPGET LP URL EQUAL STRING RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 62
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 50
 
+<<<<<<< HEAD
     (14) Exp -> HTTPGET LP URL EQUAL STRING RP . SEMICOLON
+=======
+    (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL . EQUAL STRING RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    SEMICOLON       shift and go to state 61
+    EQUAL           shift and go to state 63
 
 
 state 51
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL . EQUAL STRING RP SEMICOLON
 
     EQUAL           shift and go to state 62
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 64
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 52
@@ -503,13 +808,20 @@ state 52
 
 state 53
 
+<<<<<<< HEAD
     (5) Exp -> ID EQUAL JSON COLON LC Inside RC . SEMICOLON
 
     SEMICOLON       shift and go to state 63
+=======
+    (3) Exp -> ID EQUAL JSON COLON LC Inside RC . SEMICOLON
+
+    SEMICOLON       shift and go to state 65
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 54
 
+<<<<<<< HEAD
     (8) InsideRec -> Inside COMMA . Inside
     (6) Inside -> . InsideRec
     (7) Inside -> . STRING COLON STRING
@@ -525,67 +837,131 @@ state 55
     (7) Inside -> STRING COLON . STRING
 
     STRING          shift and go to state 65
+=======
+    (6) InsideRec -> Inside COMMA . Inside COMMA Inside
+    (5) Inside -> . STRING COLON STRING
+
+    STRING          shift and go to state 42
+
+    Inside                         shift and go to state 66
+
+state 55
+
+    (4) Exp -> ID EQUAL JSON COLON LC InsideRec RC . SEMICOLON
+
+    SEMICOLON       shift and go to state 67
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 56
 
+<<<<<<< HEAD
     (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT . RP SEMICOLON
 
     RP              shift and go to state 66
+=======
+    (5) Inside -> STRING COLON . STRING
+
+    STRING          shift and go to state 68
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 57
 
+<<<<<<< HEAD
     (13) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING . RP SEMICOLON
 
     RP              shift and go to state 67
+=======
+    (8) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT . RP SEMICOLON
+
+    RP              shift and go to state 69
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 58
 
+<<<<<<< HEAD
     (16) Exp -> ID COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
 
     RP              shift and go to state 68
+=======
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING . RP SEMICOLON
+
+    RP              shift and go to state 70
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 59
 
+<<<<<<< HEAD
     (17) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID . RP SEMICOLON
 
     RP              shift and go to state 69
+=======
+    (14) Exp -> ID COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 71
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 60
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     RP              shift and go to state 70
+=======
+    (16) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 72
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 61
 
+<<<<<<< HEAD
     (14) Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON .
 
     $end            reduce using rule 14 (Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON .)
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+    RP              shift and go to state 73
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 62
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL . STRING RP SEMICOLON
 
     STRING          shift and go to state 71
+=======
+    (12) Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON .
+
+    $end            reduce using rule 12 (Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 63
 
+<<<<<<< HEAD
     (5) Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON .
 
     $end            reduce using rule 5 (Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON .)
+=======
+    (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL . STRING RP SEMICOLON
+
+    STRING          shift and go to state 74
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 64
 
+<<<<<<< HEAD
     (8) InsideRec -> Inside COMMA Inside .
     (8) InsideRec -> Inside . COMMA Inside
 
@@ -594,206 +970,431 @@ state 64
     COMMA           shift and go to state 54
 
   ! COMMA           [ reduce using rule 8 (InsideRec -> Inside COMMA Inside .) ]
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 75
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 65
 
+<<<<<<< HEAD
     (7) Inside -> STRING COLON STRING .
 
     RC              reduce using rule 7 (Inside -> STRING COLON STRING .)
     COMMA           reduce using rule 7 (Inside -> STRING COLON STRING .)
+=======
+    (3) Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON .
+
+    $end            reduce using rule 3 (Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 66
 
+<<<<<<< HEAD
     (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP . SEMICOLON
 
     SEMICOLON       shift and go to state 72
+=======
+    (6) InsideRec -> Inside COMMA Inside . COMMA Inside
+
+    COMMA           shift and go to state 76
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 67
 
+<<<<<<< HEAD
     (13) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP . SEMICOLON
 
     SEMICOLON       shift and go to state 73
+=======
+    (4) Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON .
+
+    $end            reduce using rule 4 (Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 68
 
+<<<<<<< HEAD
     (16) Exp -> ID COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
 
     SEMICOLON       shift and go to state 74
+=======
+    (5) Inside -> STRING COLON STRING .
+
+    RC              reduce using rule 5 (Inside -> STRING COLON STRING .)
+    COMMA           reduce using rule 5 (Inside -> STRING COLON STRING .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 69
 
+<<<<<<< HEAD
     (17) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
 
     SEMICOLON       shift and go to state 75
+=======
+    (8) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 77
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 70
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     COLON           shift and go to state 76
+=======
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 78
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 71
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING . RP SEMICOLON
 
     RP              shift and go to state 77
+=======
+    (14) Exp -> ID COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 79
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 72
 
+<<<<<<< HEAD
     (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .
 
     $end            reduce using rule 10 (Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .)
+=======
+    (16) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 80
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 73
 
+<<<<<<< HEAD
     (13) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .
 
     $end            reduce using rule 13 (Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .)
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+    COLON           shift and go to state 81
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 74
 
+<<<<<<< HEAD
     (16) Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
 
     $end            reduce using rule 16 (Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
+=======
+    (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING . RP SEMICOLON
+
+    RP              shift and go to state 82
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 75
 
+<<<<<<< HEAD
     (17) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
 
     $end            reduce using rule 17 (Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 83
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 76
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     READDATA        shift and go to state 78
     CREATEDATA      shift and go to state 79
+=======
+    (6) InsideRec -> Inside COMMA Inside COMMA . Inside
+    (5) Inside -> . STRING COLON STRING
 
+    STRING          shift and go to state 42
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
+
+    Inside                         shift and go to state 84
 
 state 77
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP . SEMICOLON
 
     SEMICOLON       shift and go to state 80
+=======
+    (8) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .
+
+    $end            reduce using rule 8 (Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 78
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
 
     LP              shift and go to state 81
+=======
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .
+
+    $end            reduce using rule 11 (Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 79
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
+=======
+    (14) Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    LP              shift and go to state 82
+    $end            reduce using rule 14 (Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
 
 
 state 80
 
+<<<<<<< HEAD
     (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .
 
     $end            reduce using rule 15 (Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .)
+=======
+    (16) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
+
+    $end            reduce using rule 16 (Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 81
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
 
     BODY            shift and go to state 83
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
+
+    READDATA        shift and go to state 85
+    CREATEDATA      shift and go to state 86
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 82
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
 
     OBJECT          shift and go to state 84
+=======
+    (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 87
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 83
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
 
     EQUAL           shift and go to state 85
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 88
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 84
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
+=======
+    (6) InsideRec -> Inside COMMA Inside COMMA Inside .
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    EQUAL           shift and go to state 86
+    RC              reduce using rule 6 (InsideRec -> Inside COMMA Inside COMMA Inside .)
 
 
 state 85
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
 
     ID              shift and go to state 87
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
+
+    LP              shift and go to state 89
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 86
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL . ID RP SEMICOLON
+=======
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    ID              shift and go to state 88
+    LP              shift and go to state 90
 
 
 state 87
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
 
     RP              shift and go to state 89
+=======
+    (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .
+
+    $end            reduce using rule 13 (Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 88
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID . RP SEMICOLON
+=======
+    (15) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    RP              shift and go to state 90
+    $end            reduce using rule 15 (Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
 
 
 state 89
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
 
     SEMICOLON       shift and go to state 91
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
+
+    BODY            shift and go to state 91
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 90
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
+=======
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
-    SEMICOLON       shift and go to state 92
+    OBJECT          shift and go to state 92
 
 
 state 91
 
+<<<<<<< HEAD
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
 
     $end            reduce using rule 18 (Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
+=======
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 93
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 
 state 92
 
+<<<<<<< HEAD
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
 
     $end            reduce using rule 19 (Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
+=======
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 94
+
+
+state 93
+
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 95
+
+
+state 94
+
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 96
+
+
+state 95
+
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 97
+
+
+state 96
+
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 98
+
+
+state 97
+
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 99
+
+
+state 98
+
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 100
+
+
+state 99
+
+    (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
+
+    $end            reduce using rule 17 (Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
+
+
+state 100
+
+    (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
+
+    $end            reduce using rule 18 (Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
+>>>>>>> 1c8b12cd9ba778268dc821598c2c2ad3977259b5
 
 WARNING: 
 WARNING: Conflicts:
