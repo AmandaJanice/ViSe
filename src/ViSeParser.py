@@ -81,10 +81,10 @@ def p_communicate(p):
 
 def p_server_sets(p):
     'Exp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON'
-    if p[6] not in code.variables:
+    if p[7] not in code.variables:
         p[0] = "Server URL not in use"
     else:
-        # code.setRoutes(p[6])
+        # code.setRoutes(p[9])
         p[1] + "is : "
 
 
