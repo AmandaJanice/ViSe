@@ -61,13 +61,11 @@ class Server():
         app = self.variables[server_id].flask_instance
 
         # app.add_url_rule('/', 'Home', lambda : 'Hello, World')
-
         try:
             app.add_url_rule(route_endpoint, str(route_endpoint), action)
+            return "Action added"
         except:
             return "Cannot assign more than one action to the same route"
-
-        return
 
     def create_data(self, route_id, object_id):#TODO PUT and POST
         endpoint = self.variables[route_id]
@@ -76,7 +74,7 @@ class Server():
             self.variables[object_id] = request.get_json()
             return str(self.variables[object_id])
 
-        self.add_endpoints(endpoint.server_id, str(endpoint.route), create_action)
+        return self.add_endpoints(endpoint.server_id, str(endpoint.route), create_action)
 
     def read_data(self, route_id, object_id):#TODO GET
         endpoint = self.variables[route_id]
@@ -84,15 +82,15 @@ class Server():
         def return_action():
             return str(self.variables[object_id])
 
-        self.add_endpoints(endpoint.server_id, endpoint.route, return_action)
+        return self.add_endpoints(endpoint.server_id, endpoint.route, return_action)
 
     def create_server(self, assigned_id, port=80):
         if(port not in self.used_ports):
             self.variables[assigned_id] = Server_ID(Flask(assigned_id), port)
             self.used_ports.append(port)
-            return "Server instance created at port: " + str(port) + "\n (Server not running) Run " + assigned_id + ": start; to run server"
+            return "Server instance with ID: '" + assigned_id + "' created at port: " + str(port) + "\n(Server not running) Run " + assigned_id + ": start; to run server"
         else:
-            raise Exception("Not accepted, port: " + str(port) + ", is already in use")
+            return "Not accepted, port: " + str(port) + ", is already in use"
 
     def start_server(self, server_id):
         try:

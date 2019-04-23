@@ -4,7 +4,7 @@ def id_not_defined(id):
 
 #returns message id created when called
 def id_saved(id):
-    return "'"str(id) + "' declared succesfully"
+    return "'" + str(id) + "' declared succesfully"
 
 #returns original string without the quotes
 def string_cleaner(line):

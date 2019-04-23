@@ -57,8 +57,8 @@ def p_variable(p):
 
 def p_exp_create_server(p):
     'Exp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON'
-    code.create_server(p[1], p[7])
-    p[0] = "Server with Id: '"+p[1]+"' and port: '"+p[7]+"' created."
+    p[0] = code.create_server(p[1], p[7])
+    # p[0] = "Server with Id: '"+p[1]+"' and port: '"+p[7]+"' created."
 
 
 def p_server_start(p):
@@ -98,8 +98,8 @@ def p_server_reads(p):
     elif p[1] not in code.variables:
         p[0] = cl.id_not_defined(p[1])
     else:
-        code.read_data(p[1], p[7])
-        p[0] = "Action added"
+        p[0] = code.read_data(p[1], p[7])
+        #p[0] = "Action added"
 
 def p_server_creates(p):
     'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
@@ -109,8 +109,8 @@ def p_server_creates(p):
     elif p[1] not in code.variables:
         p[0] = cl.id_not_defined(p[1])
     else:
-        code.create_data(p[1], p[7])
-        p[0] = "Action added"
+        p[0] = code.create_data(p[1], p[7])
+        #p[0] = "Action added"
         # p[0] = "send: " + p[1] + " data " + p[7]
 
 
