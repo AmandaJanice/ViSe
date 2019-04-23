@@ -12,13 +12,13 @@ Operator    ::=  = | :
 
 **Grammar**
 
-Exp         ::= Prim | Prim : Second | Id : Second | Id : Third | Object | Id
+Exp         ::= Exp | Prim | Prim : Second | Id : Second | Id : Third | Id
 
 Object ::= json : &quot;{&quot;&quot;}&quot; | json : &quot;{&quot;{ String : ObjectParam , }\* String : ObjectParam &quot;}&quot; | HttpGet
 
 ObjectParam ::= String | Id | Exp
 
-Def ::= Id = Exp ;
+Def ::= Id = Exp ; | Id = Object ;
 
 Prim  ::= CreateServer
 
