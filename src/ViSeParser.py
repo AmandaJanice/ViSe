@@ -58,7 +58,6 @@ def p_variable(p):
 def p_exp_create_server(p):
     'Exp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON'
     p[0] = code.create_server(p[1], p[7])
-    # p[0] = "Server with Id: '"+p[1]+"' and port: '"+p[7]+"' created."
 
 
 def p_server_start(p):
@@ -66,8 +65,7 @@ def p_server_start(p):
     if p[1] not in code.variables:
         p[0] = cl.id_not_defined(p[1])
     else:
-        code.start_server(p[1])
-        p[0] = "Server with Id: " + p[1] + "is Running at: "
+        p[0] = code.start_server(p[1])
 
 
 def p_communicate_id(p):

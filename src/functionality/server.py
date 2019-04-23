@@ -97,7 +97,7 @@ class Server():
             self.variables[server_id].flask_instance.run(port=self.variables[server_id].port)
             return "Server started at: http://localhost/" + str(self.variables[server_id].port) + "/"
         except:
-            raise Exception("server failed to start")
+            return "server failed to start"
 
     def print_object(self, object_id):
         return str(self.variables[object_id])
