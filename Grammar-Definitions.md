@@ -28,15 +28,13 @@ Third ::= CreateData | ReadData
 
 HttpGet ::= httpGet (from = String)
 
-ReadData ::= readData (body = Ref)
+ReadData ::= readData (body = Id)
 
 SetRoutes ::= setRoutes (url = String)
 
-CreateData ::= createData (object = Ref)
+CreateData ::= createData (object = Id)
 
 CreateServer ::= createServer () | createServer (port = Int)
-
-Ref ::= Id | Object
 
 String ::= &quot; {Character | Digit | Delimiter | Operator}\* &quot;
 
