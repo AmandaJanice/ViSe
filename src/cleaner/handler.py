@@ -11,13 +11,3 @@ def string_cleaner(line):
     if(isinstance(line, str)):
         return line[1:-1]
     return None
-
-
-# Testing
-
-# print(id_not_defined("some_id"))
-# print(id_saved("another_id"))
-# text = "\"text with brackets\""
-# print(text)
-# print(string_cleaner(text))
-# print(string_cleaner(234))

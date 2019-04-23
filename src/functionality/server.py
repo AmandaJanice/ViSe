@@ -4,9 +4,9 @@ import json
 import requests as req
 import logging
 
-# Removes log messages, Server started message is still there
+# Removes log messages when disabled  true, Server started message is still there
 log = logging.getLogger('werkzeug')
-log.disabled = True
+log.disabled = False
 
 # Defines a route_id object
 # attributes:
