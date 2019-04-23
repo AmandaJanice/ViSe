@@ -22,12 +22,14 @@ def p_object_def_empty(p):
 
 
 def p_object_def(p):
-    'Object : JSON COLON LC Inside RC'
-    code.update_variables(p[1], p[4])
+    'Exp : ID EQUAL JSON COLON LC Inside RC SEMICOLON'
+    #p[0] = p[4]
+    code.update_variables(p[1], p[6])
 
 
 def p_inside_object(p):
     'Inside : STRING COLON ObjectParam'
+    p[0] = (p[1], p[2], p[3])
 
 
 def p_inside_rec(p):
@@ -36,14 +38,17 @@ def p_inside_rec(p):
 
 def p_object_param_id(p):
     'ObjectParam : ID'
+    p[0] = p[1]
 
 
 def p_object_param_int(p):
     'ObjectParam : INT'
+    p[0] = p[1]
 
 
 def p_object_param_string(p):
     'ObjectParam : STRING'
+    p[0] = p[1]
 
 
 def p_variable(p):
