@@ -29,7 +29,7 @@ def p_object_def(p):
 
 def p_inside_object(p):
     'Inside : STRING COLON ObjectParam'
-    p[0] = (p[1], p[2], p[3])
+    p[0] = (p[1][1:-1], p[2], p[3])
 
 
 def p_inside_rec(p):
@@ -48,7 +48,7 @@ def p_object_param_int(p):
 
 def p_object_param_string(p):
     'ObjectParam : STRING'
-    p[0] = p[1]
+    p[0] = p[1][1:-1]
 
 
 def p_variable(p):
@@ -81,31 +81,38 @@ def p_communicate(p):
     'Exp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON'
     # p[0] = code.http_get(p[7])
     print(p[7])
-    p[0] = code.update_variables(p[1], code.http_get(p[7]))
+    p[0] = code.update_variables(p[1], code.http_get(p[7][1:-1]))
 
 
 def p_server_sets(p):
     'Exp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON'
-    # if p[7] not in code.variables:
-    #     p[0] = "Server URL not in use"
-    # else:
-    code.add_route(p[3], p[9], p[1])
+    if p[3] not in code.variables:
+        p[0] = p[3]+ " not defined"
+    else:
+        code.add_route(p[3], p[9][1:-1], p[1])
+        # p[0] = code.variables[p[1]].route
         # p[1] + "is : "
 
 
 def p_server_reads(p):
     'Exp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON'
     if p[7] not in code.variables:
-        p[0] = "Body not in use"
+        p[0] = p[7] + "not defined"
+    elif p[1] not in code.variables:
+        p[0] = p[1] + "not defined"
     else:
         code.read_data(p[1], p[7])
 
 def p_server_creates(p):
     'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
+    # p[0] = "p1" + p[1] + "p7" + p[7]
     if(p[7] not in code.variables):
-        p[0] = "Object not defined"
+        p[0] = p[7] + " not defined"
+    elif p[1] not in code.variables:
+        p[0] = p[1] + " not defined"
     else:
-        code.create_data(p[1], p[7])
+        p[0] = code.create_data(p[1], p[7])
+        # p[0] = "send: " + p[1] + " data " + p[7]
 
 
 # def p_Exp_Def(p):

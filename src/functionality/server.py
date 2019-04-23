@@ -68,12 +68,12 @@ class Server():
 
     def create_data(self, route_id, object_id):#TODO PUT and POST
         endpoint = self.variables[route_id]
-
+        
         def create_action():
             self.variables[object_id] = request.get_json()
             return str(self.variables[object_id])
 
-        self.add_endpoints(endpoint.server_id, endpoint.route, create_action)
+        self.add_endpoints(endpoint.server_id, str(endpoint.route), create_action)
 
     def read_data(self, route_id, object_id):#TODO GET
         endpoint = self.variables[route_id]
