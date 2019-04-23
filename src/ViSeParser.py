@@ -86,19 +86,26 @@ def p_communicate(p):
 
 def p_server_sets(p):
     'Exp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON'
-    if p[7] not in code.variables:
-        p[0] = "Server URL not in use"
-    else:
-        # code.setRoutes(p[9])
-        p[1] + "is : "
+    # if p[7] not in code.variables:
+    #     p[0] = "Server URL not in use"
+    # else:
+    code.add_route(p[3], p[9], p[1])
+        # p[1] + "is : "
 
 
 def p_server_reads(p):
     'Exp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON'
-    if p[5] not in code.variables:
+    if p[7] not in code.variables:
         p[0] = "Body not in use"
     else:
-        code.read_data(p[0], p[5])
+        code.read_data(p[1], p[7])
+
+def p_server_creates(p):
+    'Exp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
+    if(p[7] not in code.variables):
+        p[0] = "Object not defined"
+    else:
+        code.create_data(p[1], p[7])
 
 
 # def p_Exp_Def(p):

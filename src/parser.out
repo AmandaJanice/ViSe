@@ -2,22 +2,15 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    BODY
     BSLASH
     CHARACTER
     COMMENTS
-    CREATEDATA
     DQUOTE
     FROM
-    HTTPGET
-    OBJECT
     PERIOD
     PLUS
-    READDATA
-    SETROUTES
     SLASH
     UNKNOWN
-    URL
 
 Grammar
 
@@ -32,40 +25,44 @@ Rule 7     ObjectParam -> STRING
 Rule 8     Exp -> ID SEMICOLON
 Rule 9     Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
 Rule 10    Exp -> ID COLON START SEMICOLON
+Rule 11    Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
+Rule 12    Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+Rule 13    Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+Rule 14    Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
 Terminals, with rules where they appear
 
-BODY                 : 
+BODY                 : 13
 BSLASH               : 
 CHARACTER            : 
-COLON                : 1 2 3 4 10
+COLON                : 1 2 3 4 10 12 13 14
 COMMA                : 4
 COMMENTS             : 
-CREATEDATA           : 
+CREATEDATA           : 14
 CREATESERVER         : 9
 DQUOTE               : 
-EQUAL                : 1 2 9 9
+EQUAL                : 1 2 9 9 11 11 12 12 13 14
 FROM                 : 
-HTTPGET              : 
-ID                   : 1 2 5 8 9 10
+HTTPGET              : 11
+ID                   : 1 2 5 8 9 10 11 12 12 13 13 14 14
 INT                  : 6 9
 JSON                 : 1 2
 LC                   : 1 2
-LP                   : 9
-OBJECT               : 
+LP                   : 9 11 12 13 14
+OBJECT               : 14
 PERIOD               : 
 PLUS                 : 
 PORT                 : 9
 RC                   : 1 2
-READDATA             : 
-RP                   : 9
-SEMICOLON            : 1 2 8 9 10
-SETROUTES            : 
+READDATA             : 13
+RP                   : 9 11 12 13 14
+SEMICOLON            : 1 2 8 9 10 11 12 13 14
+SETROUTES            : 12
 SLASH                : 
 START                : 10
-STRING               : 3 4 7
+STRING               : 3 4 7 11 12
 UNKNOWN              : 
-URL                  : 
+URL                  : 11 12
 error                : 
 
 Nonterminals, with rules where they appear
@@ -85,6 +82,10 @@ state 0
     (8) Exp -> . ID SEMICOLON
     (9) Exp -> . ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
     (10) Exp -> . ID COLON START SEMICOLON
+    (11) Exp -> . ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (12) Exp -> . ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (13) Exp -> . ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (14) Exp -> . ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     ID              shift and go to state 2
 
@@ -103,6 +104,10 @@ state 2
     (8) Exp -> ID . SEMICOLON
     (9) Exp -> ID . EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
     (10) Exp -> ID . COLON START SEMICOLON
+    (11) Exp -> ID . EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (12) Exp -> ID . EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
+    (13) Exp -> ID . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
+    (14) Exp -> ID . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
     EQUAL           shift and go to state 3
     SEMICOLON       shift and go to state 5
@@ -114,16 +119,24 @@ state 3
     (1) Exp -> ID EQUAL . JSON COLON LC RC SEMICOLON
     (2) Exp -> ID EQUAL . JSON COLON LC Inside RC SEMICOLON
     (9) Exp -> ID EQUAL . CREATESERVER LP PORT EQUAL INT RP SEMICOLON
+    (11) Exp -> ID EQUAL . HTTPGET LP URL EQUAL STRING RP SEMICOLON
+    (12) Exp -> ID EQUAL . ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
 
-    JSON            shift and go to state 6
-    CREATESERVER    shift and go to state 7
+    JSON            shift and go to state 7
+    CREATESERVER    shift and go to state 8
+    HTTPGET         shift and go to state 9
+    ID              shift and go to state 6
 
 
 state 4
 
     (10) Exp -> ID COLON . START SEMICOLON
+    (13) Exp -> ID COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
+    (14) Exp -> ID COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
 
-    START           shift and go to state 8
+    START           shift and go to state 10
+    READDATA        shift and go to state 11
+    CREATEDATA      shift and go to state 12
 
 
 state 5
@@ -135,173 +148,383 @@ state 5
 
 state 6
 
-    (1) Exp -> ID EQUAL JSON . COLON LC RC SEMICOLON
-    (2) Exp -> ID EQUAL JSON . COLON LC Inside RC SEMICOLON
+    (12) Exp -> ID EQUAL ID . COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
 
-    COLON           shift and go to state 9
+    COLON           shift and go to state 13
 
 
 state 7
 
-    (9) Exp -> ID EQUAL CREATESERVER . LP PORT EQUAL INT RP SEMICOLON
+    (1) Exp -> ID EQUAL JSON . COLON LC RC SEMICOLON
+    (2) Exp -> ID EQUAL JSON . COLON LC Inside RC SEMICOLON
 
-    LP              shift and go to state 10
+    COLON           shift and go to state 14
 
 
 state 8
 
-    (10) Exp -> ID COLON START . SEMICOLON
+    (9) Exp -> ID EQUAL CREATESERVER . LP PORT EQUAL INT RP SEMICOLON
 
-    SEMICOLON       shift and go to state 11
+    LP              shift and go to state 15
 
 
 state 9
 
-    (1) Exp -> ID EQUAL JSON COLON . LC RC SEMICOLON
-    (2) Exp -> ID EQUAL JSON COLON . LC Inside RC SEMICOLON
+    (11) Exp -> ID EQUAL HTTPGET . LP URL EQUAL STRING RP SEMICOLON
 
-    LC              shift and go to state 12
+    LP              shift and go to state 16
 
 
 state 10
 
-    (9) Exp -> ID EQUAL CREATESERVER LP . PORT EQUAL INT RP SEMICOLON
+    (10) Exp -> ID COLON START . SEMICOLON
 
-    PORT            shift and go to state 13
+    SEMICOLON       shift and go to state 17
 
 
 state 11
+
+    (13) Exp -> ID COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
+
+    LP              shift and go to state 18
+
+
+state 12
+
+    (14) Exp -> ID COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
+
+    LP              shift and go to state 19
+
+
+state 13
+
+    (12) Exp -> ID EQUAL ID COLON . SETROUTES LP URL EQUAL STRING RP SEMICOLON
+
+    SETROUTES       shift and go to state 20
+
+
+state 14
+
+    (1) Exp -> ID EQUAL JSON COLON . LC RC SEMICOLON
+    (2) Exp -> ID EQUAL JSON COLON . LC Inside RC SEMICOLON
+
+    LC              shift and go to state 21
+
+
+state 15
+
+    (9) Exp -> ID EQUAL CREATESERVER LP . PORT EQUAL INT RP SEMICOLON
+
+    PORT            shift and go to state 22
+
+
+state 16
+
+    (11) Exp -> ID EQUAL HTTPGET LP . URL EQUAL STRING RP SEMICOLON
+
+    URL             shift and go to state 23
+
+
+state 17
 
     (10) Exp -> ID COLON START SEMICOLON .
 
     $end            reduce using rule 10 (Exp -> ID COLON START SEMICOLON .)
 
 
-state 12
+state 18
+
+    (13) Exp -> ID COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
+
+    BODY            shift and go to state 24
+
+
+state 19
+
+    (14) Exp -> ID COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
+
+    OBJECT          shift and go to state 25
+
+
+state 20
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES . LP URL EQUAL STRING RP SEMICOLON
+
+    LP              shift and go to state 26
+
+
+state 21
 
     (1) Exp -> ID EQUAL JSON COLON LC . RC SEMICOLON
     (2) Exp -> ID EQUAL JSON COLON LC . Inside RC SEMICOLON
     (3) Inside -> . STRING COLON ObjectParam
 
-    RC              shift and go to state 14
-    STRING          shift and go to state 16
+    RC              shift and go to state 27
+    STRING          shift and go to state 29
 
-    Inside                         shift and go to state 15
+    Inside                         shift and go to state 28
 
-state 13
+state 22
 
     (9) Exp -> ID EQUAL CREATESERVER LP PORT . EQUAL INT RP SEMICOLON
 
-    EQUAL           shift and go to state 17
+    EQUAL           shift and go to state 30
 
 
-state 14
+state 23
+
+    (11) Exp -> ID EQUAL HTTPGET LP URL . EQUAL STRING RP SEMICOLON
+
+    EQUAL           shift and go to state 31
+
+
+state 24
+
+    (13) Exp -> ID COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 32
+
+
+state 25
+
+    (14) Exp -> ID COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
+
+    EQUAL           shift and go to state 33
+
+
+state 26
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES LP . URL EQUAL STRING RP SEMICOLON
+
+    URL             shift and go to state 34
+
+
+state 27
 
     (1) Exp -> ID EQUAL JSON COLON LC RC . SEMICOLON
 
-    SEMICOLON       shift and go to state 18
+    SEMICOLON       shift and go to state 35
 
 
-state 15
+state 28
 
     (2) Exp -> ID EQUAL JSON COLON LC Inside . RC SEMICOLON
 
-    RC              shift and go to state 19
+    RC              shift and go to state 36
 
 
-state 16
+state 29
 
     (3) Inside -> STRING . COLON ObjectParam
 
-    COLON           shift and go to state 20
+    COLON           shift and go to state 37
 
 
-state 17
+state 30
 
     (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL . INT RP SEMICOLON
 
-    INT             shift and go to state 21
+    INT             shift and go to state 38
 
 
-state 18
+state 31
+
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL . STRING RP SEMICOLON
+
+    STRING          shift and go to state 39
+
+
+state 32
+
+    (13) Exp -> ID COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 40
+
+
+state 33
+
+    (14) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL . ID RP SEMICOLON
+
+    ID              shift and go to state 41
+
+
+state 34
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES LP URL . EQUAL STRING RP SEMICOLON
+
+    EQUAL           shift and go to state 42
+
+
+state 35
 
     (1) Exp -> ID EQUAL JSON COLON LC RC SEMICOLON .
 
     $end            reduce using rule 1 (Exp -> ID EQUAL JSON COLON LC RC SEMICOLON .)
 
 
-state 19
+state 36
 
     (2) Exp -> ID EQUAL JSON COLON LC Inside RC . SEMICOLON
 
-    SEMICOLON       shift and go to state 22
+    SEMICOLON       shift and go to state 43
 
 
-state 20
+state 37
 
     (3) Inside -> STRING COLON . ObjectParam
     (5) ObjectParam -> . ID
     (6) ObjectParam -> . INT
     (7) ObjectParam -> . STRING
 
-    ID              shift and go to state 25
-    INT             shift and go to state 26
-    STRING          shift and go to state 23
+    ID              shift and go to state 46
+    INT             shift and go to state 47
+    STRING          shift and go to state 44
 
-    ObjectParam                    shift and go to state 24
+    ObjectParam                    shift and go to state 45
 
-state 21
+state 38
 
     (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT . RP SEMICOLON
 
-    RP              shift and go to state 27
+    RP              shift and go to state 48
 
 
-state 22
+state 39
+
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING . RP SEMICOLON
+
+    RP              shift and go to state 49
+
+
+state 40
+
+    (13) Exp -> ID COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 50
+
+
+state 41
+
+    (14) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID . RP SEMICOLON
+
+    RP              shift and go to state 51
+
+
+state 42
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL . STRING RP SEMICOLON
+
+    STRING          shift and go to state 52
+
+
+state 43
 
     (2) Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON .
 
     $end            reduce using rule 2 (Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON .)
 
 
-state 23
+state 44
 
     (7) ObjectParam -> STRING .
 
     RC              reduce using rule 7 (ObjectParam -> STRING .)
 
 
-state 24
+state 45
 
     (3) Inside -> STRING COLON ObjectParam .
 
     RC              reduce using rule 3 (Inside -> STRING COLON ObjectParam .)
 
 
-state 25
+state 46
 
     (5) ObjectParam -> ID .
 
     RC              reduce using rule 5 (ObjectParam -> ID .)
 
 
-state 26
+state 47
 
     (6) ObjectParam -> INT .
 
     RC              reduce using rule 6 (ObjectParam -> INT .)
 
 
-state 27
+state 48
 
     (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP . SEMICOLON
 
-    SEMICOLON       shift and go to state 28
+    SEMICOLON       shift and go to state 53
 
 
-state 28
+state 49
+
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 54
+
+
+state 50
+
+    (13) Exp -> ID COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 55
+
+
+state 51
+
+    (14) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 56
+
+
+state 52
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING . RP SEMICOLON
+
+    RP              shift and go to state 57
+
+
+state 53
 
     (9) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .
 
     $end            reduce using rule 9 (Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .)
+
+
+state 54
+
+    (11) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .
+
+    $end            reduce using rule 11 (Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .)
+
+
+state 55
+
+    (13) Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
+
+    $end            reduce using rule 13 (Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
+
+
+state 56
+
+    (14) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
+
+    $end            reduce using rule 14 (Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
+
+
+state 57
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP . SEMICOLON
+
+    SEMICOLON       shift and go to state 58
+
+
+state 58
+
+    (12) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .
+
+    $end            reduce using rule 12 (Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .)
 

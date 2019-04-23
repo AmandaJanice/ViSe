@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONInside : STRING COLON ObjectParamInsideRec : STRING COLON ObjectParam COMMA InsideObjectParam : IDObjectParam : INTObjectParam : STRINGExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLON'
+_lr_signature = 'leftLPleftLCrightRPrightRCBODY BSLASH CHARACTER COLON COMMA COMMENTS CREATEDATA CREATESERVER DQUOTE EQUAL FROM HTTPGET ID INT JSON LC LP OBJECT PERIOD PLUS PORT RC READDATA RP SEMICOLON SETROUTES SLASH START STRING UNKNOWN URLExp : ID EQUAL JSON COLON LC RC SEMICOLONExp : ID EQUAL JSON COLON LC Inside RC SEMICOLONInside : STRING COLON ObjectParamInsideRec : STRING COLON ObjectParam COMMA InsideObjectParam : IDObjectParam : INTObjectParam : STRINGExp : ID SEMICOLONExp : ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLONExp : ID COLON START SEMICOLONExp : ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLONExp : ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLONExp : ID COLON READDATA LP BODY EQUAL ID RP SEMICOLONExp : ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON'
     
-_lr_action_items = {'ID':([0,20,],[2,25,]),'$end':([1,5,11,18,22,28,],[0,-8,-10,-1,-2,-9,]),'EQUAL':([2,13,],[3,17,]),'SEMICOLON':([2,8,14,19,27,],[5,11,18,22,28,]),'COLON':([2,6,16,],[4,9,20,]),'JSON':([3,],[6,]),'CREATESERVER':([3,],[7,]),'START':([4,],[8,]),'LP':([7,],[10,]),'LC':([9,],[12,]),'PORT':([10,],[13,]),'RC':([12,15,23,24,25,26,],[14,19,-7,-3,-5,-6,]),'STRING':([12,20,],[16,23,]),'INT':([17,20,],[21,26,]),'RP':([21,],[27,]),}
+_lr_action_items = {'ID':([0,3,32,33,37,],[2,6,40,41,46,]),'$end':([1,5,17,35,43,53,54,55,56,58,],[0,-8,-10,-1,-2,-9,-11,-13,-14,-12,]),'EQUAL':([2,22,23,24,25,34,],[3,30,31,32,33,42,]),'SEMICOLON':([2,10,27,36,48,49,50,51,57,],[5,17,35,43,53,54,55,56,58,]),'COLON':([2,6,7,29,],[4,13,14,37,]),'JSON':([3,],[7,]),'CREATESERVER':([3,],[8,]),'HTTPGET':([3,],[9,]),'START':([4,],[10,]),'READDATA':([4,],[11,]),'CREATEDATA':([4,],[12,]),'LP':([8,9,11,12,20,],[15,16,18,19,26,]),'SETROUTES':([13,],[20,]),'LC':([14,],[21,]),'PORT':([15,],[22,]),'URL':([16,26,],[23,34,]),'BODY':([18,],[24,]),'OBJECT':([19,],[25,]),'RC':([21,28,44,45,46,47,],[27,36,-7,-3,-5,-6,]),'STRING':([21,31,37,42,],[29,39,44,52,]),'INT':([30,37,],[38,47,]),'RP':([38,39,40,41,52,],[48,49,50,51,57,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([12,],[15,]),'ObjectParam':([20,],[24,]),}
+_lr_goto_items = {'Exp':([0,],[1,]),'Inside':([21,],[28,]),'ObjectParam':([37,],[45,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -37,4 +37,8 @@ _lr_productions = [
   ('Exp -> ID SEMICOLON','Exp',2,'p_variable','ViSeParser.py',55),
   ('Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON','Exp',9,'p_exp_create_server','ViSeParser.py',66),
   ('Exp -> ID COLON START SEMICOLON','Exp',4,'p_server_start','ViSeParser.py',72),
+  ('Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON','Exp',9,'p_communicate','ViSeParser.py',81),
+  ('Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON','Exp',11,'p_server_sets','ViSeParser.py',88),
+  ('Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON','Exp',9,'p_server_reads','ViSeParser.py',97),
+  ('Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON','Exp',9,'p_server_creates','ViSeParser.py',104),
 ]
