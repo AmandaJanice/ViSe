@@ -7,8 +7,9 @@ def run():
            s = input('ViSe >> ')
        except EOFError:
            break
-       if not s: continue
-       elif s == "Exit":
+       if not s:
+           continue
+       elif s == "Exit" or s == "exit":
            break
        result = parse.parse(s)
        print(result)
