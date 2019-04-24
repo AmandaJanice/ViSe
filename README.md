@@ -8,23 +8,26 @@ server = createServer (port= 3000);
 
 //Create variable for data storage\\
 data = json: {};
-data2 = json: {“name”: “Juana”, “lastName”: “Petraca”};
+data2 = json: {"name": "8%%$", "lastName": "Petraca", "age": "67"};
 
 //Server receives\\
-send = server: setRoutes(url= “/app/send”);
+send = server: setRoutes(url= "/app/send");
 
 //uses the request body in a JSON format\\
 send: createData(object= data);  //object: object to save into\\
-//send: createData(object= data2);//you can also overwrite existing values\\\\
+//send: createData(object= data2);//you can also overwrite existing values but b\\\\
 
 //Server sends\\
-get = server: setRoutes(url= “/app/get”);
+get = server: setRoutes(url= "/app/get");
 get: readData(body= data); //data in JSON format\\
+
+server: setRoutes(url= "/empty"): readData(body= data2);
+server: setRoutes(url= "/empty"): createData(object= data2);
 
 server: start;
 
 //Communicating with other server\\
-test = httpGet(url= “https://reqres.in/api/users?page=2”);
+test = httpGet(url= "https://reqres.in/api/users?page=2");
 //receives JSON from another server\\
 
 ```
