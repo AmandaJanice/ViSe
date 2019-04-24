@@ -14,7 +14,7 @@ Operator    ::=  = | :
 
 Exp ::= Def | SecondaryExp | Id : Start | Id ; | HttpGet ;
 
-Def ::= Id = Prim ; | Id = Object ; | Id = SecondaryExp ;
+Def ::= Id = Prim ; | Id = Object ; | Id = SecondaryExp ; | Id = Int ;
 
 SecondaryExp ::= Id : Second | Id : Third
 
