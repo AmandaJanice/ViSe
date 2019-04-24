@@ -135,8 +135,8 @@ def p_set_routes_create(p):
     else:
         p[0] = code.create_data(code.add_route(p[1], cl.string_cleaner(p[7])), p[14])
 
-def p_set_routes_non_id(p):
-    'Exp : ID COLON SETROUTES LP URL LP EQUAL STRING RP SEMICOLON'
+def p_set_routes_non_id(p):#returns name of added route id
+    'Exp : ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON'
     if (p[1] not in code.variables):
         p[0] = cl.id_not_defined(p[1])
     else:
