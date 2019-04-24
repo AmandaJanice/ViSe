@@ -5,7 +5,6 @@ Grammar
 Rule 0     S' -> Exp
 Rule 1     Exp -> HELP
 Rule 2     Exp -> ID EQUAL JSON COLON LC RC SEMICOLON
-<<<<<<< HEAD
 Rule 3     Exp -> ID EQUAL ID SEMICOLON
 Rule 4     Exp -> ID EQUAL INT SEMICOLON
 Rule 5     Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON
@@ -51,52 +50,7 @@ SETROUTES            : 15 20 21
 START                : 12
 STRING               : 7 7 13 14 15 20 21
 URL                  : 13 14 15 20 21
-=======
-Rule 3     Exp -> ID EQUAL JSON COLON LC Inside RC SEMICOLON
-Rule 4     Exp -> ID EQUAL JSON COLON LC InsideRec RC SEMICOLON
-Rule 5     Inside -> STRING COLON STRING
-Rule 6     InsideRec -> Inside COMMA Inside COMMA Inside
-Rule 7     Exp -> ID SEMICOLON
-Rule 8     Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
-Rule 9     Exp -> ID EQUAL CREATESERVER LP RP SEMICOLON
-Rule 10    Exp -> ID COLON START SEMICOLON
-Rule 11    Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
-Rule 12    Exp -> HTTPGET LP URL EQUAL STRING RP SEMICOLON
-Rule 13    Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
-Rule 14    Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-Rule 15    Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-Rule 16    Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-Rule 17    Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-Rule 18    Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-Rule 19    Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
-
-Terminals, with rules where they appear
-
-BODY                 : 14 15 17
-COLON                : 2 3 4 5 10 13 14 15 16 17 17 18 18 19
-COMMA                : 6 6
-CREATEDATA           : 16 18
-CREATESERVER         : 8 9
-EQUAL                : 2 3 4 8 8 9 11 11 12 13 13 14 15 15 16 17 17 18 18 19
-HELP                 : 1
-HTTPGET              : 11 12
-ID                   : 2 3 4 7 8 9 10 11 13 13 14 14 15 15 15 16 16 17 17 18 18 19
-INT                  : 8
-JSON                 : 2 3 4
-LC                   : 2 3 4
-LP                   : 8 9 11 12 13 14 15 16 17 17 18 18 19
-OBJECT               : 16 18
-PORT                 : 8
-RC                   : 2 3 4
-READDATA             : 14 15 17
-RP                   : 8 9 11 12 13 14 15 16 17 17 18 18 19
-SEMICOLON            : 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19
-SETROUTES            : 13 17 18 19
-START                : 10
-STRING               : 5 5 11 12 13 17 18 19
-URL                  : 11 12 13 17 18 19
->>>>>>> add-grammar
-error                : 
+error                :
 
 Nonterminals, with rules where they appear
 
@@ -111,7 +65,6 @@ state 0
     (0) S' -> . Exp
     (1) Exp -> . HELP
     (2) Exp -> . ID EQUAL JSON COLON LC RC SEMICOLON
-<<<<<<< HEAD
     (3) Exp -> . ID EQUAL ID SEMICOLON
     (4) Exp -> . ID EQUAL INT SEMICOLON
     (5) Exp -> . ID EQUAL JSON COLON LC Inside RC SEMICOLON
@@ -128,23 +81,6 @@ state 0
     (19) Exp -> . ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (20) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (21) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-=======
-    (3) Exp -> . ID EQUAL JSON COLON LC Inside RC SEMICOLON
-    (4) Exp -> . ID EQUAL JSON COLON LC InsideRec RC SEMICOLON
-    (7) Exp -> . ID SEMICOLON
-    (8) Exp -> . ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
-    (9) Exp -> . ID EQUAL CREATESERVER LP RP SEMICOLON
-    (10) Exp -> . ID COLON START SEMICOLON
-    (11) Exp -> . ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
-    (12) Exp -> . HTTPGET LP URL EQUAL STRING RP SEMICOLON
-    (13) Exp -> . ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
-    (14) Exp -> . ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (15) Exp -> . ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (16) Exp -> . ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-    (17) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (18) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-    (19) Exp -> . ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
->>>>>>> add-grammar
 
     HELP            shift and go to state 2
     ID              shift and go to state 3
@@ -168,7 +104,6 @@ state 2
 state 3
 
     (2) Exp -> ID . EQUAL JSON COLON LC RC SEMICOLON
-<<<<<<< HEAD
     (3) Exp -> ID . EQUAL ID SEMICOLON
     (4) Exp -> ID . EQUAL INT SEMICOLON
     (5) Exp -> ID . EQUAL JSON COLON LC Inside RC SEMICOLON
@@ -184,22 +119,6 @@ state 3
     (19) Exp -> ID . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (20) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (21) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-=======
-    (3) Exp -> ID . EQUAL JSON COLON LC Inside RC SEMICOLON
-    (4) Exp -> ID . EQUAL JSON COLON LC InsideRec RC SEMICOLON
-    (7) Exp -> ID . SEMICOLON
-    (8) Exp -> ID . EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON
-    (9) Exp -> ID . EQUAL CREATESERVER LP RP SEMICOLON
-    (10) Exp -> ID . COLON START SEMICOLON
-    (11) Exp -> ID . EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON
-    (13) Exp -> ID . EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
-    (14) Exp -> ID . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (15) Exp -> ID . EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (16) Exp -> ID . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-    (17) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (18) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-    (19) Exp -> ID . COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON
->>>>>>> add-grammar
 
     EQUAL           shift and go to state 5
     SEMICOLON       shift and go to state 7
@@ -235,20 +154,12 @@ state 5
 
 state 6
 
-<<<<<<< HEAD
-    (12) Exp -> ID COLON . START SEMICOLON
-    (16) Exp -> ID COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
-    (19) Exp -> ID COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-    (20) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
-    (21) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-=======
     (10) Exp -> ID COLON . START SEMICOLON
     (14) Exp -> ID COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
     (16) Exp -> ID COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (17) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON . SETROUTES LP URL EQUAL STRING RP SEMICOLON
->>>>>>> add-grammar
 
     START           shift and go to state 14
     READDATA        shift and go to state 15
@@ -327,13 +238,9 @@ state 15
 
 state 16
 
-<<<<<<< HEAD
-    (19) Exp -> ID COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
-=======
     (17) Exp -> ID COLON SETROUTES . LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON SETROUTES . LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES . LP URL EQUAL STRING RP SEMICOLON
->>>>>>> add-grammar
 
     LP              shift and go to state 27
 
@@ -404,13 +311,9 @@ state 24
 
 state 25
 
-<<<<<<< HEAD
-    (12) Exp -> ID COLON START SEMICOLON .
-=======
     (17) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP . URL EQUAL STRING RP SEMICOLON
->>>>>>> add-grammar
 
     $end            reduce using rule 12 (Exp -> ID COLON START SEMICOLON .)
 
@@ -488,13 +391,9 @@ state 34
 
 state 35
 
-<<<<<<< HEAD
-    (11) Exp -> ID EQUAL CREATESERVER LP RP . SEMICOLON
-=======
     (17) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL . EQUAL STRING RP SEMICOLON
->>>>>>> add-grammar
 
     SEMICOLON       shift and go to state 49
 
@@ -589,13 +488,9 @@ state 47
 
 state 48
 
-<<<<<<< HEAD
-    (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL . INT RP SEMICOLON
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL . STRING RP SEMICOLON
->>>>>>> add-grammar
 
     INT             shift and go to state 62
 
@@ -692,13 +587,9 @@ state 60
 
 state 61
 
-<<<<<<< HEAD
-    (7) Inside -> STRING COLON . STRING
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING . RP SEMICOLON
->>>>>>> add-grammar
 
     STRING          shift and go to state 73
 
@@ -788,41 +679,26 @@ state 72
 
 state 73
 
-<<<<<<< HEAD
-    (7) Inside -> STRING COLON STRING .
-
-    RC              reduce using rule 7 (Inside -> STRING COLON STRING .)
-    COMMA           reduce using rule 7 (Inside -> STRING COLON STRING .)
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . COLON READDATA LP BODY EQUAL ID RP SEMICOLON
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP . SEMICOLON
 
     COLON           shift and go to state 81
     SEMICOLON       shift and go to state 82
->>>>>>> add-grammar
 
 
 state 74
 
     (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP . SEMICOLON
 
-<<<<<<< HEAD
-    SEMICOLON       shift and go to state 82
-=======
     RP              shift and go to state 83
->>>>>>> add-grammar
 
 
 state 75
 
     (13) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP . SEMICOLON
 
-<<<<<<< HEAD
-    SEMICOLON       shift and go to state 83
-=======
     RP              shift and go to state 84
->>>>>>> add-grammar
 
 
 state 76
@@ -831,10 +707,7 @@ state 76
 
     SEMICOLON       shift and go to state 84
 
-<<<<<<< HEAD
-=======
     Inside                         shift and go to state 85
->>>>>>> add-grammar
 
 state 77
 
@@ -869,72 +742,41 @@ state 81
 
     (18) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
 
-<<<<<<< HEAD
-    RP              shift and go to state 89
-=======
     READDATA        shift and go to state 86
     CREATEDATA      shift and go to state 87
->>>>>>> add-grammar
 
 
 state 82
 
-<<<<<<< HEAD
-    (10) Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .
-
-    $end            reduce using rule 10 (Exp -> ID EQUAL CREATESERVER LP PORT EQUAL INT RP SEMICOLON .)
-=======
     (19) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .
 
     $end            reduce using rule 19 (Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .)
->>>>>>> add-grammar
 
 
 state 83
 
-<<<<<<< HEAD
-    (13) Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .
-=======
     (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP . SEMICOLON
->>>>>>> add-grammar
 
     $end            reduce using rule 13 (Exp -> ID EQUAL HTTPGET LP URL EQUAL STRING RP SEMICOLON .)
 
 
 state 84
 
-<<<<<<< HEAD
-    (16) Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
-
-    $end            reduce using rule 16 (Exp -> ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
-=======
     (15) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
 
     SEMICOLON       shift and go to state 89
->>>>>>> add-grammar
 
 
 state 85
 
-<<<<<<< HEAD
-    (19) Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
-
-    $end            reduce using rule 19 (Exp -> ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
-=======
     (6) InsideRec -> Inside COMMA Inside COMMA Inside .
 
     RC              reduce using rule 6 (InsideRec -> Inside COMMA Inside COMMA Inside .)
->>>>>>> add-grammar
 
 
 state 86
 
-<<<<<<< HEAD
-    (20) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON . READDATA LP BODY EQUAL ID RP SEMICOLON
-    (21) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON . CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
->>>>>>> add-grammar
 
     READDATA        shift and go to state 90
     CREATEDATA      shift and go to state 91
@@ -942,157 +784,90 @@ state 86
 
 state 87
 
-<<<<<<< HEAD
-    (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP . SEMICOLON
-
-    SEMICOLON       shift and go to state 92
-=======
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
 
     LP              shift and go to state 91
->>>>>>> add-grammar
 
 
 state 88
 
-<<<<<<< HEAD
-    (17) Exp -> ID EQUAL ID COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
-
-    SEMICOLON       shift and go to state 93
-=======
     (13) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .
 
     $end            reduce using rule 13 (Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .)
->>>>>>> add-grammar
 
 
 state 89
 
-<<<<<<< HEAD
-    (18) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
-
-    SEMICOLON       shift and go to state 94
-=======
     (15) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
 
     $end            reduce using rule 15 (Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
->>>>>>> add-grammar
 
 
 state 90
 
-<<<<<<< HEAD
-    (20) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA . LP BODY EQUAL ID RP SEMICOLON
-
-    LP              shift and go to state 95
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
 
     BODY            shift and go to state 92
->>>>>>> add-grammar
 
 
 state 91
 
-<<<<<<< HEAD
-    (21) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA . LP OBJECT EQUAL ID RP SEMICOLON
-
-    LP              shift and go to state 96
-=======
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
 
     OBJECT          shift and go to state 93
->>>>>>> add-grammar
 
 
 state 92
 
-<<<<<<< HEAD
-    (15) Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
->>>>>>> add-grammar
 
     $end            reduce using rule 15 (Exp -> ID EQUAL ID COLON SETROUTES LP URL EQUAL STRING RP SEMICOLON .)
 
 
 state 93
 
-<<<<<<< HEAD
-    (17) Exp -> ID EQUAL ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .
-
-    $end            reduce using rule 17 (Exp -> ID EQUAL ID COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
-=======
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
 
     EQUAL           shift and go to state 95
->>>>>>> add-grammar
 
 
 state 94
 
-<<<<<<< HEAD
-    (18) Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
->>>>>>> add-grammar
 
     $end            reduce using rule 18 (Exp -> ID EQUAL ID COLON READDATA LP BODY EQUAL ID RP SEMICOLON .)
 
 
 state 95
 
-<<<<<<< HEAD
-    (20) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP . BODY EQUAL ID RP SEMICOLON
-
-    BODY            shift and go to state 97
-=======
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL . ID RP SEMICOLON
 
     ID              shift and go to state 97
->>>>>>> add-grammar
 
 
 state 96
 
-<<<<<<< HEAD
-    (21) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP . OBJECT EQUAL ID RP SEMICOLON
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID . RP SEMICOLON
->>>>>>> add-grammar
 
     OBJECT          shift and go to state 98
 
 
 state 97
 
-<<<<<<< HEAD
-    (20) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY . EQUAL ID RP SEMICOLON
-
-    EQUAL           shift and go to state 99
-=======
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID . RP SEMICOLON
 
     RP              shift and go to state 99
->>>>>>> add-grammar
 
 
 state 98
 
-<<<<<<< HEAD
-    (21) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT . EQUAL ID RP SEMICOLON
-=======
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP . SEMICOLON
->>>>>>> add-grammar
 
     EQUAL           shift and go to state 100
 
 
 state 99
 
-<<<<<<< HEAD
-    (20) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL . ID RP SEMICOLON
-=======
     (18) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP . SEMICOLON
 
     SEMICOLON       shift and go to state 101
@@ -1101,7 +876,6 @@ state 99
 state 100
 
     (17) Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON READDATA LP BODY EQUAL ID RP SEMICOLON .
->>>>>>> add-grammar
 
     ID              shift and go to state 101
 
@@ -1154,7 +928,7 @@ state 106
 
     $end            reduce using rule 21 (Exp -> ID COLON SETROUTES LP URL EQUAL STRING RP COLON CREATEDATA LP OBJECT EQUAL ID RP SEMICOLON .)
 
-WARNING: 
+WARNING:
 WARNING: Conflicts:
-WARNING: 
+WARNING:
 WARNING: shift/reduce conflict for COMMA in state 72 resolved as shift
