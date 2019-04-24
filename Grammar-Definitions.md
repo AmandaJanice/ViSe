@@ -12,19 +12,23 @@ Operator    ::=  = | :
 
 **Grammar**
 
-Exp         ::= Exp | Prim | Prim : Second | Id : Second | Id : Third | Id
+Exp ::= Def | SecondaryExp | Id : Start | Id
+
+Def ::= Id = Prim ; | Id = Object ; | Id = SecondaryExp ;
+
+SecondaryExp ::= Id : Second | Id : Third
 
 Object ::= json : &quot;{&quot;&quot;}&quot; | json : &quot;{&quot;{ String : ObjectParam , }\* String : ObjectParam &quot;}&quot; | HttpGet
 
 ObjectParam ::= String | Id | Exp
 
-Def ::= Id = Exp ; | Id = Object ;
-
 Prim  ::= CreateServer
 
-Second ::= SetRoutes | SetRoutes : Third | start
+Second ::= SetRoutes | SetRoutes : Third
 
 Third ::= CreateData | ReadData
+
+Start ::= start ;
 
 HttpGet ::= httpGet (from = String)
 
