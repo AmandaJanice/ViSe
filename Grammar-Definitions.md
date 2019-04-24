@@ -12,7 +12,7 @@ Operator    ::=  = | :
 
 **Grammar**
 
-Exp ::= Def | SecondaryExp | Id : Start | Id
+Exp ::= Def | SecondaryExp | Id : Start | Id ; | HttpGet ;
 
 Def ::= Id = Prim ; | Id = Object ; | Id = SecondaryExp ;
 
