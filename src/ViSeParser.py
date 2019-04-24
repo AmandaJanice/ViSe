@@ -140,7 +140,7 @@ def p_set_routes_non_id(p):
     if (p[1] not in code.variables):
         p[0] = cl.id_not_defined(p[1])
     else:
-        p[0] = code.add_route(p[1], cl.string_cleaner(p[7]);
+        p[0] = code.add_route(p[1], cl.string_cleaner(p[7])
 
 def p_error(p):
     print("Syntax error at ’%s’" % p)
