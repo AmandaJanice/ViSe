@@ -36,5 +36,5 @@ test = httpGet(url= "https://reqres.in/api/users?page=2");
 To use this, first you need to install the required dependencies.
 On a virtual environment (preferrably) run: ```pip install -r requirements.txt```
 
-Then you can run the interpreter with ```python ViSe.py```
+Then you can run the interpreter with ```python src/ViSe.py```
 (This requires Python 3.7 or higher)
