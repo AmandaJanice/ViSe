@@ -5,7 +5,10 @@ What is IoT? The internet of things, or IoT, is a system of interrelated computi
 
 What do we bring the table? Introducing Visual Server (ViSe), a programming language for servers. With this language you can easily and simply start a server, setup the routes and begin sending or receiving requests. Our motivation behind this language is to lower the entry barrier into the IoT industry by making simplicity our greatest weapon. 	
 
- 	From the creation of severs to the assignation of routes, it is all done in less than 10 lines of code. How do we do this ? We only worry about send and receive operations to your server. These two operations are essentially the key for anyone to begin working on any IoT device. That is the beauty of ViSe. Our goal is that one day, developers look at our language as their first choice for starting IoT products and say that ViSe is the future of “do it yourself” IoT devices.
+From the creation of severs to the assignation of routes, it is all done in less than 10 lines of code. How do we do this ? We only worry about send and receive operations to your server. These two operations are essentially the key for anyone to begin working on any IoT device. That is the beauty of ViSe. Our goal is that one day, developers look at our language as their first choice for starting IoT products and say that ViSe is the future of “do it yourself” IoT devices.
+
+### Motivation
+Simple local server creation and communication with external servers
 
 ### Tutorial
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p5X6shu7544" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -49,9 +52,6 @@ test = httpGet(url= "https://reqres.in/api/users?page=2");
   - Simplicity is key. ViSe doesn't transfer data for permanent storage, only for simple send/receive operations
 - Easy to use for IOT projects
   - You can easily set it up on a small computer to receive commands and send responses
-
-### Motivation
-Simple local server creation and communication with external servers
 
 ### Approach
 ViSe (Visual Sever) is a resulting programming language from the necessity of simplifying the creation of servers and helping curios developers that are looking for better and easier ways to solve this challenges. Must users looking to work with servers usually have other plans that there looking to work, there obviously not directly interested on working with servers. Here were we come in, ViSe offers the simple and easiest way to work with servers, so you don’t have to spend all your precious time learning the depths of servers. 
