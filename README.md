@@ -64,3 +64,9 @@ On a virtual environment (preferrably) run: ```pip install -r requirements.txt``
 
 Then you can run the interpreter with ```python src/ViSe.py```
 (This requires Python 3.7 or higher)
+
+
+#### Contributors:
+- Amanda Vazquez [@AmandaJanice](https://github.com/AmandaJanice)
+- Javier Ortiz [@jaortiz117](https://github.com/jaortiz117)
+- Luis Rivera [@luisrivera1](https://github.com/luisrivera1)
