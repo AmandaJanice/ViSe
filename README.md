@@ -39,3 +39,13 @@ On a virtual environment (preferrably) run: ```pip install -r requirements.txt``
 
 Then you can run the interpreter with ```python src/ViSe.py```
 (This requires Python 3.7 or higher)
+
+### Language Features
+- Simple local server creation and communication with external servers
+- Declarative, dynamically typed and functional programming language
+- Single line route assignment	
+- Does not mix with a database
+  - Simplicity is key. We don't transfer data for its storage, only for simple send/receive operations
+- Easy to use for IOT projects
+  - You can easily set it up on a small computer to receive commands and send responses
+
