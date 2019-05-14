@@ -1,6 +1,7 @@
 ### Tutorial
 <iframe width="560" height="315" src="https://www.youtube.com/embed/p5X6shu7544" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 ### Introduction
 What is IoT? The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction. Now imagine yourself on the verge of creating your first device. The simplest way is to create a small server. How complicated can this be? It depends really. Nothing is tough, it totally depends on your source and the way you are learning things. 
 
