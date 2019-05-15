@@ -21,7 +21,7 @@ server = createServer (port= 3000);
 
 //Create variable for data storage\\
 data = json: {};
-data2 = json: {"name": "8%%$", "lastName": "Petraca", "age": "67"};
+data2 = json: {"name": "John", "lastName": "Doe", "age": "67"};
 
 //Server receives\\
 send = server: setRoutes(url= "/app/send");
@@ -66,7 +66,7 @@ On a virtual environment (preferrably) run: ```pip install -r requirements.txt``
 Then you can run the interpreter with ```python src/ViSe.py```
 (This requires Python 3.7 or higher)
 
-##### :point_right: [Download the full project report here!](https://github.com/AmandaJanice/ViSe/raw/master/ReportViSe.pdf) :point_left:
+##### [Download the full project report here!](https://github.com/AmandaJanice/ViSe/raw/master/ReportViSe.pdf)
 
 #### Contributors:
 - Amanda Vazquez [@AmandaJanice](https://github.com/AmandaJanice)
