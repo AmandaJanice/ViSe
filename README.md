@@ -72,3 +72,5 @@ Then you can run the interpreter with ```python src/ViSe.py```
 - Amanda Vazquez [@AmandaJanice](https://github.com/AmandaJanice)
 - Javier Ortiz [@jaortiz117](https://github.com/jaortiz117)
 - Luis Rivera Marquez [@luisrivera1](https://github.com/luisrivera1)
+
+###### ![ViSe Logo](https://raw.githubusercontent.com/AmandaJanice/ViSe/master/ViSe%20logo.svg?sanitize=true)
