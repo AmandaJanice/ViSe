@@ -5,14 +5,16 @@
 
 
 ### Introduction
-What is IoT? The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction. Now imagine yourself on the verge of creating your first device. The simplest way is to create a small server. How complicated can this be? It depends really. Nothing is tough, it totally depends on your source and the way you are learning things. 
+What is IoT? The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction. Now imagine yourself on the verge of creating your first device. The simplest way is to create a small server. How complicated can this be? It depends really. Nothing is tough, it totally depends on your sources and the way you are learning things. 
 
 What do we bring the table? Introducing Visual Server (ViSe), a programming language for servers. With this language you can easily and simply start a server, setup the routes and begin sending or receiving requests. Our motivation behind this language is to lower the entry barrier into the IoT industry by making simplicity our greatest weapon. 	
 
 From the creation of severs to the assignation of routes, it is all done in less than 10 lines of code. How do we do this ? We only worry about send and receive operations to your server. These two operations are essentially the key for anyone to begin working on any IoT device. That is the beauty of ViSe. Our goal is that one day, developers look at our language as their first choice for starting IoT products and say that ViSe is the future of “do it yourself” IoT devices.
 
 ### Motivation
-Simple local server creation and communication with external servers
+Developing IOT systems is a somewhat tedious process, especially if you don't want to spend too much time setting up servers for communicating these devices. Therefire we have created Visual Server (ViSe)!
+
+Simple local server creation and communication with external servers. No need to define entire architectures just for a simple server to send GET and POST requests. In less than 10 lines of code you can now create a simple server that can handle these requests.
 
 ### Coding Example
 ```
